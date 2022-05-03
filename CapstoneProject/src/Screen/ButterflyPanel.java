@@ -1,5 +1,8 @@
 package Screen;
 
-public class ButterflyPanel {
-
+public class ButterflyPanel extends Screen {
+	
+	private ArrayList<Obstacle> obstacles;
+	
+	
 }
