@@ -1,5 +1,5 @@
 package Screen;
 
-public class Screen {
-
+public abstract class Screen {
+	
 }
