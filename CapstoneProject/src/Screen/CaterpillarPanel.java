@@ -3,6 +3,7 @@ package Screen;
 import java.util.List;
 
 import Obstacle.Obstacle;
+import core.DrawingSurface;
 
 
 public class CaterpillarPanel extends Screen{
@@ -12,5 +13,8 @@ public class CaterpillarPanel extends Screen{
 	public CaterpillarPanel(DrawingSurface surface)
 	{
 		this.surface = surface;
+		
+		obstacles.add()
 	}
+
 }
