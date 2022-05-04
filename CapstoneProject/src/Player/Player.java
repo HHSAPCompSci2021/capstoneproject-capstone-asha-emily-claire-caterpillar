@@ -1,15 +1,18 @@
 package Player;
 
+import java.awt.Point;
+
 import processing.core.PImage;
 
 public abstract class Player {
-
+	
 	private PImage design;
 	private boolean isAlive;
 	private static int totalCollectablesEaten;
 	private int collectablesEaten;
 	private int numCollectableNeedToEat;
-	
+	private Point currentLoc;
+	//Add a variable for the image
 	/**
 	 * Constructs an Player that is alive with the number of collectables needed. The collectablesEaten should continue to increase 
 	 * regardless of phase.
@@ -59,8 +62,7 @@ public abstract class Player {
 	 */
 	public abstract void applyWindowLimits(int windowWidth, int windowHeight);
 	
-//	Can we just add the shapes library instead here? public Rectangle getBounds
-	
+
 
 	/**
 	 * Draws the player on the screen
