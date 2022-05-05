@@ -20,6 +20,7 @@ public class EggPanel extends Screen{
 	 * @param surface - a surface to draw on
 	 */
 	public EggPanel(DrawingSurface surface) {
+		super(800,600);
 		this.surface = surface;
 		isFinished = false;
 

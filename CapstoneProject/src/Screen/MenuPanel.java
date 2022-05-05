@@ -21,7 +21,7 @@ public class MenuPanel extends Screen {
 	 */
 	public MenuPanel(DrawingSurface drawer) {
 		//Need to add width and height to super
-		super();
+		super(800,600);
 		
 		this.surface = drawer;
 		startGame = false;

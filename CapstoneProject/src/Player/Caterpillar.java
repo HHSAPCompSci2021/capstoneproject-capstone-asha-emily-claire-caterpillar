@@ -5,7 +5,7 @@ public class Caterpillar extends Player{
 	
 	public Caterpillar()
 	{
-		super();
+		super(5);
 		yVol = 0;
 	}
 

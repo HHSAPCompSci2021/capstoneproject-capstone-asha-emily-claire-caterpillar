@@ -11,7 +11,7 @@ public class ButterflyPanel extends Screen {
 	private ArrayList<Obstacle> obs;
 	
 	public ButterflyPanel(DrawingSurface s) {
-		
+		super(800,600);
 		surface = s;
 	}
 	

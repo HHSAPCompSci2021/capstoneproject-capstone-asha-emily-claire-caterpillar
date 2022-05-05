@@ -5,11 +5,11 @@ public class Butterfly extends Player{
 	private double xVol, yVol;
 	
 	public Butterfly() {
-		super();
+		super(5);
 	}
 	
 	public Butterfly(double xv, double yv) {
-		super();
+		super(5);
 		xVol = xv;
 		yVol = yv;
 	}
