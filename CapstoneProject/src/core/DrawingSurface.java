@@ -18,6 +18,7 @@ public class DrawingSurface extends PApplet{
 	
 	public DrawingSurface() {
 		screens = new ArrayList<Screen>();
+		keys = new ArrayList<Integer>();
 		
 		MenuPanel menu = new MenuPanel(this);
 		screens.add(menu);
@@ -45,17 +46,14 @@ public class DrawingSurface extends PApplet{
 		ratioY = (float)height/currScreen.DRAWING_HEIGHT;
 
 		push();
-		
 		scale(ratioX, ratioY);
-		
 		currScreen.draw();
-		
 		pop();
 	}
 	
 	public void keyPressed() {
 		keys.add(keyCode);
-		if (key == ESC)  // This prevents a processing program from closing on escape key
+		if (key == ESC) 
 			key = 0;
 	}
 
