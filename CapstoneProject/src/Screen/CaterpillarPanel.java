@@ -12,9 +12,31 @@ public class CaterpillarPanel extends Screen{
 	
 	public CaterpillarPanel(DrawingSurface surface)
 	{
+		super(800,600);
 		this.surface = surface;
 		
-		obstacles.add()
+	}
+	public void addRandompredator() {
+		
+	}
+	
+	public void resetScreen() {
+		
 	}
 
+	public void nextScreen() {
+		
+	}
+	
+	public void needReset() {
+		
+	}
+	
+	public void draw() {
+		
+	}
+	
+	public void sideScrolling() {
+		
+	}
 }
