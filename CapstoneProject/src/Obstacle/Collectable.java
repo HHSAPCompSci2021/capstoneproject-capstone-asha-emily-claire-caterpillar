@@ -6,11 +6,12 @@ import processing.core.PImage;
 public class Collectable{
 	private boolean eatenYet;
 	String collectableType;
-	PImage typeDesign;
+	String typeDesign;
 	//Either leaf (caterpillar) or flower (butterfly)
 	
 	/**
 	 * Constructs a collectable (either a leaf or flower)
+	 * @precondition collectableType is either a "leaf" or "flower"
 	 * @param collectableType - leaf or flower
 	 */
 	public Collectable(String collectableType) {
@@ -27,6 +28,7 @@ public class Collectable{
 	 * @param player - A Player object that will collect this collectable
 	 */
 	public void eat(Player player) {
+		player.eatCollectable();
 		
 	}
 	

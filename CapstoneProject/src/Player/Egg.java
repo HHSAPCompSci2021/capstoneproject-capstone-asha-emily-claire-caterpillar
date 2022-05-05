@@ -1,36 +1,46 @@
 package Player;
 
+import Screen.EggPanel;
+import core.DrawingSurface;
 import processing.core.PImage;
 
 public class Egg extends Player {
 	private boolean isInEggPhase;
-	private PImage selectedCaterpillar;
-	private PImage selectedButterfly;
+	private String selectedButterfly;
 	
 	/**
 	 * Constructs and egg, with its selected images at the start
 	 * @param selectedCaterpillar - the PImage of the selected caterpillar
 	 * @param selectedButterfly - the PImage of the selected butterfly
 	 */
-	public Egg(PImage selectedCaterpillar, PImage selectedButterfly) {
+	public Egg(String selectedButterfly) {
 		super(0);
-		this.selectedCaterpillar = selectedCaterpillar;
 		this.selectedButterfly = selectedButterfly;
+	}
+	
+	/**
+	 * Constructs and egg, with its selected images at the start
+	 */
+	public Egg() {
+		super(0);
+		EggPanel eggPanel = new EggPanel(new DrawingSurface());
+		this.selectedButterfly = eggPanel.selectDesign();
 	}
 	
 	/**
 	 * Getter method for the selected caterpillar image
 	 * @return caterpillar image
 	 */
-	public PImage getSelectedCaterpillar() {
-		return selectedCaterpillar;
+	public String getSelectedCaterpillar() {
+		String caterpillar = "img/Caterpillar.gif";
+		return caterpillar;
 	}
 	
 	/**
 	 * Getter method for the selected butterfly image
 	 * @return butterfly image
 	 */
-	public PImage getSelectedButterfly() {
+	public String getSelectedButterfly() {
 		return selectedButterfly;
 	}
 	
