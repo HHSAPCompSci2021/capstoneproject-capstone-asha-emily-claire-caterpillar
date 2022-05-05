@@ -1,13 +1,17 @@
 package Screen;
 
+import java.awt.Color;
+import java.awt.Point;
 import java.awt.Rectangle;
 
 import core.DrawingSurface;
 import processing.core.PImage;
 
+
 public class EggPanel extends Screen{
 	private PImage[] designChoices;
-	private Rectangle button;
+	private boolean isFinished;
+
 	private DrawingSurface surface;
 	private PImage designChoosen;
 	
@@ -17,6 +21,8 @@ public class EggPanel extends Screen{
 	 */
 	public EggPanel(DrawingSurface surface) {
 		this.surface = surface;
+		isFinished = false;
+
 	}
 	
 	/**
@@ -37,14 +43,22 @@ public class EggPanel extends Screen{
 	 * Checks if this phase is finished 
 	 * @return boolean - if the phase is finished it returns true, otherwise false.
 	 */
-	public boolean isFinished() {
-		return false;
+	public boolean getIsFinished() {
+		return isFinished;
 	}
 	
 	/**
 	 * Draws the screen
 	 */
 	public void draw() {
-		//super.draw();
+		surface.background(255,255,255);
+		surface.fill(102, 255, 178);
+	}
+	
+	/**
+	 * Checks if the uses clicks on the screen. If they do, then they are ready to move on to the next screen.
+	 */
+	public void mousePressed() {
+		isFinished = true;
 	}
 }
