@@ -1,13 +1,25 @@
 package Player;
-
+/**
+ * Represents the player during the butterfly phase.
+ * @author Claire
+ *
+ */
 public class Butterfly extends Player{
 	
 	private double xVol, yVol;
 	
+	/**
+	 * Constructs a Butterfly
+	 */
 	public Butterfly() {
 		super(5);
 	}
 	
+	/**
+	 * Constructs a Butterfly with a default velocity
+	 * @param xv - horizontal velocity
+	 * @param yv - vertical velocity 
+	 */
 	public Butterfly(double xv, double yv) {
 		super(5);
 		xVol = xv;

@@ -1,8 +1,15 @@
 package Player;
-
+/**
+ * Represents the player during the Caterpillar phase
+ * @author Emily
+ *
+ */
 public class Caterpillar extends Player{
 	private double yVol;
 	
+	/**
+	 * Constructs a Caterpillar 
+	 */
 	public Caterpillar()
 	{
 		super(5);

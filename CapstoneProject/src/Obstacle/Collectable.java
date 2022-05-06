@@ -2,7 +2,11 @@ package Obstacle;
 
 import Player.Player;
 import processing.core.PImage;
-
+/**
+ * Represents a Collectable, such as a leaf or flower
+ * @author Asha
+ *
+ */
 public class Collectable{
 	private boolean eatenYet;
 	String collectableType;

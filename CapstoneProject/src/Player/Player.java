@@ -3,10 +3,14 @@ package Player;
 import java.awt.Point;
 
 import processing.core.PImage;
-
+/**
+ * Represents the player. To be expanded upon in other phases.
+ * @author Asha
+ *
+ */
 public abstract class Player {
 	
-	private PImage design;
+	private String design;
 	private boolean isAlive;
 	private static int totalCollectablesEaten;
 	private int collectablesEaten;

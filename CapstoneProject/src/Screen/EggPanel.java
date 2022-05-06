@@ -12,7 +12,11 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 
-
+/**
+ * The screen during the egg phase
+ * @author Asha
+ *
+ */
 public class EggPanel extends Screen{
 	private ArrayList<String> designChoices;
 	private boolean isFinished;
@@ -86,7 +90,10 @@ public class EggPanel extends Screen{
 		designChoosen = designChoices.get(indexDisplayed);
 		isFinished = true;
 	}
-	
+	/**
+	 * Checks if the space key is pressed. If so, it transitions to the next design.
+	 * @param event
+	 */
 	public void keyPressed(KeyEvent event) {
 		if(event.getKeyCode() == KeyEvent.VK_SPACE) {
 			displayNextDesign();

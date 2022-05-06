@@ -10,7 +10,11 @@ import processing.*;
 import core.DrawingSurface;
 import processing.core.PApplet;
 //import screens.ScreenSwitcher;
-
+/**
+ * The screen showing instructions before the game starts
+ * @author Asha
+ *
+ */
 public class MenuPanel extends Screen {
 	private Rectangle button;
 	private DrawingSurface surface;

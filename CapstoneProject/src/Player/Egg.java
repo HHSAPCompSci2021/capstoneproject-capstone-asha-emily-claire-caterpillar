@@ -3,7 +3,11 @@ package Player;
 import Screen.EggPanel;
 import core.DrawingSurface;
 import processing.core.PImage;
-
+/**
+ * Represents the Player during the Egg phase
+ * @author Asha
+ *
+ */
 public class Egg extends Player {
 	private boolean isInEggPhase;
 	private String selectedButterfly;

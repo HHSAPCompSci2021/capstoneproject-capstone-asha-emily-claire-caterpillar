@@ -6,7 +6,11 @@ import javax.swing.JFrame;
 
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
-
+/**
+ * Runs the program
+ * @author Asha
+ *
+ */
 public class Main extends JFrame{
 	
 	/**
