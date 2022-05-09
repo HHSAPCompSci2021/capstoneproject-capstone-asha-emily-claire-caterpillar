@@ -42,6 +42,7 @@ public class EggPanel extends Screen{
 
 	}
 	
+	
 	/**
 	 * Flips through various designs for the user to choose from
 	 * @return Index of the design displayed
@@ -78,9 +79,10 @@ public class EggPanel extends Screen{
 	 * Draws the screen
 	 */
 	public void draw(PApplet drawer) {
+		
 		surface.background(255,255,255);
-		surface.fill(102, 255, 178);
-		surface.image(drawer.loadImage(designChoices.get(indexDisplayed)), 0, 0);
+		surface.fill(255);
+		surface.image(drawer.loadImage(designChoices.get(indexDisplayed)), DRAWING_WIDTH/2, 200);
 	}
 	
 	/**

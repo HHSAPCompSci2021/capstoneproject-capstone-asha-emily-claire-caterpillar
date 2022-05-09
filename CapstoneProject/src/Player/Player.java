@@ -2,6 +2,8 @@ package Player;
 
 import java.awt.Point;
 
+import Screen.EggPanel;
+import core.DrawingSurface;
 import processing.core.PImage;
 /**
  * Represents the player. To be expanded upon in other phases.
@@ -12,44 +14,60 @@ public abstract class Player {
 	
 	private String design;
 	private boolean isAlive;
-	private static int totalCollectablesEaten;
-	private int collectablesEaten;
-	private int numCollectableNeedToEat;
+	private static int totalCollectiblesEaten;
+	private int collectiblesEaten;
+	private int numCollectibleNeedToEat;
 	private Point currentLoc;
 	//Add a variable for the image
 	/**
-	 * Constructs an Player that is alive with the number of collectables needed. The collectablesEaten should continue to increase 
+	 * Constructs an Player that is alive with the number of collectibles needed. The collectablesEaten should continue to increase 
 	 * regardless of phase.
-	 * @param numCollectableNeedToEat - the int of collectables that must be eaten
+	 * @param numCollectableNeedToEat - the int of collectibles that must be eaten
 	 */
 	public Player(int numCollectableNeedToEat) {
-		this.numCollectableNeedToEat = numCollectableNeedToEat;
-		collectablesEaten = 0;
+		this.numCollectibleNeedToEat = numCollectableNeedToEat;
+		collectiblesEaten = 0;
 		isAlive = true;
 	}
 	
 	/**
-	 * Eats the collectable; increases the number of collectables eaten (both total and part for player)
+	 * Eats the collectible; increases the number of collectibles eaten (both total and part for player)
 	 */
 	public void eatCollectable() {
-		totalCollectablesEaten++;
-		collectablesEaten++;
+		totalCollectiblesEaten++;
+		collectiblesEaten++;
 	}
-	
 	/**
-	 * Returns the total number of collectables eaten throughout the game
-	 * @return the total number of collectables eaten
+	 * Getter method for the sprite design
+	 * @precondition imageType is either "caterpillar" or "butterfly"
+	 * @param imageType - String of the type of image it will be 
+	 * @return the name of the image file
 	 */
-	public int getTotalNumCollectable() {
-		return totalCollectablesEaten;
+	public String selectedImage(String imageType) {
+		if(imageType.equals("caterpillar")) {
+			return "img/Caterpillar.gif";
+		} else {
+			EggPanel select = new EggPanel(new DrawingSurface()); 
+			return select.selectDesign();
+		}
+		
+				
 	}
 	
 	/**
-	 * Returns the number of collectables eaten in this phase
+	 * Returns the total number of collectibles eaten throughout the game
+	 * @return the total number of collectibles eaten
+	 */
+	public int getTotalNumCollectible() {
+		return totalCollectiblesEaten;
+	}
+	
+	/**
+	 * Returns the number of collectibles eaten in this phase
 	 * @return
 	 */
-	public int getNumCollectable() {
-		return collectablesEaten;
+	public int getNumCollectible() {
+		return collectiblesEaten;
 	}
 
 	/**
@@ -72,6 +90,7 @@ public abstract class Player {
 	 * Draws the player on the screen
 	 */
 	public abstract void draw();
+	
 	
 	
 }
