@@ -93,7 +93,7 @@ public class EggPanel extends Screen{
 	 */
 	public void mousePressed() {
 		designChoosen = designChoices.get(indexDisplayed);
-		isFinished = true;
+		surface.switchScreen(2);
 	}
 
 	

@@ -25,6 +25,12 @@ public class DrawingSurface extends PApplet{
 	/**
 	 * Creates a DrawingSurface that displays all the screens
 	 */
+	/* 
+	 * 0 = menu
+	 * 1 = egg
+	 * 2 = caterpillar
+	 * 3 = butterfly
+	 */
 	public DrawingSurface() {
 		screens = new ArrayList<Screen>();
 		keys = new ArrayList<Integer>();
@@ -41,7 +47,7 @@ public class DrawingSurface extends PApplet{
 		ButterflyPanel butter = new ButterflyPanel(this);
 		screens.add(butter);
 		
-		currScreen = screens.get(1);
+		currScreen = screens.get(0);
 		
 	}
 	/**
@@ -103,6 +109,24 @@ public class DrawingSurface extends PApplet{
 	 */
 	public void mouseReleased() {
 		currScreen.mouseReleased();
+	}
+	
+	/**
+	 * Get the actual point at an assumed coordinate based on the ratio of the screen
+	 * @param assumed - the assumed point at the coordinates
+	 * @return Point - the actual point at the coordinates in ratio to the screen
+	 */
+	public Point assumedCoordinatesToActual(Point assumed) {
+		return new Point((int)(assumed.getX()*ratioX), (int)(assumed.getY()*ratioY));
+	}
+
+	/**
+	 * Get the assumed point at an actual coordinate based on the ratio of the screen
+	 * @param actual - the actual point at the coordinates
+	 * @return Point - the assumed point at the coordinates in ratio to the screen
+	 */
+	public Point actualCoordinatesToAssumed(Point actual) {
+		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));
 	}
 	
 	/**
