@@ -1,4 +1,7 @@
 package Player;
+
+import core.DrawingSurface;
+
 /**
  * Represents the player during the butterfly phase.
  * @author Claire
@@ -6,13 +9,16 @@ package Player;
  */
 public class Butterfly extends Player{
 	
-	private double xVol, yVol;
+	private DrawingSurface surface;
+	private static double xVol, yVol;
+	private String image;
 	
 	/**
 	 * Constructs a Butterfly
 	 */
 	public Butterfly() {
 		super(5);
+		image = "img/ButterflySprite1.gif";
 	}
 	
 	/**
@@ -28,7 +34,11 @@ public class Butterfly extends Player{
 
 	@Override
 	public void moveByAmount(double x, double y) {
-		// TODO Auto-generated method stub
+		
+		
+			xVol += x;
+		
+			yVol += y;
 		
 	}
 
@@ -48,6 +58,18 @@ public class Butterfly extends Player{
 	public void draw() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public String imageName() {
+		return image;
+	}
+	
+	public double getX() {
+		return xVol;
+	}
+	
+	public double getY() {
+		return yVol;
 	}
 	
 }

@@ -1,6 +1,8 @@
 package Obstacle;
 
 import java.awt.Rectangle;
+
+import Player.Player;
 /**
  * Represents an obstacle that a player may encounter
  * @author Claire
@@ -9,21 +11,22 @@ import java.awt.Rectangle;
 public class Obstacle {
 	
 	private boolean ranInto;
-	private int totalCollistions;
+	private static int totalCollisions;
 	private double x, y;
 	
 	/**
 	 * Constructs an obstacle
 	 */
-	public Obstacle() {
-		
+	public Obstacle(int x, int y) {
+		this.x = x;
+		this.y = y;
 	}
 	
 	/**
 	 * Bounces the character back from the obstacle
 	 */
-	public void moveBack() {
-		
+	public void moveBack(Player p) {
+		p.moveByAmount(-10, 0);
 	}
 	
 	/**
@@ -47,7 +50,9 @@ public class Obstacle {
 	 * @return
 	 */
 	public boolean reachTotalCollisions() {
-		
+		if(totalCollisions > 10) {
+			return true;
+		}
 		return false;
 	}
 }
