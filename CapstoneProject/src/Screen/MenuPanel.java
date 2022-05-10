@@ -71,15 +71,14 @@ public class MenuPanel extends Screen {
 		
 	}
 	
+	//edited by Emily 5/10
 	/**
 	 * Checks if the mouse presses the start button. If so, the screen changes.
 	 */
 	public void mousePressed() {
-		double mouseX = MouseInfo.getPointerInfo().getLocation().getX();
-        double mouseY = MouseInfo.getPointerInfo().getLocation().getY();
-		
-        if(button.contains(new Point((int) mouseX, (int) mouseY))) {
-        	startGame = true;
+		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX, surface.mouseY));
+        if(button.contains(p)) {
+        	surface.switchScreen(1);
         }
 	
 		

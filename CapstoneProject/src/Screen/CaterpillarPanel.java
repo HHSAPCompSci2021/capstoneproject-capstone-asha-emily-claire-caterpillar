@@ -40,7 +40,7 @@ public class CaterpillarPanel extends Screen{
 	 * Transitions to the next panel
 	 */
 	public void nextScreen() {
-		
+		surface.switchScreen(2);
 	}
 	/**
 	 * Checks if a restart is needed (if the player lost this phase)

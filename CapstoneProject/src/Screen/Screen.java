@@ -43,6 +43,7 @@ public abstract class Screen {
 	public void mouseReleased() {
 
 	}
+	
 	/**
 	 * Switches the screen
 	 * @param i - the index of the screen to switch too
