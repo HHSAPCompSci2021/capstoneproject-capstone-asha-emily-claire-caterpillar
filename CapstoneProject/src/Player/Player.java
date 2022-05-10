@@ -3,6 +3,7 @@ package Player;
 import java.awt.Point;
 
 import Screen.EggPanel;
+import asha.shapes.Rectangle;
 import core.DrawingSurface;
 import processing.core.PImage;
 /**
@@ -53,6 +54,15 @@ public abstract class Player {
 		
 				
 	}
+	
+	/**
+	 * Returns a Rectangle to of the players image
+	 * @return the rectangular frame of the player's image
+	 */
+	public Rectangle playerDesignRect() {
+		return new Rectangle(64, 64, 64, 64);
+	}
+	
 	
 	/**
 	 * Returns the total number of collectibles eaten throughout the game

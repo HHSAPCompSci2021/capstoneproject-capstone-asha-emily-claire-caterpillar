@@ -12,6 +12,7 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 
+
 /**
  * The screen during the egg phase
  * @author Asha
@@ -48,10 +49,8 @@ public class EggPanel extends Screen{
 	 * @return Index of the design displayed
 	 */
 	public int displayNextDesign() {
-		if(indexDisplayed + 1 > designChoices.size()) {
+		if(indexDisplayed + 1 > designChoices.size() - 1) {
 			indexDisplayed = 0;
-		} else if(indexDisplayed - 1 < 0){
-			indexDisplayed = designChoices.size() - 1;
 		} else {
 			indexDisplayed++;
 		}
@@ -78,11 +77,15 @@ public class EggPanel extends Screen{
 	/**
 	 * Draws the screen
 	 */
-	public void draw(PApplet drawer) {
-		
+	public void draw() {
 		surface.background(255,255,255);
-		surface.fill(255);
-		surface.image(drawer.loadImage(designChoices.get(indexDisplayed)), DRAWING_WIDTH/2, 200);
+		surface.fill(0);
+		surface.image(surface.loadImage(designChoices.get(indexDisplayed)), DRAWING_WIDTH/2, 200, 64, 64);
+		surface.text("Press the spacebar to choose the butterfly you aspire to be one day. \n "
+				+ "Click anywhere on the screen when you are ready to hatch.", DRAWING_WIDTH/3, 300);
+		if (surface.isPressed(KeyEvent.VK_SPACE)) {
+			displayNextDesign();
+		}
 	}
 	
 	/**
@@ -92,13 +95,6 @@ public class EggPanel extends Screen{
 		designChoosen = designChoices.get(indexDisplayed);
 		isFinished = true;
 	}
-	/**
-	 * Checks if the space key is pressed. If so, it transitions to the next design.
-	 * @param event
-	 */
-	public void keyPressed(KeyEvent event) {
-		if(event.getKeyCode() == KeyEvent.VK_SPACE) {
-			displayNextDesign();
-		}
-	}
+
+	
 }
