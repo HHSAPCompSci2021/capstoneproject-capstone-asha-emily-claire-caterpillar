@@ -6,6 +6,10 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import Player.Egg;
 import core.DrawingSurface;
 import processing.core.PApplet;
@@ -79,12 +83,17 @@ public class EggPanel extends Screen{
 	 */
 	public void draw() {
 		surface.background(255,255,255);
-		surface.fill(0);
-		surface.image(surface.loadImage(designChoices.get(indexDisplayed)), DRAWING_WIDTH/2, 200, 64, 64);
-		surface.text("Press the spacebar to choose the butterfly you aspire to be one day. \n "
-				+ "Click anywhere on the screen when you are ready to hatch.", DRAWING_WIDTH/3, 300);
+		surface.fill(255);
+		surface.image(surface.loadImage("img/background1.jpg"), 0, 0, 800, 600);
+	
+		surface.image(surface.loadImage(designChoices.get(indexDisplayed)), DRAWING_WIDTH/2, 300, 64, 64);
+		surface.text("Click on the screen to choose the butterfly you aspire to be one day. \n "
+				+ "Press the spacebar when you are ready to hatch.", DRAWING_WIDTH/3, 400);
+		
+	
 		if (surface.isPressed(KeyEvent.VK_SPACE)) {
-			displayNextDesign();
+			designChoosen = designChoices.get(indexDisplayed);
+			surface.switchScreen(2);
 		}
 	}
 	
@@ -92,9 +101,10 @@ public class EggPanel extends Screen{
 	 * Checks if the uses clicks on the screen. If they do, then they are ready to move on to the next screen.
 	 */
 	public void mousePressed() {
-		designChoosen = designChoices.get(indexDisplayed);
-		surface.switchScreen(2);
+		displayNextDesign();
 	}
+	
+
 
 	
 }

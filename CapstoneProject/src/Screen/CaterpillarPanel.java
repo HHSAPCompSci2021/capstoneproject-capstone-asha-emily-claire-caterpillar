@@ -58,15 +58,15 @@ public class CaterpillarPanel extends Screen{
 	/**
 	 * Checks if a restart is needed (if the player lost this phase)
 	 */
-	public boolean needReset() {
-		
-	}
+//	public boolean needReset() {
+//		
+//	}
 	/**
 	 * Draws the screen
 	 */
-	public void draw() {
-		surface.background()
-	}
+//	public void draw() {
+//		surface.background()
+//	}
 	/**
 	 * Implements the side scrolling effect, by adding features to the screen
 	 */

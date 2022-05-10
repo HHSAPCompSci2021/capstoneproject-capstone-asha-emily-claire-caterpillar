@@ -19,6 +19,7 @@ public abstract class Player {
 	private int collectiblesEaten;
 	private int numCollectibleNeedToEat;
 	private Point currentLoc;
+	private int totalCollisions;
 	//Add a variable for the image
 	/**
 	 * Constructs an Player that is alive with the number of collectibles needed. The collectablesEaten should continue to increase 
@@ -29,6 +30,7 @@ public abstract class Player {
 		this.numCollectibleNeedToEat = numCollectableNeedToEat;
 		collectiblesEaten = 0;
 		isAlive = true;
+		totalCollisions = 0;
 	}
 	
 	/**
@@ -53,6 +55,15 @@ public abstract class Player {
 		}
 		
 				
+	}
+	
+	/**
+	 * Increases the total number of collisions for this phase
+	 * @return the total number of collisions 
+	 */
+	public int increaseCollisions() {
+		totalCollisions++;
+		return totalCollisions;
 	}
 	
 	/**
@@ -82,7 +93,6 @@ public abstract class Player {
 
 	/**
 	 * Moves the player by the amount specified
-	 * @param x - how much the player horizontally moves
 	 * @param y - how much the player vertically moves
 	 */
 	public abstract void moveByAmount(double x, double y);
