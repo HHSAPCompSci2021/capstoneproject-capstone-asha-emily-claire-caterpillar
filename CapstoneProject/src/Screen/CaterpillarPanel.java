@@ -1,8 +1,11 @@
 package Screen;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import Obstacle.Collectible;
 import Obstacle.Obstacle;
+import Player.Caterpillar;
 import core.DrawingSurface;
 
 /**
@@ -13,7 +16,10 @@ import core.DrawingSurface;
 public class CaterpillarPanel extends Screen{
 	private DrawingSurface surface;
 	private List<Obstacle> obstacles;
-	
+	private List<Collectible> leaves; 
+	private Caterpillar caterpillar; 
+	private boolean onSurface;
+
 	/**
 	 * Constructs a CaterpillarPanel
 	 * @param surface
@@ -22,6 +28,13 @@ public class CaterpillarPanel extends Screen{
 	{
 		super(800,600);
 		this.surface = surface;
+		onSurface = true;
+		obstacles = new ArrayList<Obstacle>();
+		leaves = new ArrayList<Collectible>();
+		
+	}
+	public void setup()
+	{
 		
 	}
 	/**
@@ -45,14 +58,14 @@ public class CaterpillarPanel extends Screen{
 	/**
 	 * Checks if a restart is needed (if the player lost this phase)
 	 */
-	public void needReset() {
+	public boolean needReset() {
 		
 	}
 	/**
 	 * Draws the screen
 	 */
 	public void draw() {
-		
+		surface.background()
 	}
 	/**
 	 * Implements the side scrolling effect, by adding features to the screen
