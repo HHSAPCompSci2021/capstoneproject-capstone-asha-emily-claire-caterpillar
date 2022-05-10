@@ -1,10 +1,15 @@
 package Player;
+
+import processing.core.PApplet;
+import processing.core.PImage;
+
 /**
  * Represents the player during the Caterpillar phase
  * @author Emily
  *
  */
 public class Caterpillar extends Player{
+	private PImage image;
 	private double yVol;
 	
 	/**
@@ -26,6 +31,12 @@ public class Caterpillar extends Player{
 	public void applyWindowLimits(int windowWidth, int windowHeight) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void draw(PApplet p) {
+		// TODO Auto-generated method stub
+		p.image(p.loadImage(selectedImage("caterpillar")), 20, 50);
+			
 	}
 
 	@Override

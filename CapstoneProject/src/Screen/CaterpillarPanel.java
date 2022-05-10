@@ -7,6 +7,7 @@ import Obstacle.Collectible;
 import Obstacle.Obstacle;
 import Player.Caterpillar;
 import core.DrawingSurface;
+import processing.event.KeyEvent;
 
 /**
  * The screen during the caterpillar phase
@@ -35,7 +36,7 @@ public class CaterpillarPanel extends Screen{
 	}
 	public void setup()
 	{
-		
+		caterpillar = new Caterpillar();
 	}
 	/**
 	 * Adds a predator to a randomize location to the screen
@@ -55,18 +56,30 @@ public class CaterpillarPanel extends Screen{
 	public void nextScreen() {
 		surface.switchScreen(2);
 	}
+	
 	/**
 	 * Checks if a restart is needed (if the player lost this phase)
 	 */
 //	public boolean needReset() {
 //		
 //	}
+	
 	/**
 	 * Draws the screen
 	 */
-//	public void draw() {
-//		surface.background()
-//	}
+	public void draw() {
+		surface.background(255,255,255);
+		for(Obstacle o : obstacles)
+		{
+			
+		}
+		caterpillar.draw(surface);
+		
+		if(surface.isPresssed(KeyEvent.VK_UP)) {
+			
+		}
+	}
+
 	/**
 	 * Implements the side scrolling effect, by adding features to the screen
 	 */
