@@ -14,7 +14,7 @@ import processing.core.PImage;
 public class Caterpillar extends Player{
 	private PImage image;
 	private double yVol;
-	private double x, y, ground;
+	private double x, y;
 	private boolean onSurface;
 	private int upDown;
 	
@@ -26,7 +26,6 @@ public class Caterpillar extends Player{
 		super(5);
 		this.x = x;
 		this.y = y;
-		ground = y;
 		onSurface = true;
 		upDown = 0;
 		yVol = 0;
@@ -74,7 +73,7 @@ public class Caterpillar extends Player{
 		
 	}
 
-	public void act(List<Obstacle> obstacles) {
+	public void act(List<Obstacle> obstacles, double ground) {
 		// TODO Auto-generated method stub
 		onSurface = false;
 		if(upDown == 1) {

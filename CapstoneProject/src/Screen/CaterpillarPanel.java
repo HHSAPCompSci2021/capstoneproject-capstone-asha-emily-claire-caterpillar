@@ -78,7 +78,7 @@ public class CaterpillarPanel extends Screen{
 			caterpillar.dive();
 		}
 		
-		caterpillar.act(obstacles);
+		caterpillar.act(obstacles, DRAWING_HEIGHT/2);
 		
 		if(caterpillar.getNumCollectible() == 5)
 		{
