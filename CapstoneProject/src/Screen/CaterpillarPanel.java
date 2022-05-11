@@ -1,11 +1,13 @@
 package Screen;
 
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 import Obstacle.Collectible;
 import Obstacle.Obstacle;
+import Obstacle.Predator;
 import Player.Caterpillar;
 import core.DrawingSurface;
 
@@ -16,7 +18,7 @@ import core.DrawingSurface;
  */
 public class CaterpillarPanel extends Screen{
 	private DrawingSurface surface;
-	private List<Obstacle> obstacles;
+	private List<Predator> obstacles;
 	private List<Collectible> leaves; 
 	private Caterpillar caterpillar; 
 	
@@ -29,15 +31,11 @@ public class CaterpillarPanel extends Screen{
 	{
 		super(800,600);
 		this.surface = surface;
-		obstacles = new ArrayList<Obstacle>();
+		obstacles = new ArrayList<Predator>();
 		leaves = new ArrayList<Collectible>();
-		addRandompredator();
-		addRandomObstacles();
-	}
-	
-	public void setup()
-	{
 		caterpillar = new Caterpillar(20, DRAWING_HEIGHT/2);
+		addRandompredator();
+		addRandomCollectibles();
 	}
 	
 	/**
@@ -46,17 +44,17 @@ public class CaterpillarPanel extends Screen{
 	private void addRandompredator() {
 		for(int i = 0; i < 5; i++)
 		{
-			obstacles.add(new Obstacle((int)(Math.random()*(10))+DRAWING_WIDTH, 50));
+			obstacles.add(new Predator((int)(Math.random()*(10))+DRAWING_WIDTH, 50, 5));
 		}
 	}
 	
 	/**
 	 * Adds collectibles to  randomized locations to the screen
 	 */
-	private void addRandomObstacles() {
+	private void addRandomCollectibles() {
 		for(int i = 0; i < 5; i++)
 		{
-			obstacles.add(new Obstacle((int)(Math.random()*(10))+DRAWING_WIDTH, 50));
+			leaves.add(new Collectible("leaf"));
 		}
 	}
 	
@@ -87,11 +85,11 @@ public class CaterpillarPanel extends Screen{
 	public void draw() {
 		surface.background(255,255,255);
 		
-//		for(Obstacle o : obstacles)
-//		{
-//			o.draw();
-//		}
-//		sideScrolling();
+		for(Predator o : obstacles)
+		{
+			o.draw();
+		}
+		sideScrolling();
 		
 		caterpillar.draw(surface);
 		
@@ -104,32 +102,42 @@ public class CaterpillarPanel extends Screen{
 			caterpillar.dive();
 		}
 		
-		caterpillar.act(obstacles, DRAWING_HEIGHT/2);
+		caterpillar.act(DRAWING_HEIGHT/2);
+		for(Predator o : obstacles)
+		{
+			if(o.getBounds().intersects(new Rectangle((int)caterpillar.getX(),(int)caterpillar.getY(), 64, 64)))
+			{
+				caterpillar.increaseCollisions();
+				o.setX((Math.random()*(10))+DRAWING_WIDTH);
+			}
+		}
 		
-		if(caterpillar.getNumCollectible() == 5)
+		if(caterpillar.getNumCollectible() == caterpillar.getNumCollectiblesNeedToEat())
 		{
 			nextScreen();
 			return;
 		}
-		//need getter and setter for lots of fields
-//		if(caterpillar.getTotalCollisions == 3)
-//		{
-//			resetScreen();
-//		}
+		if(caterpillar.getTotalCollisions() == 3)
+		{
+			resetScreen();
+		}
 	}
 
 	/**
 	 * Implements the side scrolling effect, by adding features to the screen
 	 */
-//	public void sideScrolling() {
-//		for(Obstacle o : obstacles)
-//		{
-//			o.moveByAmount(-5);
-//			if(o.getX() < 0)
-//			{
-//				o.changeObstacleType();
-//				o.setX((Math.random()*(10))+DRAWING_WIDTH) ;
-//			}
-//		}
-//	}
+	public void sideScrolling() {
+		for(Predator o : obstacles)
+		{
+			o.moveByAmount(o.getSpeed(), 0);
+			if(o.getX() < 0)
+			{
+				o.setX((Math.random()*(10))+DRAWING_WIDTH) ;
+			}
+		}
+		for(Collectible c : leaves)
+		{
+			
+		}
+	}
 }

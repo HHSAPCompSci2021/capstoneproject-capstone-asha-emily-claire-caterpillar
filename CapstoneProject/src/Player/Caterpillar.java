@@ -2,7 +2,9 @@ package Player;
 
 import java.util.List;
 
+import Obstacle.Collectible;
 import Obstacle.Obstacle;
+import Obstacle.Predator;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -73,7 +75,7 @@ public class Caterpillar extends Player{
 		
 	}
 
-	public void act(List<Obstacle> obstacles, double ground) {
+	public void act(double ground) {
 		// TODO Auto-generated method stub
 		onSurface = false;
 		if(upDown == 1) {
@@ -93,17 +95,15 @@ public class Caterpillar extends Player{
 			onSurface = true;
 			
 		}
-		
-//		for(Obstacle o : obstacles) {
-//			if (playerDesignRect().intersects((Shape)o.getBounds()))
-//			{
-//				int col = increaseCollisions();
-//				if(col == 3)
-//				{
-//					return true;
-//				}
-//			}
-//		}
+	}
+
+	public double getX() {
+		// TODO Auto-generated method stub
+		return x;
+	}
+	public double getY() {
+		// TODO Auto-generated method stub
+		return y;
 	}
 	
 }
