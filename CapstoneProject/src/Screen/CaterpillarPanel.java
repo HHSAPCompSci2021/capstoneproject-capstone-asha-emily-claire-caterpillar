@@ -1,5 +1,6 @@
 package Screen;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,6 @@ import Obstacle.Collectible;
 import Obstacle.Obstacle;
 import Player.Caterpillar;
 import core.DrawingSurface;
-import processing.event.KeyEvent;
 
 /**
  * The screen during the caterpillar phase
@@ -19,7 +19,7 @@ public class CaterpillarPanel extends Screen{
 	private List<Obstacle> obstacles;
 	private List<Collectible> leaves; 
 	private Caterpillar caterpillar; 
-	private boolean onSurface;
+	
 
 	/**
 	 * Constructs a CaterpillarPanel
@@ -29,14 +29,13 @@ public class CaterpillarPanel extends Screen{
 	{
 		super(800,600);
 		this.surface = surface;
-		onSurface = true;
 		obstacles = new ArrayList<Obstacle>();
 		leaves = new ArrayList<Collectible>();
 		
 	}
 	public void setup()
 	{
-		caterpillar = new Caterpillar();
+		caterpillar = new Caterpillar(20, DRAWING_HEIGHT/2);
 	}
 	/**
 	 * Adds a predator to a randomize location to the screen
@@ -69,14 +68,21 @@ public class CaterpillarPanel extends Screen{
 	 */
 	public void draw() {
 		surface.background(255,255,255);
-		for(Obstacle o : obstacles)
-		{
-			
-		}
 		caterpillar.draw(surface);
 		
-		if(surface.isPresssed(KeyEvent.VK_UP)) {
-			
+		if (surface.isPressed(KeyEvent.VK_UP))
+		{
+			caterpillar.jump();
+		}
+		if(surface.isPressed(KeyEvent.VK_DOWN)) {
+			caterpillar.dive();
+		}
+		
+		caterpillar.act(obstacles);
+		
+		if(caterpillar.getNumCollectible() == 5)
+		{
+			nextScreen();
 		}
 	}
 
