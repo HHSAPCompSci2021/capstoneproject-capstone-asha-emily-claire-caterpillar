@@ -1,5 +1,6 @@
 package Screen;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class CaterpillarPanel extends Screen{
 	private List<Obstacle> obstacles;
 	private List<Collectible> leaves; 
 	private Caterpillar caterpillar; 
-	private boolean onSurface;
+	
 
 	/**
 	 * Constructs a CaterpillarPanel
@@ -28,14 +29,13 @@ public class CaterpillarPanel extends Screen{
 	{
 		super(800,600);
 		this.surface = surface;
-		onSurface = true;
 		obstacles = new ArrayList<Obstacle>();
 		leaves = new ArrayList<Collectible>();
 		
 	}
 	public void setup()
 	{
-		
+		caterpillar = new Caterpillar(20, DRAWING_HEIGHT/2);
 	}
 	/**
 	 * Adds a predator to a randomize location to the screen
@@ -55,18 +55,37 @@ public class CaterpillarPanel extends Screen{
 	public void nextScreen() {
 		surface.switchScreen(2);
 	}
+	
 	/**
 	 * Checks if a restart is needed (if the player lost this phase)
 	 */
-	public boolean needReset() {
-		
-	}
+//	public boolean needReset() {
+//		
+//	}
+	
 	/**
 	 * Draws the screen
 	 */
 	public void draw() {
-		surface.background()
+		surface.background(255,255,255);
+		caterpillar.draw(surface);
+		
+		if (surface.isPressed(KeyEvent.VK_UP))
+		{
+			caterpillar.jump();
+		}
+		if(surface.isPressed(KeyEvent.VK_DOWN)) {
+			caterpillar.dive();
+		}
+		
+		caterpillar.act(obstacles, DRAWING_HEIGHT/2);
+		
+		if(caterpillar.getNumCollectible() == 5)
+		{
+			nextScreen();
+		}
 	}
+
 	/**
 	 * Implements the side scrolling effect, by adding features to the screen
 	 */

@@ -41,7 +41,8 @@ public class MenuPanel extends Screen {
 	 */
 	public void draw() {
 		surface.background(255,255,255);
-		surface.fill(0);
+		surface.image(surface.loadImage("img/menupanelBackground.gif"), 0, 0, 800, 600);
+		surface.fill(255);
 		surface.text("You're a butterfly ready to embark on a new adventure to discover yourself and the world around you. "
 				+ "\nYou want nothing more than to spread your wings and soar along the clouds. "
 				+ "\nAs a butterfly, the world is a dangerous place for you, but you have a dream to explore as much of it as possible. "
@@ -58,7 +59,7 @@ public class MenuPanel extends Screen {
 				+ "\nOur primary user base would be people who enjoy games.  ",20, 20);
 		surface.fill(255);
 		surface.rect(button.x, button.y, button.width, button.height);
-		surface.fill(102, 255, 178);
+		surface.fill(0);
 		String str = "Start Game!";
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);

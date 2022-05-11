@@ -36,7 +36,9 @@ public class Butterfly extends Player{
 		yVol = yv;
 		image = "img/ButterflySprite1.gif";
 	}
-
+	
+	//I think only the y velocity is needed as the game is side scrolling. The player just moves up and down
+	// - Asha
 	@Override
 	public void moveByAmount(double x, double y) {
 		
