@@ -22,6 +22,10 @@ public class Obstacle {
 		this.y = y;
 	}
 	
+	public Obstacle() {
+		
+	}
+	
 	/**
 	 * Bounces the character back from the obstacle
 	 */
@@ -54,5 +58,18 @@ public class Obstacle {
 			return true;
 		}
 		return false;
+	}
+	
+	public double getX() {
+		return x;
+	}
+	
+	public double getY() {
+		return y;
+	}
+	
+	public void moveByAmount(double x, double y) {
+		this.x += x;
+		this.y += y;
 	}
 }

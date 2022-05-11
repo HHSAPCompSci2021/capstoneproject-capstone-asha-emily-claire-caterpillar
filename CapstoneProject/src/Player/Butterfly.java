@@ -1,5 +1,6 @@
 package Player;
 
+import asha.shapes.Rectangle;
 import core.DrawingSurface;
 
 /**
@@ -10,8 +11,10 @@ import core.DrawingSurface;
 public class Butterfly extends Player{
 	
 	private DrawingSurface surface;
-	private static double xVol, yVol;
+	private double xVol, yVol;
 	private String image;
+	private Rectangle r;
+	private int numHits;
 	
 	/**
 	 * Constructs a Butterfly
@@ -19,6 +22,7 @@ public class Butterfly extends Player{
 	public Butterfly() {
 		super(5);
 		image = "img/ButterflySprite1.gif";
+		r = new Rectangle();
 	}
 	
 	/**
@@ -30,6 +34,7 @@ public class Butterfly extends Player{
 		super(5);
 		xVol = xv;
 		yVol = yv;
+		image = "img/ButterflySprite1.gif";
 	}
 
 	@Override
@@ -60,6 +65,18 @@ public class Butterfly extends Player{
 		
 	}
 	
+	public void hitObstacle() {
+		System.out.print(true);
+		numHits++;
+	}
+	
+	public boolean keepPlaying() {
+		if(numHits > 2) {
+			return false;
+		}
+		return true;
+	}
+	
 	public String imageName() {
 		return image;
 	}
@@ -70,6 +87,22 @@ public class Butterfly extends Player{
 	
 	public double getY() {
 		return yVol;
+	}
+	
+	public boolean intersect(Rectangle p) {
+		r = new Rectangle(100 + xVol, 600/2 - 64 + yVol, 64, 64); 
+		int i = 0;
+
+		if(r.intersects(p)) {
+			//System.out.print(true);
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public Rectangle getRect() {
+		return new Rectangle(xVol, yVol, 64, 64);
 	}
 	
 }
