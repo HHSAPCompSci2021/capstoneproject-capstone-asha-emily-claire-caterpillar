@@ -58,6 +58,22 @@ public abstract class Player {
 	}
 	
 	/**
+	 * Allows the client to set the total collisions
+	 * @param add the number to add to the total collisions
+	 */
+	public void setTotalCollisions(int add) {
+		totalCollisions += add;
+	}
+	
+	/**
+	 * Getter method for numCollectibleNeedToEat
+	 * @return numCollectibleNeedToEat
+	 */
+	public int getNumCollectiblesNeedToEat() {
+		return numCollectibleNeedToEat;
+	}
+	
+	/**
 	 * Increases the total number of collisions for this phase
 	 * @return the total number of collisions 
 	 */
@@ -85,10 +101,18 @@ public abstract class Player {
 	
 	/**
 	 * Returns the number of collectibles eaten in this phase
-	 * @return
+	 * @return the collectibles eaten
 	 */
 	public int getNumCollectible() {
 		return collectiblesEaten;
+	}
+	
+	/**
+	 * Returns total collisions
+	 * @return total collisions
+	 */
+	public int getTotalCollisions() {
+		return totalCollisions;
 	}
 
 	/**

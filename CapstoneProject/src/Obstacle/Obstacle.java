@@ -2,6 +2,8 @@ package Obstacle;
 
 import java.awt.Rectangle;
 
+import Player.Butterfly;
+import Player.Caterpillar;
 import Player.Player;
 /**
  * Represents an obstacle that a player may encounter
@@ -11,7 +13,6 @@ import Player.Player;
 public class Obstacle {
 	
 	private boolean ranInto;
-	private static int totalCollisions;
 	private double x, y;
 	
 	/**
@@ -53,10 +54,19 @@ public class Obstacle {
 	 * Checks if the character reached the total amount of collsions before having to restart
 	 * @return
 	 */
-	public boolean reachTotalCollisions() {
-		if(totalCollisions > 10) {
-			return true;
+	public boolean reachTotalCollisions(Caterpillar caterpillar, Butterfly butterfly) {
+		if(caterpillar != null) {
+			if(caterpillar.getTotalCollisions() > 3) {
+				return true;
+			}
 		}
+		
+		if(butterfly != null) {
+			if(butterfly.getTotalCollisions() > 3) {
+				return true;
+			}
+		}
+		
 		return false;
 	}
 	
