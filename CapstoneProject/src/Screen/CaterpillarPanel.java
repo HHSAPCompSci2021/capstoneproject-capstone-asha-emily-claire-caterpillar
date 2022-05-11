@@ -31,18 +31,36 @@ public class CaterpillarPanel extends Screen{
 		this.surface = surface;
 		obstacles = new ArrayList<Obstacle>();
 		leaves = new ArrayList<Collectible>();
-		
+		addRandompredator();
+		addRandomObstacles();
 	}
+	
 	public void setup()
 	{
 		caterpillar = new Caterpillar(20, DRAWING_HEIGHT/2);
 	}
+	
 	/**
-	 * Adds a predator to a randomize location to the screen
+	 * Adds obstacles to randomized locations to the screen
 	 */
-	public void addRandompredator() {
-		
+	private void addRandompredator() {
+		for(int i = 0; i < 5; i++)
+		{
+			obstacles.add(new Obstacle((int)(Math.random()*(10))+DRAWING_WIDTH, 50));
+		}
 	}
+	
+	/**
+	 * Adds collectibles to  randomized locations to the screen
+	 */
+	private void addRandomObstacles() {
+		for(int i = 0; i < 5; i++)
+		{
+			obstacles.add(new Obstacle((int)(Math.random()*(10))+DRAWING_WIDTH, 50));
+		}
+	}
+	
+	
 	/**
 	 * Clears the screen and restarts the phase
 	 */
@@ -68,7 +86,15 @@ public class CaterpillarPanel extends Screen{
 	 */
 	public void draw() {
 		surface.background(255,255,255);
+		
+//		for(Obstacle o : obstacles)
+//		{
+//			o.draw();
+//		}
+//		sideScrolling();
+		
 		caterpillar.draw(surface);
+		
 		
 		if (surface.isPressed(KeyEvent.VK_UP))
 		{
@@ -83,13 +109,27 @@ public class CaterpillarPanel extends Screen{
 		if(caterpillar.getNumCollectible() == 5)
 		{
 			nextScreen();
+			return;
 		}
+		//need getter and setter for lots of fields
+//		if(caterpillar.getTotalCollisions == 3)
+//		{
+//			resetScreen();
+//		}
 	}
 
 	/**
 	 * Implements the side scrolling effect, by adding features to the screen
 	 */
-	public void sideScrolling() {
-		
-	}
+//	public void sideScrolling() {
+//		for(Obstacle o : obstacles)
+//		{
+//			o.moveByAmount(-5);
+//			if(o.getX() < 0)
+//			{
+//				o.changeObstacleType();
+//				o.setX((Math.random()*(10))+DRAWING_WIDTH) ;
+//			}
+//		}
+//	}
 }
