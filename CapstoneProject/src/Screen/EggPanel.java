@@ -63,7 +63,7 @@ public class EggPanel extends Screen{
 	}
 	/**
 	 * The user selects the design, otherwise it is defaulted to the first design.
-	 * @return
+	 * @return the filename of the design chosen
 	 */
 	public String selectDesign() {
 
@@ -99,6 +99,7 @@ public class EggPanel extends Screen{
 	
 	/**
 	 * Checks if the uses clicks on the screen. If they do, then they are ready to move on to the next screen.
+	 * @postcondition a new image is displayed on the screen
 	 */
 	public void mousePressed() {
 		displayNextDesign();

@@ -20,7 +20,8 @@ public class Butterfly extends Player{
 	 * Constructs a Butterfly
 	 */
 	public Butterfly() {
-		super(5);
+		//Asha: Edited this part to allow program to compile. Feel free to change it
+		super(5, 50, 500);
 		image = "img/ButterflySprite1.gif";
 		r = new Rectangle();
 	}
@@ -31,7 +32,7 @@ public class Butterfly extends Player{
 	 * @param yv - vertical velocity 
 	 */
 	public Butterfly(double xv, double yv) {
-		super(5);
+		super(5, 50, 500);
 		xVol = xv;
 		yVol = yv;
 		image = "img/ButterflySprite1.gif";

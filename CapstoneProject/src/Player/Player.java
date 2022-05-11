@@ -13,24 +13,55 @@ import processing.core.PImage;
  */
 public abstract class Player {
 	
-	private String design;
 	private boolean isAlive;
-	private static int totalCollectiblesEaten;
+	private int totalCollectiblesEaten;
 	private int collectiblesEaten;
 	private int numCollectibleNeedToEat;
 	private Point currentLoc;
 	private int totalCollisions;
+	private int x, y;
 	//Add a variable for the image
 	/**
 	 * Constructs an Player that is alive with the number of collectibles needed. The collectablesEaten should continue to increase 
 	 * regardless of phase.
 	 * @param numCollectableNeedToEat - the int of collectibles that must be eaten
 	 */
-	public Player(int numCollectableNeedToEat) {
+	public Player(int numCollectableNeedToEat, int x, int y) {
 		this.numCollectibleNeedToEat = numCollectableNeedToEat;
+		this.x = x;
+		this.y = y;
+		this.currentLoc = new Point(50, 500);
 		collectiblesEaten = 0;
 		isAlive = true;
 		totalCollisions = 0;
+	}
+	
+	/**
+	 * Returns the Point of the current location
+	 * @return Point - the current location
+	 */
+	public Point getCurrentLoc() {
+		return currentLoc;
+	}
+	
+	public void setCurrentLoc(Point setLoc) {
+		currentLoc = setLoc;
+	}
+	
+	/**
+	 * Getter method of isAlive
+	 * @return isAlive
+	 */
+	public boolean getIsAlive() {
+		return isAlive;
+	}
+	
+	/**
+	 * Setter method for isAlive
+	 * @param change - what to change it to
+	 */
+	public void setIsAlive(boolean change) {
+		isAlive = change;
 	}
 	
 	/**
@@ -113,6 +144,39 @@ public abstract class Player {
 	 */
 	public int getTotalCollisions() {
 		return totalCollisions;
+	}
+	
+	/**
+	 * Returns x
+	 * @return int - x 
+	 */
+	public int getX() {
+		return x;
+	}
+	
+	/**
+	 * Changes the value of x
+	 * @precondition set is a positive number
+	 * @param set - an int that it will be set too
+	 */
+	public void setX(int set) {
+		x = set;
+	}
+	
+	/**
+	 * Returns y
+	 * @return y
+	 */
+	public int getY() {
+		return y;
+	}
+	
+	/**
+	 * Changes the value of y
+	 * @param set - an int that it will be set oo
+	 */
+	public void setY(int set) {
+		y = set;
 	}
 
 	/**
