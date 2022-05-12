@@ -8,17 +8,21 @@ import processing.core.PImage;
  * @author Asha
  *
  */
-public class Collectible {
+public class Collectible extends Element{
 	private boolean eatenYet;
 	private String collectibleType;
 	private String typeDesign;
+	private double x, y;
 	
 	/**
 	 * Constructs a collectible (either a leaf or flower)
 	 * @precondition collectableType is either a "leaf" or "flower"
 	 * @param collectibleType - leaf or flower
 	 */
-	public Collectible(String collectibleType) {
+	public Collectible(String collectibleType, String image, double speed, double x, double y) {
+		super(image, speed);
+		this.x = x;
+		this.y = y;
 		this.collectibleType = collectibleType;
 		eatenYet = false;
 		
@@ -57,9 +61,9 @@ public class Collectible {
 	 * @param height - the int height
 	 * @postcondition An image is placed on the screen
 	 */
-	public void draw(DrawingSurface surface, int x, int y, int width, int height) {
+	public void draw(DrawingSurface surface, int width, int height) {
 		while(!eatenYet) {
-			surface.image(surface.loadImage(typeDesign), x, y, width, height);
+			surface.image(surface.loadImage(typeDesign), (float) x, (float) y, width, height);
 		}
 		
 	}
@@ -69,5 +73,30 @@ public class Collectible {
 	 */
 	public String getCollectibleType() {
 		return collectibleType;
+	}
+	
+	/**
+	 * Moves by the amount specified
+	 * @param x - horizontal amount to move by
+	 * @param y - vertical amount to move by
+	 */
+	public void moveByAmount(double x, double y) {
+		this.x += x;
+		this.y += y;
+	}
+	/**
+	 * Returns the x coordinate of the collectible
+	 * @return x coordinate of the collectible
+	 */
+	public double getX() {
+		return x;
+	}
+	
+	/**
+	 * Returns y coordinate of the collectible
+	 * @return y coordinate of the collectible
+	 */
+	public double getY() {
+		return y;
 	}
 }
