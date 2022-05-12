@@ -25,9 +25,7 @@ public class Caterpillar extends Player{
 	 */
 	public Caterpillar(double x, double y)
 	{
-		super(5);
-		this.x = x;
-		this.y = y;
+		super(5, x, y);
 		onSurface = true;
 		upDown = 0;
 		yVol = 0;
