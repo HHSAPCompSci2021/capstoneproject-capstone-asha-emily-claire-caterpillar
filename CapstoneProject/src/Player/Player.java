@@ -19,14 +19,14 @@ public abstract class Player {
 	private int numCollectibleNeedToEat;
 	private Point currentLoc;
 	private int totalCollisions;
-	private int x, y;
+	private double x, y;
 	//Add a variable for the image
 	/**
 	 * Constructs an Player that is alive with the number of collectibles needed. The collectablesEaten should continue to increase 
 	 * regardless of phase.
 	 * @param numCollectableNeedToEat - the int of collectibles that must be eaten
 	 */
-	public Player(int numCollectableNeedToEat, int x, int y) {
+	public Player(int numCollectableNeedToEat, double x, double y) {
 		this.numCollectibleNeedToEat = numCollectableNeedToEat;
 		this.x = x;
 		this.y = y;
@@ -148,9 +148,9 @@ public abstract class Player {
 	
 	/**
 	 * Returns x
-	 * @return int - x 
+	 * @return double - x 
 	 */
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 	
@@ -159,7 +159,7 @@ public abstract class Player {
 	 * @precondition set is a positive number
 	 * @param set - an int that it will be set too
 	 */
-	public void setX(int set) {
+	public void setX(double set) {
 		x = set;
 	}
 	
@@ -167,7 +167,7 @@ public abstract class Player {
 	 * Returns y
 	 * @return y
 	 */
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 	
@@ -175,7 +175,7 @@ public abstract class Player {
 	 * Changes the value of y
 	 * @param set - an int that it will be set oo
 	 */
-	public void setY(int set) {
+	public void setY(double set) {
 		y = set;
 	}
 
