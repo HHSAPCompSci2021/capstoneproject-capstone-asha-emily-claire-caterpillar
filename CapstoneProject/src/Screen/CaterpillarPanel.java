@@ -44,7 +44,7 @@ public class CaterpillarPanel extends Screen{
 	private void addRandompredator() {
 		for(int i = 0; i < 5; i++)
 		{
-			obstacles.add(new Predator((int)(Math.random()*(10))+DRAWING_WIDTH, 50, 5));
+			obstacles.add(new Predator((int)(Math.random()*5)+DRAWING_WIDTH, 50, 5));
 		}
 	}
 	
@@ -87,7 +87,8 @@ public class CaterpillarPanel extends Screen{
 		
 		for(Predator o : obstacles)
 		{
-			o.draw();
+			surface.image(surface.loadImage(o.getImage()), (float)(600 + o.getX()), (float)(600/2 - 120 + o.getY()), 64, 64);
+//			o.draw();
 		}
 		sideScrolling();
 		
@@ -103,14 +104,14 @@ public class CaterpillarPanel extends Screen{
 		}
 		
 		caterpillar.act(DRAWING_HEIGHT/2);
-		for(Predator o : obstacles)
-		{
-			if(o.getBounds().intersects(new Rectangle((int)caterpillar.getX(),(int)caterpillar.getY(), 64, 64)))
-			{
-				caterpillar.increaseCollisions();
-				o.setX((Math.random()*(10))+DRAWING_WIDTH);
-			}
-		}
+//		for(Predator o : obstacles)
+//		{
+//			if(o.getBounds().intersects(new Rectangle((int)caterpillar.getX(),(int)caterpillar.getY(), 64, 64)))
+//			{
+//				caterpillar.increaseCollisions();
+////				o.setX((Math.random()*(10))+DRAWING_WIDTH);
+//			}
+//		}
 		
 		if(caterpillar.getNumCollectible() == caterpillar.getNumCollectiblesNeedToEat())
 		{
@@ -132,7 +133,7 @@ public class CaterpillarPanel extends Screen{
 			o.moveByAmount(o.getSpeed(), 0);
 			if(o.getX() < 0)
 			{
-				o.setX((Math.random()*(10))+DRAWING_WIDTH) ;
+//				o.setX((Math.random()*(10))+DRAWING_WIDTH);
 			}
 		}
 		for(Collectible c : leaves)
