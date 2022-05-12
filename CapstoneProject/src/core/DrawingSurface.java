@@ -136,4 +136,14 @@ public class DrawingSurface extends PApplet{
 	public void switchScreen(int i) {
 		currScreen = screens.get(i);
 	}
+	
+	/**
+	 * Getter method for design
+	 * @return name of the design file
+	 */
+	public String getDesign() {
+		EggPanel panel = (EggPanel)screens.get(1);
+		return panel.selectDesign();
+	}
+
 }

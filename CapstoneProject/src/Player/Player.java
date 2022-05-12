@@ -20,22 +20,38 @@ public abstract class Player {
 	private Point currentLoc;
 	private int totalCollisions;
 	private double x, y;
+	private String design;
 	//Add a variable for the image
 	/**
 	 * Constructs an Player that is alive with the number of collectibles needed. The collectablesEaten should continue to increase 
 	 * regardless of phase.
 	 * @param numCollectableNeedToEat - the int of collectibles that must be eaten
 	 */
-	public Player(int numCollectableNeedToEat, double x, double y) {
+	public Player(int numCollectableNeedToEat, double x, double y, String design) {
 		this.numCollectibleNeedToEat = numCollectableNeedToEat;
 		this.x = x;
 		this.y = y;
+		this.design = design;
 		this.currentLoc = new Point(50, 500);
 		collectiblesEaten = 0;
 		isAlive = true;
 		totalCollisions = 0;
 	}
 	
+	/**
+	 * Getter method for design
+	 * @return name of the design file
+	 */
+	public String getDesign() {
+		return design;
+	}
+	/**
+	 * Changes 
+	 * @param newDesign
+	 */
+	public void setDesign(String newDesign) {
+		design = newDesignl
+	}
 	/**
 	 * Returns the Point of the current location
 	 * @return Point - the current location
