@@ -46,6 +46,7 @@ public class Collectible extends Element{
 	/**
 	 * Getter method for if the collectible is eaten yet
 	 * @return eatenYet - if the collectible has been eaten
+	 * @postcondition increases the total amount of collectibles in Player and amount in phase
 	 */
 	public boolean getEatenYet() {
 		return eatenYet;
@@ -75,28 +76,4 @@ public class Collectible extends Element{
 		return collectibleType;
 	}
 	
-	/**
-	 * Moves by the amount specified
-	 * @param x - horizontal amount to move by
-	 * @param y - vertical amount to move by
-	 */
-	public void moveByAmount(double x, double y) {
-		this.x += x;
-		this.y += y;
-	}
-	/**
-	 * Returns the x coordinate of the collectible
-	 * @return x coordinate of the collectible
-	 */
-	public double getX() {
-		return x;
-	}
-	
-	/**
-	 * Returns y coordinate of the collectible
-	 * @return y coordinate of the collectible
-	 */
-	public double getY() {
-		return y;
-	}
 }

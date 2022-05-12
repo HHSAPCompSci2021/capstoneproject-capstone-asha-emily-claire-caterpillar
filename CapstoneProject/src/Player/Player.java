@@ -134,7 +134,7 @@ public abstract class Player {
 	 * @return the rectangular frame of the player's image
 	 */
 	public Rectangle playerDesignRect() {
-		return new Rectangle(64, 64, 64, 64);
+		return new Rectangle(x, y, 64, 64);
 	}
 	
 	
