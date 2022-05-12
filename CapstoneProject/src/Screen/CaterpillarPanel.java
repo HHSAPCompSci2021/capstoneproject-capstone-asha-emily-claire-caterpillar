@@ -33,7 +33,7 @@ public class CaterpillarPanel extends Screen{
 		this.surface = surface;
 		obstacles = new ArrayList<Predator>();
 		leaves = new ArrayList<Collectible>();
-		caterpillar = new Caterpillar(20, DRAWING_HEIGHT/2);
+		caterpillar = new Caterpillar(5, 20, DRAWING_HEIGHT/2, surface.getDesign());
 		addRandompredator();
 		addRandomCollectibles();
 	}

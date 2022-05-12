@@ -23,9 +23,9 @@ public class Caterpillar extends Player{
 	/**
 	 * Constructs a Caterpillar 
 	 */
-	public Caterpillar(double x, double y)
+	public Caterpillar(int numCollectableNeedToEat, double x, double y, String design)
 	{
-		super(5, x, y);
+		super(numCollectableNeedToEat, x, y, design);
 		onSurface = true;
 		upDown = 0;
 		yVol = 0;
@@ -93,15 +93,6 @@ public class Caterpillar extends Player{
 			onSurface = true;
 			
 		}
-	}
-
-	public double getX() {
-		// TODO Auto-generated method stub
-		return x;
-	}
-	public double getY() {
-		// TODO Auto-generated method stub
-		return y;
 	}
 	
 }

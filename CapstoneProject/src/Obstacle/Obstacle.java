@@ -31,5 +31,5 @@ public class Obstacle extends Element{
 		p.moveByAmount(-10, 0);
 	}
 	
-
+	
 }
