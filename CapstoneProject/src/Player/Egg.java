@@ -20,7 +20,7 @@ public class Egg extends Player {
 	 * @param selectedButterfly - the PImage of the selected butterfly
 	 */
 	public Egg(String selectedButterfly) {
-		super(0, 0, 0);
+		super(0, 0, 0, "");
 		this.selectedButterfly = selectedButterfly;
 	}
 	
@@ -28,7 +28,7 @@ public class Egg extends Player {
 	 * Constructs and egg, with its selected images at the start
 	 */
 	public Egg() {
-		super(0, 0, 0);
+		super(0, 0, 0, "");
 		EggPanel eggPanel = new EggPanel(new DrawingSurface());
 		this.selectedButterfly = eggPanel.selectDesign();
 	}
