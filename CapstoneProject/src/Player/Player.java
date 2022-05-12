@@ -2,6 +2,10 @@ package Player;
 
 import java.awt.Point;
 
+import javax.lang.model.element.Element;
+
+import Obstacle.Obstacle;
+import Obstacle.Predator;
 import Screen.EggPanel;
 import asha.shapes.Rectangle;
 import core.DrawingSurface;
@@ -123,9 +127,20 @@ public abstract class Player {
 	/**
 	 * Increases the total number of collisions for this phase
 	 * @return the total number of collisions 
+	 * @postcondition changes isAlive to false if there are 3 or more collisions
 	 */
-	public int increaseCollisions() {
-		totalCollisions++;
+	public int increaseCollisions(Element element) {
+		
+		if(element instanceof Obstacle) {
+			totalCollisions++;
+		} else if(element instanceof Predator) {
+			totalCollisions = 3;
+		}
+		
+		if(totalCollisions >= 3) {
+			isAlive = false;
+		}
+		
 		return totalCollisions;
 	}
 	
