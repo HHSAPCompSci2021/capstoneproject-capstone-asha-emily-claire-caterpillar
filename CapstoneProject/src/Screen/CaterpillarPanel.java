@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Obstacle.Collectible;
+import Obstacle.Element;
 import Obstacle.Obstacle;
 import Obstacle.Predator;
 import Player.Caterpillar;
@@ -18,7 +19,7 @@ import core.DrawingSurface;
  */
 public class CaterpillarPanel extends Screen{
 	private DrawingSurface surface;
-	private List<Predator> obstacles;
+	private List<Element> obstacles;
 	private List<Collectible> leaves; 
 	private Caterpillar caterpillar; 
 	
@@ -31,7 +32,7 @@ public class CaterpillarPanel extends Screen{
 	{
 		super(800,600);
 		this.surface = surface;
-		obstacles = new ArrayList<Predator>();
+		obstacles = new ArrayList<Element>();
 		leaves = new ArrayList<Collectible>();
 		caterpillar = new Caterpillar(5, 20, DRAWING_HEIGHT/2, surface.getDesign());
 		addRandompredator();
