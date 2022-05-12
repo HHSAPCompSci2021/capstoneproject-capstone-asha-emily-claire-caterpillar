@@ -50,7 +50,7 @@ public abstract class Player {
 	 * @param newDesign
 	 */
 	public void setDesign(String newDesign) {
-		design = newDesignl
+		design = newDesign;
 	}
 	/**
 	 * Returns the Point of the current location
