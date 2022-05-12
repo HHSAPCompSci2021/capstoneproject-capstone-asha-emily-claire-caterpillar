@@ -31,12 +31,5 @@ public class Obstacle extends Element{
 		p.moveByAmount(-10, 0);
 	}
 	
-<<<<<<< Updated upstream
-=======
-	/**
-	 * Receies the boundaries of the obstacle
-	 * @return a rectangle in those boundaries
-	 */
-	
->>>>>>> Stashed changes
+
 }
