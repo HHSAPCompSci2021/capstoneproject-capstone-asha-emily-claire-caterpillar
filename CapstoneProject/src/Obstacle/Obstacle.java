@@ -16,12 +16,12 @@ public class Obstacle extends Element{
 	/**
 	 * Constructs an obstacle
 	 */
-	public Obstacle(int x, int y, double s) {
-		super(x, y, s);
+	public Obstacle(String i, int x, int y, double s) {
+		super(i, x, y, s);
 	}
 	
-	public Obstacle(double s) {
-		super(s);
+	public Obstacle(String i, double s) {
+		super(i, s);
 	}
 	
 	/**
@@ -31,4 +31,12 @@ public class Obstacle extends Element{
 		p.moveByAmount(-10, 0);
 	}
 	
+<<<<<<< Updated upstream
+=======
+	/**
+	 * Receies the boundaries of the obstacle
+	 * @return a rectangle in those boundaries
+	 */
+	
+>>>>>>> Stashed changes
 }

@@ -8,22 +8,20 @@ import asha.shapes.Rectangle;
  * @author Claire
  *
  */
-public class Predator extends Obstacle {
+public class Predator extends Element {
 	
-	private String image;
 	
 	/**
 	 * Creates a predator
 	 */
-	public Predator(int x, int y, double s) {
-		super(x, y, s);
-		image = "img/Flower.gif";
+	public Predator(String i, int x, int y, double s) {
+		super(i, x, y, s);
 	}
 	
-	public Predator(double s) {
-		super(s);
-		image = "img/Flower.gif";
+	public Predator(String i, double s) {
+		super(i, s);
 	}
+	
 	/**
 	 * Checks if the player runs into the predator
 	 * @return boolean - if the player runs into the predator
@@ -34,17 +32,5 @@ public class Predator extends Obstacle {
 		return false;
 	}
 	
-	public String getImage() {
-		return image;
-	}
-	
-	public double getSpeed() {
-		return -speed;
-	}
-	
-	public Rectangle getRectangle() {
-		 = new Rectangle(600 + getX(), 600/2 - 120 + getY(), 64, 64);
-		return r;
-	}
 	
 }

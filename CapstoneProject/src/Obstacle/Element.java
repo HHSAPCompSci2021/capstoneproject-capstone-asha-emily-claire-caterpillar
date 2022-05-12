@@ -9,15 +9,19 @@ public class Element {
 	private double speed;
 	private String image;
 	
+	public Element() {
+		
+	}
+	
 	public Element(String i, double s) {
 		image = i;
-		speed = s;
+		speed = -s;
 	}
 	
 	public Element(String i, double x, double y, double s) {
 		this.x = x;
 		this.y = y;
-		speed = s;
+		speed = -s;
 		image = i;
 	}
 	
@@ -38,9 +42,17 @@ public class Element {
 		return r;
 	}
 	
+	public double getSpeed() {
+		return -speed;
+	}
+	
 	public void moveByAmount(double x, double y) {
 		this.x += x;
 		this.y += y;
+	}
+	
+	public void move() {
+		this.x += speed;
 	}
 
 	
