@@ -8,7 +8,7 @@ import processing.core.PImage;
  * @author Asha
  *
  */
-public class Collectible{
+public class Collectible {
 	private boolean eatenYet;
 	private String collectibleType;
 	private String typeDesign;

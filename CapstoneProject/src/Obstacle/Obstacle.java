@@ -10,21 +10,24 @@ import Player.Player;
  * @author Claire
  *
  */
+<<<<<<< Updated upstream
 public class Obstacle {
 	
 	private boolean ranInto;
 	private double x, y;
+=======
+public class Obstacle extends Element{
+>>>>>>> Stashed changes
 	
 	/**
 	 * Constructs an obstacle
 	 */
-	public Obstacle(int x, int y) {
-		this.x = x;
-		this.y = y;
+	public Obstacle(int x, int y, double s) {
+		super(x, y, s);
 	}
 	
-	public Obstacle() {
-		
+	public Obstacle(double s) {
+		super(s);
 	}
 	
 	/**
@@ -38,18 +41,8 @@ public class Obstacle {
 	 * Receies the boundaries of the obstacle
 	 * @return a rectangle in those boundaries
 	 */
-	public Rectangle getBounds() {
-		
-		return null;
-	}
 	
-	/**
-	 * Increases the rate of collisions
-	 */
-	public void increaseCollisions() {
-		
-	}
-	
+<<<<<<< Updated upstream
 	/**
 	 * Checks if the character reached the total amount of collsions before having to restart
 	 * @return
@@ -82,4 +75,6 @@ public class Obstacle {
 		this.x += x;
 		this.y += y;
 	}
+=======
+>>>>>>> Stashed changes
 }
