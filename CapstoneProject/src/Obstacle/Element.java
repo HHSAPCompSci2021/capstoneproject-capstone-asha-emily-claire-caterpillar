@@ -5,9 +5,24 @@ import core.DrawingSurface;
 
 public class Element {
 
+	/**
+	 * The coordinates of the element
+	 */
 	private double x, y;
+	
+	/**
+	 * The rectangle bounds of the element
+	 */
 	private Rectangle r;
+	
+	/**
+	 * The element's speed
+	 */
 	private double speed;
+	
+	/**
+	 * The element's image
+	 */
 	private String image;
 	
 	/**
@@ -17,11 +32,17 @@ public class Element {
 		
 	}
 	
+	/**
+	 * Contructs a game element
+	 */
 	public Element(String i, double s) {
 		image = i;
 		speed = -s;
 	}
 	
+	/**
+	 * Contructs a game element
+	 */
 	public Element(String i, double x, double y, double s) {
 		this.x = x;
 		this.y = y;

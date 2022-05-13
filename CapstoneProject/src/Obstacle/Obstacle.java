@@ -20,6 +20,9 @@ public class Obstacle extends Element{
 		super(i, x, y, s);
 	}
 	
+	/**
+	 * Constructs an obstacle
+	 */
 	public Obstacle(String i, double s) {
 		super(i, s);
 	}
