@@ -31,7 +31,9 @@ public class CaterpillarPanel extends Screen{
 	 */
 	public CaterpillarPanel(DrawingSurface surface)
 	{
+		
 		super(800,600);
+		System.out.println("HI");
 		this.surface = surface;
 		obstacles = new ArrayList<Element>();
 		leaves = new ArrayList<Collectible>();
@@ -44,6 +46,7 @@ public class CaterpillarPanel extends Screen{
 	 * Adds obstacles to randomized locations to the screen
 	 */
 	private void addRandompredator() {
+		System.out.println("2");
 		obstacles.add(new Obstacle("tree", (int)(Math.random()*5)+DRAWING_WIDTH, 50, 5));
 	}
 
@@ -51,6 +54,7 @@ public class CaterpillarPanel extends Screen{
 	 * Adds collectibles to  randomized locations to the screen
 	 */
 	private void addRandomCollectibles() {
+		System.out.println("3");
 		for(int i = 0; i < 5; i++)
 		{
 			leaves.add(new Collectible("leaf", "leaf", 5, DRAWING_WIDTH+(i*2), 20));
@@ -58,18 +62,6 @@ public class CaterpillarPanel extends Screen{
 	}
 
 
-	/**
-	 * Clears the screen and restarts the phase
-	 */
-	public void resetScreen() {
-
-	}
-	/**
-	 * Transitions to the next panel
-	 */
-	public void nextScreen() {
-		surface.switchScreen(2);
-	}
 
 	/**
 	 * Checks if a restart is needed (if the player lost this phase)
@@ -82,19 +74,21 @@ public class CaterpillarPanel extends Screen{
 	 * Draws the screen
 	 */
 	public void draw() {
+		System.out.println("Why");
 		surface.background(255,255,255);
 
+		System.out.println("Work");
 //		for(Element o : obstacles)
 //		{
 //			surface.image(surface.loadImage(o.getImage()), (float)(600 + o.getX()), (float)(600/2 - 120 + o.getY()), 64, 64);
 //			//			o.draw();
 //		}
 
-		for(Collectible c : leaves)
-		{
-			c.draw(surface, 64, 64);
-		}
-		sideScrolling();
+//		for(Collectible c : leaves)
+//		{
+//			c.draw(surface, 64, 64);
+//		}
+//		sideScrolling();
 		caterpillar.draw(surface);
 
 
@@ -153,5 +147,19 @@ public class CaterpillarPanel extends Screen{
 				c.moveByAmount(c.getX()+DRAWING_WIDTH, 0);
 			}
 		}
+	}
+	
+
+	/**
+	 * Clears the screen and restarts the phase
+	 */
+	public void resetScreen() {
+
+	}
+	/**
+	 * Transitions to the next panel
+	 */
+	public void nextScreen() {
+		surface.switchScreen(3);
 	}
 }
