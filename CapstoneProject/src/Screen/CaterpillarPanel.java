@@ -46,7 +46,7 @@ public class CaterpillarPanel extends Screen{
 	 * Adds obstacles to randomized locations to the screen
 	 */
 	private void addRandompredator() {
-		obstacles.add(new Obstacle("tree", (int)(Math.random()*5)+DRAWING_WIDTH, 50, 5));
+		obstacles.add(new Predator("img/Predator.gif", (int)(Math.random()*5)+DRAWING_WIDTH, 450, 5));
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class CaterpillarPanel extends Screen{
 		System.out.println("3");
 		for(int i = 0; i < 5; i++)
 		{
-			leaves.add(new Collectible("leaf", "leaf", 5, DRAWING_WIDTH+(i*2), 20));
+			leaves.add(new Collectible("leaf", "img/Leaf.gif", 5, DRAWING_WIDTH+(i*2), DRAWING_HEIGHT/2));
 		}
 	}
 
@@ -77,19 +77,18 @@ public class CaterpillarPanel extends Screen{
 		surface.background(255,255,255);
 
 		System.out.println("Work");
-		//		for(Element o : obstacles)
-		//		{
-		//			surface.image(surface.loadImage(o.getImage()), (float)(600 + o.getX()), (float)(600/2 - 120 + o.getY()), 64, 64);
-		//			//			o.draw();
-		//		}
+		for(Element o : obstacles)
+		{
+			o.draw(surface);
+		}
 
-		//		for(Collectible c : leaves)
-		//		{
-		//			c.draw(surface, 64, 64);
-		//		}
-		//		sideScrolling();
+		for(Collectible c : leaves)
+		{
+			c.draw(surface);
+		}
+
 		caterpillar.draw(surface);
-
+		sideScrolling();
 
 		if (surface.isPressed(KeyEvent.VK_UP))
 		{
@@ -102,15 +101,16 @@ public class CaterpillarPanel extends Screen{
 		caterpillar.act(DRAWING_HEIGHT/2);
 		for(Element o : obstacles)
 		{
+			o.move();
 			if(o.collide(caterpillar.playerDesignRect()))
 			{
 				caterpillar.increaseCollisions(o);
-				o.moveByAmount(o.getX()+DRAWING_WIDTH, DRAWING_HEIGHT);
+				o.moveByAmount(o.getX()+DRAWING_WIDTH, 10);
 			}
 		}
 		for(Collectible c : leaves) {
-			Shape s = new Rectangle(c.getX(), c.getY(), 64, 64);
-			if(caterpillar.playerDesignRect().intersects(s)) {
+			c.move();
+			if(c.collide(caterpillar.playerDesignRect())) {
 				c.eat(caterpillar);
 			}
 
@@ -130,17 +130,15 @@ public class CaterpillarPanel extends Screen{
 	 * Implements the side scrolling effect, by adding features to the screen
 	 */
 	public void sideScrolling() {
-		//		for(Element o : obstacles)
-		//		{
-		//			o.moveByAmount(o.getSpeed(), 0);
-		//			if(o.getX() < 0)
-		//			{
-		////				o.setX((Math.random()*(10))+DRAWING_WIDTH);
-		//			}
-		//		}
+		for(Element o : obstacles)
+		{
+			if(o.getX() < 0)
+			{
+				o.moveByAmount(o.getX()+DRAWING_WIDTH, 0);
+			}
+		}
 		for(Collectible c : leaves)
 		{
-			c.moveByAmount(-5, 0);
 			if(c.getX() < 0)
 			{
 				c.moveByAmount(c.getX()+DRAWING_WIDTH, 0);

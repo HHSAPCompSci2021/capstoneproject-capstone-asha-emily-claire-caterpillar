@@ -14,15 +14,14 @@ public class Collectible extends Element{
 	private String typeDesign;
 	private double x, y;
 	
+	//Emily - edited to reflect the new heirarchy
 	/**
 	 * Constructs a collectible (either a leaf or flower)
 	 * @precondition collectableType is either a "leaf" or "flower"
 	 * @param collectibleType - leaf or flower
 	 */
 	public Collectible(String collectibleType, String image, double speed, double x, double y) {
-		super(image, speed);
-		this.x = x;
-		this.y = y;
+		super(image, x, y, speed);
 		this.collectibleType = collectibleType;
 		eatenYet = false;
 		
