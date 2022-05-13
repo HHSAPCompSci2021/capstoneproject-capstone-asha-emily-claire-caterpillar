@@ -29,20 +29,19 @@ public class Butterfly extends Player{
 			setY(getY() + y);
 	}
 
+
+
+	@Override
+	public void draw(DrawingSurface s) {
+			s.image(s.loadImage(s.getDesign()), (float)getX(), (float)getY(), 64, 64);
+			
+	}
+
+
 	@Override
 	public void applyWindowLimits(int windowWidth, int windowHeight) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public void eatCollectable() {
-		
-	}
-
-	@Override
-	public void draw(DrawingSurface s) {
-			s.image(s.loadImage("img/ButterflySprite1.gif"), (float)getX(), (float)getY(), 64, 64);
 	}
 	
 	

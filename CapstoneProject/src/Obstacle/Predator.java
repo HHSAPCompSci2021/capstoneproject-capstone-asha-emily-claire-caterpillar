@@ -18,6 +18,9 @@ import asha.shapes.Rectangle;
 		super(i, x, y, s);
 	}
 	
+	/**
+	 * Creates a predator
+	 */
 	public Predator(String i, double s) {
 		super(i, s);
 	}

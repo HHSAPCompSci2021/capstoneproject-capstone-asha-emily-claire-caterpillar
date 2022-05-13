@@ -11,9 +11,9 @@ import Screen.Screen;
 import processing.core.PApplet;
 /**
  * 
+ * @author Emily
  * Creates a surface that holds all the panels (different phases).
  * These are represented by different screens
- * @author Emily
  *
  */
 public class DrawingSurface extends PApplet{
@@ -28,11 +28,8 @@ public class DrawingSurface extends PApplet{
 	/* 
 	 * 0 = menu
 	 * 1 = egg
-	 * 2 = menu transition
-	 * 3 = caterpillar
-	 * 4 = menu transition
-	 * 5 = butterfly
-	 * 6 = end
+	 * 2 = caterpillar
+	 * 3 = butterfly
 	 */
 	public DrawingSurface() {
 		screens = new ArrayList<Screen>();
@@ -44,21 +41,11 @@ public class DrawingSurface extends PApplet{
 		EggPanel egg = new EggPanel(this);
 		screens.add(egg);
 		
-		//Edited to add the other menuscreens
-		MenuPanel menuTransition1 = new MenuPanel(this, "caterpillarPhase");
-		screens.add(menuTransition1);
-		
 		CaterpillarPanel cater = new CaterpillarPanel(this);
 		screens.add(cater);
 		
-		MenuPanel menuTransition2 = new MenuPanel(this, "butterflyPhase");
-		screens.add(menuTransition2);
-		
 		ButterflyPanel butter = new ButterflyPanel(this);
 		screens.add(butter);
-		
-		MenuPanel menuTransition3 = new MenuPanel(this, "endPhase");
-		screens.add(menuTransition3);
 		
 		currScreen = screens.get(0);
 		
