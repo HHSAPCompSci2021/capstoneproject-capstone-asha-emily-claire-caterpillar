@@ -78,14 +78,18 @@ public class CaterpillarPanel extends Screen{
 		caterpillar.draw(surface);
 		sideScrolling();
 
+		//y of highest point 177.49999999999997
 		if (surface.isPressed(KeyEvent.VK_UP))
 		{
 			caterpillar.jump();
 		}
+		
+		//y of lowest point 422.5
 		if(surface.isPressed(KeyEvent.VK_DOWN)) {
 			caterpillar.dive();
 		}
 
+		System.out.println(caterpillar.getY());
 		caterpillar.act(DRAWING_HEIGHT/2);
 		for(Element o : obstacles)
 		{
@@ -99,10 +103,8 @@ public class CaterpillarPanel extends Screen{
 		for(Collectible c : leaves) {
 			c.move();
 			if(c.collide(caterpillar.playerDesignRect())) {
-				System.out.println("here");
 				c.moveByAmount(c.getX()+DRAWING_WIDTH, 10);
 				c.eat(caterpillar);
-				System.out.println(caterpillar.getNumCollectible());
 			}
 
 		}
@@ -142,7 +144,7 @@ public class CaterpillarPanel extends Screen{
 	 * Clears the screen and restarts the phase
 	 */
 	public void resetScreen() {
-
+		surface.switchScreen(0);
 	}
 	/**
 	 * Transitions to the next panel
