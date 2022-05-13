@@ -31,7 +31,7 @@ public class CaterpillarPanel extends Screen{
 	 */
 	public CaterpillarPanel(DrawingSurface surface)
 	{
-		
+
 		super(800,600);
 		System.out.println("HI");
 		this.surface = surface;
@@ -46,7 +46,6 @@ public class CaterpillarPanel extends Screen{
 	 * Adds obstacles to randomized locations to the screen
 	 */
 	private void addRandompredator() {
-		System.out.println("2");
 		obstacles.add(new Obstacle("tree", (int)(Math.random()*5)+DRAWING_WIDTH, 50, 5));
 	}
 
@@ -78,17 +77,17 @@ public class CaterpillarPanel extends Screen{
 		surface.background(255,255,255);
 
 		System.out.println("Work");
-//		for(Element o : obstacles)
-//		{
-//			surface.image(surface.loadImage(o.getImage()), (float)(600 + o.getX()), (float)(600/2 - 120 + o.getY()), 64, 64);
-//			//			o.draw();
-//		}
+		//		for(Element o : obstacles)
+		//		{
+		//			surface.image(surface.loadImage(o.getImage()), (float)(600 + o.getX()), (float)(600/2 - 120 + o.getY()), 64, 64);
+		//			//			o.draw();
+		//		}
 
-//		for(Collectible c : leaves)
-//		{
-//			c.draw(surface, 64, 64);
-//		}
-//		sideScrolling();
+		//		for(Collectible c : leaves)
+		//		{
+		//			c.draw(surface, 64, 64);
+		//		}
+		//		sideScrolling();
 		caterpillar.draw(surface);
 
 
@@ -101,14 +100,14 @@ public class CaterpillarPanel extends Screen{
 		}
 
 		caterpillar.act(DRAWING_HEIGHT/2);
-		//		for(Predator o : obstacles)
-		//		{
-		//			if(o.getBounds().intersects(new Rectangle((int)caterpillar.getX(),(int)caterpillar.getY(), 64, 64)))
-		//			{
-		//				caterpillar.increaseCollisions();
-		////				o.setX((Math.random()*(10))+DRAWING_WIDTH);
-		//			}
-		//		}
+		for(Element o : obstacles)
+		{
+			if(o.collide(caterpillar.playerDesignRect()))
+			{
+				caterpillar.increaseCollisions(o);
+				o.moveByAmount(o.getX()+DRAWING_WIDTH, DRAWING_HEIGHT);
+			}
+		}
 		for(Collectible c : leaves) {
 			Shape s = new Rectangle(c.getX(), c.getY(), 64, 64);
 			if(caterpillar.playerDesignRect().intersects(s)) {
@@ -148,7 +147,7 @@ public class CaterpillarPanel extends Screen{
 			}
 		}
 	}
-	
+
 
 	/**
 	 * Clears the screen and restarts the phase
