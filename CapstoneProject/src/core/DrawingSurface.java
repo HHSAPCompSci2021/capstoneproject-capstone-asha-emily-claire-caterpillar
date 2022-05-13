@@ -47,7 +47,7 @@ public class DrawingSurface extends PApplet{
 		ButterflyPanel butter = new ButterflyPanel(this);
 		screens.add(butter);
 		
-		currScreen = screens.get(3);
+		currScreen = screens.get(0);
 		
 	}
 	/**
