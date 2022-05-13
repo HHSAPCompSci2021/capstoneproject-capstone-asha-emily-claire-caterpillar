@@ -28,8 +28,7 @@ public class Obstacle extends Element{
 	 * Bounces the character back from the obstacle
 	 */
 	public void moveBack(Player p) {
-		p.moveByAmount(-10, 0);
+		p.moveByAmount(-20, 0);
 	}
-	
 	
 }

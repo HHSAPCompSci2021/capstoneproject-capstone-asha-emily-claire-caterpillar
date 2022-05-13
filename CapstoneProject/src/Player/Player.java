@@ -1,9 +1,8 @@
 package Player;
 
 import java.awt.Point;
-
-import javax.lang.model.element.Element;
-
+//Originally had the wrong element export but i changed it -claire
+import Obstacle.Element;
 import Obstacle.Obstacle;
 import Obstacle.Predator;
 import Screen.EggPanel;
@@ -225,10 +224,12 @@ public abstract class Player {
 	
 
 
+	//Added DrawingSurface as a parameter -Claire
+	
 	/**
 	 * Draws the player on the screen
 	 */
-	public abstract void draw();
+	public abstract void draw(DrawingSurface s);
 	
 	
 	

@@ -8,7 +8,7 @@ import asha.shapes.Rectangle;
  * @author Claire
  *
  */
-public class Predator extends Element {
+	public class Predator extends Element {
 	
 	
 	/**
@@ -27,8 +27,6 @@ public class Predator extends Element {
 	 * @return boolean - if the player runs into the predator
 	 */
 	public boolean ranInto(Player p) {
-		
-		
 		return false;
 	}
 	

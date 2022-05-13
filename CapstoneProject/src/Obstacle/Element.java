@@ -1,6 +1,7 @@
 package Obstacle;
 
-import java.awt.Rectangle;
+import asha.shapes.Rectangle;
+import core.DrawingSurface;
 
 public class Element {
 
@@ -26,8 +27,7 @@ public class Element {
 	}
 	
 	public Rectangle getBounds() {
-		
-		return null;
+		return new Rectangle(x, y, 64, 64);
 	}
 	
 	public double getX() {
@@ -36,10 +36,6 @@ public class Element {
 	
 	public double getY() {
 		return y;
-	}
-	
-	public Rectangle getRect() {
-		return r;
 	}
 	
 	public double getSpeed() {
@@ -53,6 +49,19 @@ public class Element {
 	
 	public void move() {
 		this.x += speed;
+	}
+	
+	public boolean collide(Rectangle r) {
+		if(getBounds().intersects(r)) {
+			return true;
+		} else {
+			return false; 
+		}
+	}
+	
+	public void draw(DrawingSurface s) {
+		s.image(s.loadImage(image), (float)getX(), (float)getY(), 64, 64);
+
 	}
 
 	

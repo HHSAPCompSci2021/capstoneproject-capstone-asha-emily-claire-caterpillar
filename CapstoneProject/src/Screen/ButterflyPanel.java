@@ -3,6 +3,7 @@ package Screen;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import Obstacle.Element;
 import Obstacle.Obstacle;
 import Obstacle.Predator;
 import Player.Butterfly;
@@ -15,8 +16,9 @@ import core.DrawingSurface;
 public class ButterflyPanel extends Screen {
 	
 	private DrawingSurface surface;
-	private ArrayList<Predator> obs;
+	private ArrayList<Element> obs;
 	private Butterfly b;
+	private boolean restart;
 	
 	/**
 	 * Constructs a ButterflyPanel 
@@ -25,29 +27,35 @@ public class ButterflyPanel extends Screen {
 	public ButterflyPanel(DrawingSurface s) {
 		super(800,600);
 		surface = s;
-		b = new Butterfly();
-		obs = new ArrayList<Predator>();
-		obs.add(new Predator(600, -100, 5));
-		obs.add(new Predator(600, -100, 7));
-		obs.add(new Predator(600, 250, 8));
-		obs.add(new Predator(600, 250, 10));
-		obs.add(new Predator(600, -100, 7));
-		obs.add(new Predator(600, 250, 10));
-		obs.add(new Predator(600, 250, 10));
-		obs.add(new Predator(600, -100, 7));
-	
-
-
-
-
-
+		restart = false;
+		b = new Butterfly(5, 100, 100, "img/ButterflySprite1.gif");
+		obs = new ArrayList<Element>();
+		int i = 0;
+		while ( i < 5) {
+			addRandomElement();
+			i++;
+		}
+		//System.out.println(obs);
 	}
 	
 	/**
 	 * Adds a predator to a random location
 	 */
-	public void addRandomPredator() {
-		
+	public void addRandomElement() {
+		int y = (((int)(Math.random() * 301) + 100) / 10) * 10;
+		//System.out.println(y);
+		double choice = (Math.random());
+		//System.out.println(choice);
+
+		if(choice >= 0.5) {
+			obs.add(new Predator("img/Predator.gif", 600, y, 10));
+			System.out.println(false);
+
+		} else {
+			obs.add(new Obstacle("img/Flower.gif", 600, y, 10));
+			System.out.println(true);
+
+		}
 	}
 	
 	/**
@@ -71,26 +79,55 @@ public class ButterflyPanel extends Screen {
 	 */
 	public void draw() {
 		
-		
-		
-		
 		surface.background(255,255,255);
 		surface.fill(0);
 		
 		
+		if(b.getIsAlive()) {
+			restart = false;
+			if (surface.isPressed(KeyEvent.VK_UP) && 600/2 - 64 + b.getY() >= 80)
+				b.moveByAmount(0, -10);
+			if (surface.isPressed(KeyEvent.VK_DOWN) && 600/2 - 64 + b.getY() < 470)
+				b.moveByAmount(0, 10);
+			
+			
+			b.draw(surface);
+			
+			for(Element e : obs) {
+				e.draw(surface);
+			}
+				
+			
+			boolean done = true;
+			for(Element e : obs) {
+				if(600 + e.getX() > -64 && done) { 
+						done = false;
+						if(e.collide(b.playerDesignRect())) {
+							b.increaseCollisions(e);
+						}
+						e.move();
+						e.draw(surface);
+						
+					} else {
+						done = true;
+					}
+				}
+		}	else {
+			surface.text("Game Over", 380, 300);
+		}
+			
+			
+		//}
+		
+		
+	
+		
+		
+		
+		
 //		
-//		if (surface.isPressed(KeyEvent.VK_LEFT) && 100 + b.getX() >= 0)
-//			b.moveByAmount(-10, 0);
-//		if (surface.isPressed(KeyEvent.VK_RIGHT) &&  100 + b.getX() < 750)
-//			b.moveByAmount(10, 0);
-		if (surface.isPressed(KeyEvent.VK_UP) && 600/2 - 64 + b.getY() >= 80)
-			b.moveByAmount(0, -10);
-		if (surface.isPressed(KeyEvent.VK_DOWN) && 600/2 - 64 + b.getY() < 470)
-			b.moveByAmount(0, 10);
-		
-		
-		if(b.keepPlaying()) 
-			surface.image(surface.loadImage(b.imageName()), (float)(100 + b.getX()), (float)(600/2 - 64 + b.getY()), 64, 64);
+//		if(b.keepPlaying()) 
+//			s
 		//System.out.println(b.getX() + " " + b.getY());
 		
 		//surface.image(surface.loadImage(obs.get(0).getImage()), (float)(600 + obs.get(0).getX()), (float)(600/2 - 120 + obs.get(0).getY()), 64, 64);
@@ -121,25 +158,7 @@ public class ButterflyPanel extends Screen {
 //			}
 //		}
 		
-		boolean done = true;
-		for(Predator l : obs) {
-		//boolean game = false;
 		
-			
-			if(600 + l.getX() > -64 && done) { 
-				done = false;
-				if(b.intersect(l.getRectangle())) {
-				//	final long startTime = System.currentTimeMillis();
-				//	if(startTime + 30 == System.currentTimeMillis())
-					b.hitObstacle();
-				}
-				l.moveByAmount(l.getSpeed(), 0);
-				surface.image(surface.loadImage(l.getImage()), (float)(600 + l.getX()), (float)(600/2 - 120 + l.getY()), 64, 64);
-	
-			} else {
-				done = true;
-			}
-		}
 		
 		
 		
@@ -152,9 +171,8 @@ public class ButterflyPanel extends Screen {
 	 * Checks if a restart of the phase is need
 	 * @return boolean - if a restart is needed
 	 */
-	public boolean needRestart() {
-		
-		return false;
+	public void needRestart() {
+		restart = true;
 	}
 	
 	/**
