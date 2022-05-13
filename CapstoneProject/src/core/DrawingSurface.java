@@ -44,8 +44,8 @@ public class DrawingSurface extends PApplet{
 		CaterpillarPanel cater = new CaterpillarPanel(this);
 		screens.add(cater);
 		
-//		ButterflyPanel butter = new ButterflyPanel(this);
-//		screens.add(butter);
+		ButterflyPanel butter = new ButterflyPanel(this);
+		screens.add(butter);
 		
 		currScreen = screens.get(0);
 		

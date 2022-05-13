@@ -33,7 +33,6 @@ public class CaterpillarPanel extends Screen{
 	{
 
 		super(800,600);
-		System.out.println("HI");
 		this.surface = surface;
 		obstacles = new ArrayList<Element>();
 		leaves = new ArrayList<Collectible>();
@@ -53,30 +52,19 @@ public class CaterpillarPanel extends Screen{
 	 * Adds collectibles to  randomized locations to the screen
 	 */
 	private void addRandomCollectibles() {
-		System.out.println("3");
-		for(int i = 0; i < 5; i++)
+		for(int i = 0; i < 2; i++)
 		{
-			leaves.add(new Collectible("leaf", "img/Leaf.gif", 5, DRAWING_WIDTH+(i*2), DRAWING_HEIGHT/2));
+			leaves.add(new Collectible("leaf", "img/Leaf.gif", 5, DRAWING_WIDTH+(i*60), DRAWING_HEIGHT/2));
 		}
 	}
 
-
-
-	/**
-	 * Checks if a restart is needed (if the player lost this phase)
-	 */
-	//	public boolean needReset() {
-	//		
-	//	}
 
 	/**
 	 * Draws the screen
 	 */
 	public void draw() {
-		System.out.println("Why");
 		surface.background(255,255,255);
 
-		System.out.println("Work");
 		for(Element o : obstacles)
 		{
 			o.draw(surface);
@@ -111,7 +99,10 @@ public class CaterpillarPanel extends Screen{
 		for(Collectible c : leaves) {
 			c.move();
 			if(c.collide(caterpillar.playerDesignRect())) {
+				System.out.println("here");
+				c.moveByAmount(c.getX()+DRAWING_WIDTH, 10);
 				c.eat(caterpillar);
+				System.out.println(caterpillar.getNumCollectible());
 			}
 
 		}
@@ -132,14 +123,14 @@ public class CaterpillarPanel extends Screen{
 	public void sideScrolling() {
 		for(Element o : obstacles)
 		{
-			if(o.getX() < 0)
+			if(o.getX() < -64)
 			{
 				o.moveByAmount(o.getX()+DRAWING_WIDTH, 0);
 			}
 		}
 		for(Collectible c : leaves)
 		{
-			if(c.getX() < 0)
+			if(c.getX() < -64)
 			{
 				c.moveByAmount(c.getX()+DRAWING_WIDTH, 0);
 			}
