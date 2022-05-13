@@ -228,6 +228,7 @@ public abstract class Player {
 	
 	/**
 	 * Draws the player on the screen
+	 * @param s - the DrawingSurface
 	 */
 	public abstract void draw(DrawingSurface s);
 	
