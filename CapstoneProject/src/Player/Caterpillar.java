@@ -33,7 +33,8 @@ public class Caterpillar extends Player{
 	
 	@Override
 	public void moveByAmount(double x, double y) {
-		// TODO Auto-generated method stub
+		setX(getX()+x);
+		setY(getY()+x);
 		
 	}
 
@@ -55,6 +56,9 @@ public class Caterpillar extends Player{
 		
 	}
 
+	/**
+	 * Makes the Caterpillar dive
+	 */
 	public void dive() {
 		// TODO Auto-generated method stub
 		if(onSurface) {
@@ -63,6 +67,9 @@ public class Caterpillar extends Player{
 		}
 	}
 
+	/**
+	 * Makes the Caterpillar jump
+	 */
 	public void jump() {
 		// TODO Auto-generated method stub
 		if(onSurface) {
@@ -73,6 +80,9 @@ public class Caterpillar extends Player{
 		
 	}
 
+	/**
+	 * Applies all additional forces to Caterpillar
+	 */
 	public void act(double ground) {
 		// TODO Auto-generated method stub
 		onSurface = false;

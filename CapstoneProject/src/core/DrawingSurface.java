@@ -35,7 +35,7 @@ public class DrawingSurface extends PApplet{
 		screens = new ArrayList<Screen>();
 		keys = new ArrayList<Integer>();
 		
-		MenuPanel menu = new MenuPanel(this);
+		MenuPanel menu = new MenuPanel(this, "eggPhase");
 		screens.add(menu);
 		
 		EggPanel egg = new EggPanel(this);
