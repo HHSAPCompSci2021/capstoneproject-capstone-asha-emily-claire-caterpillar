@@ -2,11 +2,7 @@ package Obstacle;
 
 import asha.shapes.Rectangle;
 import core.DrawingSurface;
-/**
- * Represents a game element that a player may encounter
- * @author Claire
- *
- */
+
 public class Element {
 
 	/**
@@ -30,16 +26,14 @@ public class Element {
 	private String image;
 	
 	/**
-	 * Constructs a game element
+	 * Contructs a game element
 	 */
 	public Element() {
 		
 	}
 	
 	/**
-	 * Constructs a game element 
-	 * @param i - image file name
-	 * @param s - speed 
+	 * Contructs a game element
 	 */
 	public Element(String i, double s) {
 		image = i;
@@ -47,11 +41,7 @@ public class Element {
 	}
 	
 	/**
-	 * Constructs a game element 
-	 * @param i - image file name
-	 * @param x - x-coordinate 
-	 * @param y - y-coordinate
-	 * @param s - speed
+	 * Contructs a game element
 	 */
 	public Element(String i, double x, double y, double s) {
 		this.x = x;

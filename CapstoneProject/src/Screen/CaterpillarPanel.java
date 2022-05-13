@@ -45,7 +45,7 @@ public class CaterpillarPanel extends Screen{
 	 * Adds obstacles to randomized locations to the screen
 	 */
 	private void addRandompredator() {
-		obstacles.add(new Predator("img/Predator.gif", (int)(Math.random()*5)+DRAWING_WIDTH, 200, 5));
+		obstacles.add(new Predator("img/Predator.gif", (int)(Math.random()*5)+DRAWING_WIDTH, 450, 5));
 	}
 
 	/**
@@ -78,18 +78,14 @@ public class CaterpillarPanel extends Screen{
 		caterpillar.draw(surface);
 		sideScrolling();
 
-		//y of highest point 177.49999999999997
 		if (surface.isPressed(KeyEvent.VK_UP))
 		{
 			caterpillar.jump();
 		}
-		
-		//y of lowest point 422.5
 		if(surface.isPressed(KeyEvent.VK_DOWN)) {
 			caterpillar.dive();
 		}
 
-		System.out.println(caterpillar.getY());
 		caterpillar.act(DRAWING_HEIGHT/2);
 		for(Element o : obstacles)
 		{
@@ -103,8 +99,10 @@ public class CaterpillarPanel extends Screen{
 		for(Collectible c : leaves) {
 			c.move();
 			if(c.collide(caterpillar.playerDesignRect())) {
+				System.out.println("here");
 				c.moveByAmount(c.getX()+DRAWING_WIDTH, 10);
 				c.eat(caterpillar);
+				System.out.println(caterpillar.getNumCollectible());
 			}
 
 		}
@@ -144,12 +142,12 @@ public class CaterpillarPanel extends Screen{
 	 * Clears the screen and restarts the phase
 	 */
 	public void resetScreen() {
-		surface.switchScreen(0);
+
 	}
 	/**
 	 * Transitions to the next panel
 	 */
 	public void nextScreen() {
-		surface.switchScreen(4);
+		surface.switchScreen(3);
 	}
 }
