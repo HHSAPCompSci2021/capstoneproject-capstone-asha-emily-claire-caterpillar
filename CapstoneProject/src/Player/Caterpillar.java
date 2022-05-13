@@ -5,6 +5,7 @@ import java.util.List;
 import Obstacle.Collectible;
 import Obstacle.Obstacle;
 import Obstacle.Predator;
+import core.DrawingSurface;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -44,14 +45,16 @@ public class Caterpillar extends Player{
 		
 	}
 
+	//Should the parameter be drawing surface instead of PApplet? Also, is this method needed, if it is already being override?
 	public void draw(PApplet p) {
 		// TODO Auto-generated method stub
 		p.image(p.loadImage(selectedImage("caterpillar")), (float)x, (float)y, 64, 64);
 			
 	}
-
+	
+	//Added the drawing surface parameter. 
 	@Override
-	public void draw() {
+	public void draw(DrawingSurface s) {
 		// TODO Auto-generated method stub
 		
 	}

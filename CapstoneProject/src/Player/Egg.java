@@ -4,6 +4,7 @@ import java.awt.Point;
 
 import Screen.EggPanel;
 import core.DrawingSurface;
+import processing.core.PApplet;
 import processing.core.PImage;
 /**
  * Represents the Player during the Egg phase
@@ -87,7 +88,7 @@ public class Egg extends Player {
 	}
 
 	@Override
-	public void draw() {
+	public void draw(DrawingSurface drawer) {
 		// TODO Auto-generated method stub
 		
 	}
