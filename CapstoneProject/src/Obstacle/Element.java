@@ -15,17 +15,29 @@ public class Element {
 	private String image;
 	
 	/**
-	 * Contructs a game element
+	 * Constructs a game element
 	 */
 	public Element() {
 		
 	}
 	
+	/**
+	 * Constructs a game element 
+	 * @param i - image file name
+	 * @param s - speed 
+	 */
 	public Element(String i, double s) {
 		image = i;
 		speed = -s;
 	}
 	
+	/**
+	 * Constructs a game element 
+	 * @param i - image file name
+	 * @param x - x-coordinate 
+	 * @param y - y-coordinate
+	 * @param s - speed
+	 */
 	public Element(String i, double x, double y, double s) {
 		this.x = x;
 		this.y = y;

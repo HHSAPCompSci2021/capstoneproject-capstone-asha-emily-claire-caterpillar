@@ -23,7 +23,7 @@ public class MenuPanel extends Screen {
 	private int nextScreen;
 	/**
 	 * Constructs a menu panel window with the purpose of showing instructions and starting the game
-	 * @precondition phaseType is either eggPhase, caterpillarPhase, or butterflyPhase
+	 * @precondition phaseType is either eggPhase, caterpillarPhase, butterflyPhase, or endPhase
 	 * @param drawer - the drawing surface 
 	 */
 	public MenuPanel(DrawingSurface drawer, String phaseType) {
@@ -38,9 +38,9 @@ public class MenuPanel extends Screen {
 			nextScreen = 1;
 		} else if(phaseType.equals("caterpillarPhase")) {
 			nextScreen = 3;
-		} else {
+		} else if(phaseType.equals("butterflyPhase")) {
 			nextScreen = 5;
-		}
+		} 
 
 		button = new Rectangle(800/2-100,600/2-50,200,100);
 	}
@@ -72,6 +72,14 @@ public class MenuPanel extends Screen {
 					+ " \nesque game with a character selection feature at the start. "
 					+ "\nThe game will include the different phases which will change the style of the game. "
 					+ "\nOur primary user base would be people who enjoy games.  ",20, 20);
+			
+			surface.fill(255);
+			surface.rect(button.x, button.y, button.width, button.height);
+			surface.fill(0);
+			String str = "Start!";
+			float w = surface.textWidth(str);
+			surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
+			
 		} else if(phaseType.equals("caterpillarPhase")) {
 			surface.text("Congrats! You are now a caterpillar! "
 					+ "\nUse the up and down arrows keys to toggle between movements. "
@@ -79,19 +87,30 @@ public class MenuPanel extends Screen {
 					+ "\nIf you crash into an obstacle 3 times, you will unfortunately have to start your journey over again."
 					+ "\nThe same occurs when you run into a predator."
 					+ "\nGood luck!", 20, 20);
-		} else {
+			surface.fill(255);
+			surface.rect(button.x, button.y, button.width, button.height);
+			surface.fill(0);
+			String str = "Start!";
+			float w = surface.textWidth(str);
+			surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
+		} else if(phaseType.equals("butterflyPhase")) {
 			surface.text("Yay! You are now a butterfly!"
 					+ "\nUse the arrow keys to avoid obstacles/predators and to collect flowers."
 					+ "\nEventually, the game will end and you will have reached your destination."
 					+ "\nPress esc to exit out of the screen", 20, 20);
+			surface.fill(255);
+			surface.rect(button.x, button.y, button.width, button.height);
+			surface.fill(0);
+			String str = "Start!";
+			float w = surface.textWidth(str);
+			surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
+		} else {
+			surface.text("Congrats!"
+					+ "\nYou have completed your journey as a butterfly"
+					+ "\nFeel free to play again", 20, 20);
 		}
 		
-		surface.fill(255);
-		surface.rect(button.x, button.y, button.width, button.height);
-		surface.fill(0);
-		String str = "Start!";
-		float w = surface.textWidth(str);
-		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
+		
 	}
 	
 	/**
@@ -108,10 +127,7 @@ public class MenuPanel extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX, surface.mouseY));
         if(button.contains(p)) {
-        	
-        	
-        	System.out.println(phaseType);
-        	System.out.println(nextScreen);
+       
         	surface.switchScreen(nextScreen);
         }
 	

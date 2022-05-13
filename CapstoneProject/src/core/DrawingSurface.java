@@ -28,8 +28,11 @@ public class DrawingSurface extends PApplet{
 	/* 
 	 * 0 = menu
 	 * 1 = egg
-	 * 2 = caterpillar
-	 * 3 = butterfly
+	 * 2 = menu transition
+	 * 3 = caterpillar
+	 * 4 = menu transition
+	 * 5 = butterfly
+	 * 6 = end
 	 */
 	public DrawingSurface() {
 		screens = new ArrayList<Screen>();
@@ -53,6 +56,9 @@ public class DrawingSurface extends PApplet{
 		
 		ButterflyPanel butter = new ButterflyPanel(this);
 		screens.add(butter);
+		
+		MenuPanel menuTransition3 = new MenuPanel(this, "endPhase");
+		screens.add(menuTransition3);
 		
 		currScreen = screens.get(0);
 		
