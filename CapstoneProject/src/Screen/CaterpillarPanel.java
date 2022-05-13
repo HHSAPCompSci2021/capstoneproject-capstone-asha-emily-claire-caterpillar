@@ -45,7 +45,7 @@ public class CaterpillarPanel extends Screen{
 	 * Adds obstacles to randomized locations to the screen
 	 */
 	private void addRandompredator() {
-		obstacles.add(new Predator("img/Predator.gif", (int)(Math.random()*5)+DRAWING_WIDTH, 450, 5));
+		obstacles.add(new Predator("img/Predator.gif", (int)(Math.random()*5)+DRAWING_WIDTH, 200, 5));
 	}
 
 	/**

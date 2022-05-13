@@ -2,7 +2,11 @@ package Obstacle;
 
 import asha.shapes.Rectangle;
 import core.DrawingSurface;
-
+/**
+ * Represents a game element that a player may encounter
+ * @author Claire
+ *
+ */
 public class Element {
 
 	private double x, y;

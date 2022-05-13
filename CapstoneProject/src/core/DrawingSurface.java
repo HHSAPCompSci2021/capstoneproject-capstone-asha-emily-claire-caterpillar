@@ -11,9 +11,9 @@ import Screen.Screen;
 import processing.core.PApplet;
 /**
  * 
- * @author Emily
  * Creates a surface that holds all the panels (different phases).
  * These are represented by different screens
+ * @author Emily
  *
  */
 public class DrawingSurface extends PApplet{
