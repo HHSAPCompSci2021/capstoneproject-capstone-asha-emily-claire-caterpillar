@@ -15,12 +15,10 @@ import processing.core.PImage;
  *
  */
 public class Caterpillar extends Player{
-	private PImage image;
 	private double yVol;
-	private double x, y;
 	private boolean onSurface;
 	private int upDown;
-	
+
 	/**
 	 * Constructs a Caterpillar 
 	 */
@@ -31,32 +29,26 @@ public class Caterpillar extends Player{
 		upDown = 0;
 		yVol = 0;
 	}
-	
+
 	@Override
 	public void moveByAmount(double x, double y) {
 		setX(getX()+x);
 		setY(getY()+x);
-		
+
 	}
 
 	@Override
 	public void applyWindowLimits(int windowWidth, int windowHeight) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	//Should the parameter be drawing surface instead of PApplet? Also, is this method needed, if it is already being override?
-	public void draw(PApplet p) {
+
+
+	public void draw(DrawingSurface p) {
 		// TODO Auto-generated method stub
-		p.image(p.loadImage(selectedImage("caterpillar")), (float)x, (float)y, 64, 64);
-			
-	}
-	
-	//Added the drawing surface parameter. 
-	@Override
-	public void draw(DrawingSurface s) {
-		// TODO Auto-generated method stub
-		
+		p.image(p.loadImage(selectedImage("caterpillar")), (float)getX(), (float)getY(), 64, 64);
+
 	}
 
 	/**
@@ -80,7 +72,7 @@ public class Caterpillar extends Player{
 			upDown = 1;
 		}
 
-		
+
 	}
 
 	/**
@@ -95,17 +87,17 @@ public class Caterpillar extends Player{
 		{
 			yVol -= 0.1;
 		}
-		
-		y += yVol;
-		
-		if(y == ground)
+
+		setY(getY() + yVol);
+
+		if(getY() == ground)
 		{
 			yVol = 0;
-			y = ground;
+			setY(ground);
 			upDown = 0;
 			onSurface = true;
-			
+
 		}
 	}
-	
+
 }
