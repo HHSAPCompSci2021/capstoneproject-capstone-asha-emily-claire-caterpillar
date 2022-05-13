@@ -38,6 +38,7 @@ public class Collectible extends Element{
 	 * @param player - A Player object that will collect this collectible
 	 */
 	public void eat(Player player) {
+		
 		player.eatCollectable();
 		eatenYet = true;
 	}

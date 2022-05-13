@@ -52,7 +52,7 @@ public class ButterflyPanel extends Screen {
 		col = new ArrayList<Collectible>();
 		int i = 0;
 		addRandomElement();
-		addRandomCollectable();
+		addRandomCollectible();
 		//System.out.println(obs);
 	}
 	
@@ -96,7 +96,7 @@ public class ButterflyPanel extends Screen {
 	/**
 	 * Adds a number of collectables to random locations
 	 */
-	public void addRandomCollectable() {
+	public void addRandomCollectible() {
 
 		for(int i = 0; i < 13; i++) {
 			
@@ -114,7 +114,8 @@ public class ButterflyPanel extends Screen {
 			} 
 			
 			int x = (((int)(Math.random() * 200) + 400) / 10) * 10;
-	
+			
+			//Was this supposed to be added to the collectible array instead of obs
 			obs.add(new Collectible("flower", "img/Flower.gif", 10, 800 + (i * x), y));
 			System.out.println(false);
 			

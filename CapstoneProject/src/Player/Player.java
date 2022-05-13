@@ -203,7 +203,7 @@ public abstract class Player {
 	
 	/**
 	 * Changes the value of y
-	 * @param set - an int that it will be set oo
+	 * @param set - an int that it will be set to
 	 */
 	public void setY(double set) {
 		y = set;
