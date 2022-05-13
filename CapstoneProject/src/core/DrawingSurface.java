@@ -41,8 +41,15 @@ public class DrawingSurface extends PApplet{
 		EggPanel egg = new EggPanel(this);
 		screens.add(egg);
 		
+		//Edited to add the other menuscreens
+		MenuPanel menuTransition1 = new MenuPanel(this, "caterpillarPhase");
+		screens.add(menuTransition1);
+		
 		CaterpillarPanel cater = new CaterpillarPanel(this);
 		screens.add(cater);
+		
+		MenuPanel menuTransition2 = new MenuPanel(this, "butterflyPhase");
+		screens.add(menuTransition2);
 		
 		ButterflyPanel butter = new ButterflyPanel(this);
 		screens.add(butter);

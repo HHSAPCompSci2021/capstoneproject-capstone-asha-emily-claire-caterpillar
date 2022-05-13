@@ -148,6 +148,6 @@ public class CaterpillarPanel extends Screen{
 	 * Transitions to the next panel
 	 */
 	public void nextScreen() {
-		surface.switchScreen(3);
+		surface.switchScreen(4);
 	}
 }
