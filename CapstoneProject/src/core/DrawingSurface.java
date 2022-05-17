@@ -28,8 +28,10 @@ public class DrawingSurface extends PApplet{
 	/* 
 	 * 0 = menu
 	 * 1 = egg
-	 * 2 = caterpillar
-	 * 3 = butterfly
+	 * 2 = menu before caterpillar 
+	 * 3 = caterpillar
+	 * 4 = menu before butterfly 
+	 * 5 = butterfly
 	 */
 	public DrawingSurface() {
 		screens = new ArrayList<Screen>();
@@ -41,8 +43,14 @@ public class DrawingSurface extends PApplet{
 		EggPanel egg = new EggPanel(this);
 		screens.add(egg);
 		
+//		MenuPanel menuE = new MenuPanel(this, "caterpillarPhase");
+//		screens.add(menuE);
+		
 		CaterpillarPanel cater = new CaterpillarPanel(this);
 		screens.add(cater);
+		
+//		MenuPanel menuB = new MenuPanel(this, "butterflyPhase");
+//		screens.add(menuB);
 		
 		ButterflyPanel butter = new ButterflyPanel(this);
 		screens.add(butter);

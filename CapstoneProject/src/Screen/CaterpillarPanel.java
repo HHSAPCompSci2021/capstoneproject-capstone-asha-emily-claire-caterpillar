@@ -23,6 +23,7 @@ public class CaterpillarPanel extends Screen{
 	private List<Element> obstacles;
 	private List<Collectible> leaves; 
 	private Caterpillar caterpillar; 
+	private HealthBar health; 
 
 
 	/**
@@ -37,6 +38,7 @@ public class CaterpillarPanel extends Screen{
 		obstacles = new ArrayList<Element>();
 		leaves = new ArrayList<Collectible>();
 		caterpillar = new Caterpillar(5, 20, DRAWING_HEIGHT/2, surface.getDesign());
+		health = new HealthBar(caterpillar);
 		addRandompredator();
 		addRandomCollectibles();
 	}
@@ -74,7 +76,8 @@ public class CaterpillarPanel extends Screen{
 		{
 			c.draw(surface);
 		}
-
+		
+		health.draw(surface);
 		caterpillar.draw(surface);
 		sideScrolling();
 
@@ -142,7 +145,7 @@ public class CaterpillarPanel extends Screen{
 	 * Clears the screen and restarts the phase
 	 */
 	public void resetScreen() {
-
+		surface.switchScreen(0);
 	}
 	/**
 	 * Transitions to the next panel
