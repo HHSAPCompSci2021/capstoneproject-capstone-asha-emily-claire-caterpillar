@@ -12,6 +12,7 @@ import Player.Caterpillar;
 import asha.shapes.Rectangle;
 import asha.shapes.Shape;
 import core.DrawingSurface;
+import processing.core.PImage;
 
 /**
  * The screen during the caterpillar phase
@@ -24,6 +25,8 @@ public class CaterpillarPanel extends Screen{
 	private List<Collectible> leaves; 
 	private Caterpillar caterpillar; 
 	private HealthBar health; 
+	private PImage ground;
+	private PImage sky;
 
 
 	/**
@@ -42,7 +45,15 @@ public class CaterpillarPanel extends Screen{
 		addRandompredator();
 		addRandomCollectibles();
 	}
-
+	
+	/**
+	 * Set up the caterpillar panel
+	 */
+	public void setup()
+	{
+		ground = surface.loadImage("img/ground.gif");
+	}
+	
 	/**
 	 * Adds obstacles to randomized locations to the screen
 	 */
@@ -56,7 +67,7 @@ public class CaterpillarPanel extends Screen{
 	private void addRandomCollectibles() {
 		for(int i = 0; i < 2; i++)
 		{
-			leaves.add(new Collectible("leaf", "img/Leaf.gif", 5, DRAWING_WIDTH+(i*100), DRAWING_HEIGHT/2));
+			leaves.add(new Collectible("leaf", "img/Leaf.gif", 5, DRAWING_WIDTH+(i*DRAWING_WIDTH-5), DRAWING_HEIGHT/2+(i*50)));
 		}
 	}
 
@@ -66,6 +77,7 @@ public class CaterpillarPanel extends Screen{
 	 */
 	public void draw() {
 		surface.background(255,255,255);
+		surface.image(ground, 0, DRAWING_HEIGHT/2+32, 800, 600);
 
 		for(Element o : obstacles)
 		{
