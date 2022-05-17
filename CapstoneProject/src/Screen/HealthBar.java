@@ -39,7 +39,9 @@ public class HealthBar {
 		int collisions = player.getTotalCollisions();
 		
 		//Hunger levels here (shown by rectangles filled in with green)
-		
+		if(satisfiedHunger > 5) {
+			satisfiedHunger = 5;
+		}
 		
 		for(int i = 0; i < satisfiedHunger; i++) {
 			Rectangle curr = hungerRect.get(i);
