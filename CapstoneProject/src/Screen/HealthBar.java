@@ -25,8 +25,8 @@ public class HealthBar {
 	
 		int startX = 30;
 		for(int i = 0; i < 5; i++) {
-			hungerRect.add(new Rectangle(startX, 30, 20, 20));
-			startX += 30;
+			hungerRect.add(new Rectangle(startX, 30, 40, 20));
+			startX += 25;
 			
 		}
 		
@@ -54,13 +54,13 @@ public class HealthBar {
 			surface.rect(curr.x, curr.y, curr.width, curr.height);
 		}
 		//Player's hunger level
-		surface.text("Hunger Level: " + satisfiedHunger, 30, 10);
+		surface.text("Hunger Level: " + satisfiedHunger, 30, 20);
 		
 		//The player's score for all the collectibles
-		surface.text("Score: " + score, 30, 60);
+		surface.text("Score: " + score, 30, 65);
 		
 		//Obstacle collisions - when more advanced we can make these hearts
-		surface.text("Collisions: " + collisions + "/3", 30, 80);
+		surface.text("Collisions: " + collisions + "/3", 30, 75);
 		
 	}
 
