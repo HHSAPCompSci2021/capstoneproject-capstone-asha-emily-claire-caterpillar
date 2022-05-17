@@ -49,10 +49,13 @@ public class HealthBar {
 		
 		surface.fill(0);
 		
-		for(int i = satisfiedHunger; i < 4; i++) {
-			Rectangle curr = hungerRect.get(i);
-			surface.rect(curr.x, curr.y, curr.width, curr.height);
+		if(satisfiedHunger < 5) {
+			for(int i = satisfiedHunger; i < 5; i++) {
+				Rectangle curr = hungerRect.get(i);
+				surface.rect(curr.x, curr.y, curr.width, curr.height);
+			}
 		}
+		
 		//Player's hunger level
 		surface.text("Hunger Level: " + satisfiedHunger, 30, 20);
 		

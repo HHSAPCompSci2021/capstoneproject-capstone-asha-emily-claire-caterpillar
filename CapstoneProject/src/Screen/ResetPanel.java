@@ -76,6 +76,8 @@ public class ResetPanel extends Screen{
 	 * Checks if the mouse presses a button. If so, the screen changes.
 	 */
 	public void mousePressed() {
+		
+		
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX, surface.mouseY));
         if(retryButton.contains(p)) {
         	surface.switchScreen(1);
