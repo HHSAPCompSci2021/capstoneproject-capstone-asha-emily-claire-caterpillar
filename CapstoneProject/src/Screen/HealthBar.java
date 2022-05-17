@@ -39,7 +39,7 @@ public class HealthBar {
 		int collisions = player.getTotalCollisions();
 		
 		//Hunger levels here (shown by rectangles filled in with green)
-		surface.text("Hunger Level: " + satisfiedHunger, 30, 10);
+		
 		
 		for(int i = 0; i < satisfiedHunger; i++) {
 			Rectangle curr = hungerRect.get(i);
@@ -53,6 +53,8 @@ public class HealthBar {
 			Rectangle curr = hungerRect.get(i);
 			surface.rect(curr.x, curr.y, curr.width, curr.height);
 		}
+		//Player's hunger level
+		surface.text("Hunger Level: " + satisfiedHunger, 30, 10);
 		
 		//The player's score for all the collectibles
 		surface.text("Score: " + score, 30, 60);
