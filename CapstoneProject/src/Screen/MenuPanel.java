@@ -9,6 +9,27 @@ import asha.shapes.Circle;
 import processing.*;
 import core.DrawingSurface;
 import processing.core.PApplet;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Scanner;
+//import javazoom.jl.player.Player;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.util.Scanner;
+
+
+
+
+
+  
+
 //import screens.ScreenSwitcher;
 /**
  * The screen showing instructions before the game starts
@@ -43,6 +64,7 @@ public class MenuPanel extends Screen {
 	 * @param drawer 
 	 */
 	public void draw() {
+		playSound();
 		surface.background(255,255,255);
 		surface.image(surface.loadImage("img/menupanelBackground.gif"), 0, 0, 800, 600);
 		surface.fill(255);
@@ -83,12 +105,22 @@ public class MenuPanel extends Screen {
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 	}
 	
-	/**
-	 * Checks if a key is pressed and acts accordingly
-	 */
-	public void keyPressed() {
+	public void playSound() {
 		
+	    try {
+	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("audio/Menu Music.wav").getAbsoluteFile());
+	        Clip clip = AudioSystem.getClip();
+	        clip.open(audioInputStream);
+	        clip.start();
+	    } catch(Exception ex) {
+	        System.out.println("Error with playing sound.");
+	        ex.printStackTrace();
+	    }
 	}
+	
+	
+
+    
 	
 	//edited by Emily 5/10
 	/**

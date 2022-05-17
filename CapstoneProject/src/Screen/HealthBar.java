@@ -49,7 +49,7 @@ public class HealthBar {
 		
 		surface.fill(0);
 		
-		for(int i = satisfiedHunger; i < 5; i++) {
+		for(int i = satisfiedHunger; i <= 5; i++) {
 			Rectangle curr = hungerRect.get(i);
 			surface.rect(curr.x, curr.y, curr.width, curr.height);
 		}

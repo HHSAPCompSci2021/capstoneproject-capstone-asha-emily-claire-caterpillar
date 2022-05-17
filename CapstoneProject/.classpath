@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/processing_core.jar"/>
 	<classpathentry kind="lib" path="lib/shapes1020.jar"/>
+	<classpathentry kind="lib" path="lib/jl1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
