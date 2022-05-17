@@ -13,6 +13,8 @@ import processing.core.PApplet;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Scanner;
 //import javazoom.jl.player.Player;
 
@@ -24,7 +26,12 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.util.Scanner;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.AudioDevice;
+import javazoom.jl.player.FactoryRegistry;
+import javazoom.jl.player.Player;
 
+import Sound.SoundJLayer;
 
 
 
@@ -64,7 +71,9 @@ public class MenuPanel extends Screen {
 	 * @param drawer 
 	 */
 	public void draw() {
-		playSound();
+		
+		SoundJLayer soundToPlay = new SoundJLayer("audio/Menu-Music.mp3");
+		soundToPlay.play();
 		surface.background(255,255,255);
 		surface.image(surface.loadImage("img/menupanelBackground.gif"), 0, 0, 800, 600);
 		surface.fill(255);
@@ -104,21 +113,7 @@ public class MenuPanel extends Screen {
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 	}
-	
-	public void playSound() {
-		
-	    try {
-	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("audio/Menu Music.wav").getAbsoluteFile());
-	        Clip clip = AudioSystem.getClip();
-	        clip.open(audioInputStream);
-	        clip.start();
-	    } catch(Exception ex) {
-	        System.out.println("Error with playing sound.");
-	        ex.printStackTrace();
-	    }
-	}
-	
-	
+			
 
     
 	
