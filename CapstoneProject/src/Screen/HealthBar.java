@@ -25,7 +25,7 @@ public class HealthBar {
 	
 		int startX = 30;
 		for(int i = 0; i < 5; i++) {
-			hungerRect.get(i).add(new Rectangle(startX, 30, 20, 20));
+			hungerRect.add(new Rectangle(startX, 30, 20, 20));
 			startX += 30;
 			
 		}
