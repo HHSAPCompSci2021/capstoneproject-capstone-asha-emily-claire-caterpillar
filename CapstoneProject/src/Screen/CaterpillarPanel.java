@@ -28,6 +28,7 @@ public class CaterpillarPanel extends Screen{
 	private HealthBar health; 
 	private PImage ground;
 	private PImage sky;
+	private boolean screenShown;
 
 
 	/**
@@ -56,6 +57,7 @@ public class CaterpillarPanel extends Screen{
 	public void setup()
 	{
 		ground = surface.loadImage("img/ground.gif");
+		screenShown = true;
 	}
 	
 	/**
@@ -156,7 +158,15 @@ public class CaterpillarPanel extends Screen{
 		}
 	}
 
-
+	/**
+	 * Returns the status of the screen; showing or not
+	 * @return true if caterpillar screen is showing; false otherwise
+	 */
+	public boolean getScreenStat()
+	{
+		return screenShown;
+	}
+	
 	/**
 	 * Clears the screen and restarts the phase
 	 */
@@ -168,5 +178,6 @@ public class CaterpillarPanel extends Screen{
 	 */
 	public void nextScreen() {
 		surface.switchScreen(5);
+		screenShown = false;
 	}
 }
