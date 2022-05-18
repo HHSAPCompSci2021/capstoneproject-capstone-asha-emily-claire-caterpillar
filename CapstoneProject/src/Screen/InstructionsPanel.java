@@ -31,8 +31,6 @@ public class InstructionsPanel extends Screen{
 	}
 	
 public void draw() {
-		
-		
 		surface.background(255,255,255);
 		surface.image(surface.loadImage("img/fMenuPanel.gif"), 0, 0, 800, 600);
 		surface.fill(255);
@@ -49,7 +47,7 @@ public void draw() {
 					+ "\nPress the spacebar when you are ready to start."
 					+ "\nClick on the start button when you are ready to start the next phase.",20, 20);
 		} else if(phaseType.equals("caterpillarPhase")) {
-			nextScreen = 2;
+			nextScreen = 3;
 			surface.text("Congrats! You are now a caterpillar! "
 					+ "Use the up and down arrows keys to toggle between movements. "
 					+ "Make sure to collect leaves to progress through the game. They provide energy that will keep you alive."
@@ -63,6 +61,13 @@ public void draw() {
 					+ "Eventually, the game will end and you will have reached your destination."
 					+ "Press esc to exit out of the screen", 20, 20);
 		}
+		
+		surface.fill(255);
+		surface.rect(button.x, button.y, button.width, button.height);
+		surface.fill(0);
+		String str = "Back To Start";
+		float w = surface.textWidth(str);
+		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 	}
 			
 	/**
