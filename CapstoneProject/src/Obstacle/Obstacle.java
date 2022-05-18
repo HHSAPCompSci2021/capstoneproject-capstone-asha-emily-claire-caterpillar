@@ -18,15 +18,15 @@ public class Obstacle extends Element{
 	/**
 	 * Constructs an obstacle
 	 */
-	public Obstacle(DrawingSurface ds, String i, int x, int y, double s) {
-		super(ds, i, x, y, s);
+	public Obstacle(String i, int x, int y, double s) {
+		super(i, x, y, s);
 	}
 	
 	/**
 	 * Constructs an obstacle
 	 */
-	public Obstacle(DrawingSurface ds, String i, double s) {
-		super(ds, i, s);
+	public Obstacle(String i, double s) {
+		super(i, s);
 	}
 	
 	/**

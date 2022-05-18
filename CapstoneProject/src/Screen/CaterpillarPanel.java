@@ -64,32 +64,19 @@ public class CaterpillarPanel extends Screen{
 	 * Adds obstacles to randomized locations to the screen
 	 */
 	private void addRandompredator() {
-//		int y = 0;
-//		double choice = (int)(Math.random()*7);
-//		//System.out.println(choice);
-//		int x = (((int)(Math.random() * 200) + 800) / 10) * 10;
-//		double speed = 10 + (i * 0.5);
-//		if(choice >= 0.9) {
-//			y = 64;
-//		} else if(choice >= 0.7) {
-//			y = 128;
-//		} else if(choice >= 0.5) {
-//			y = 256;
-//		} else if(choice >= 0.3) {
-//			y = 384;
-//		} else {
-//			y = 512;
-//		} 
-//
-//		if(choice >= 0.5) {
-//			obstacles.add(new Predator("img/Predator.gif", 800 + (i * x), y, speed));
-//			//System.out.println(false);
-//
-//		} else {
-//			obstacles.add(new Obstacle("img/Kite.gif", 800 + (i * x), y, speed));
-//			//System.out.println(true);
-//
-//		}
+		double choice = (int)(Math.random()*4);
+		System.out.println(choice);
+
+		if(choice == 0) {	//mole
+			obstacles.add(new Predator("img/Mole.png", DRAWING_WIDTH, 400, 10, 64, 64));
+		} else if(choice == 1) {	//centipede
+			obstacles.add(new Predator("img/centapede.png", DRAWING_WIDTH, 150, 10, 64, 64));
+		} else if(choice == 2) { //kite
+			obstacles.add(new Obstacle("img/Kite.gif", DRAWING_WIDTH, 60, 10));
+		} else if(choice == 3) { //predator
+			obstacles.add(new Predator("img/Predator.gif", DRAWING_WIDTH, 100, 10, 64, 64));
+		}
+
 
 	}
 
@@ -134,13 +121,14 @@ public class CaterpillarPanel extends Screen{
 		}
 
 		caterpillar.act(DRAWING_HEIGHT/2);
-		for(Element o : obstacles)
+		for(int i = 0; i < obstacles.size(); i++)
 		{
+			Element o = obstacles.get(i);
 			o.move();
 			if(o.collide(caterpillar.playerDesignRect()))
 			{
 				caterpillar.increaseCollisions(o);
-				o.moveByAmount(o.getX()+DRAWING_WIDTH, 10);
+				obstacles.remove(o);
 			}
 		}
 		for(Collectible c : leaves) {
@@ -166,12 +154,18 @@ public class CaterpillarPanel extends Screen{
 	 * Implements the side scrolling effect, by adding features to the screen
 	 */
 	public void sideScrolling() {
-		for(Element o : obstacles)
+		for(int i = 0; i < obstacles.size(); i++)
 		{
-			if(o.getX() < -64)
+			Element o = obstacles.get(i);
+			if(o.getX() < o.getBounds().getWidth())
 			{
-				o.moveByAmount(DRAWING_WIDTH, 0);
+				obstacles.remove(0);
+				addRandompredator();
 			}
+//			if(o.getX() == DRAWING_WIDTH/2)
+//			{
+//				addRandompredator();
+//			}
 		}
 		for(Collectible c : leaves)
 		{
