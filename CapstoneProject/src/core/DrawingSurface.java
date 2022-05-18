@@ -3,10 +3,13 @@ import java.applet.Applet;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import Player.Egg;
+import Player.Player;
 import Screen.ButterflyPanel;
 import Screen.CaterpillarPanel;
 import Screen.EggPanel;
 import Screen.MenuPanel;
+import Screen.ResetPanel;
 import Screen.Screen;
 import processing.core.PApplet;
 /**
@@ -37,23 +40,33 @@ public class DrawingSurface extends PApplet{
 		screens = new ArrayList<Screen>();
 		keys = new ArrayList<Integer>();
 		
+	
+		
 		MenuPanel menu = new MenuPanel(this, "eggPhase");
 		screens.add(menu);
 		
 		EggPanel egg = new EggPanel(this);
 		screens.add(egg);
 		
-//		MenuPanel menuE = new MenuPanel(this, "caterpillarPhase");
-//		screens.add(menuE);
+		MenuPanel menuE = new MenuPanel(this, "caterpillarPhase");
+		screens.add(menuE);
 		
 		CaterpillarPanel cater = new CaterpillarPanel(this);
 		screens.add(cater);
 		
-//		MenuPanel menuB = new MenuPanel(this, "butterflyPhase");
-//		screens.add(menuB);
+		ResetPanel resetPanel = new ResetPanel(this, 5);
+		screens.add(resetPanel);
+		
+		MenuPanel menuB = new MenuPanel(this, "butterflyPhase");
+		screens.add(menuB);
 		
 		ButterflyPanel butter = new ButterflyPanel(this);
 		screens.add(butter);
+		
+		
+		
+		ResetPanel reset = new ResetPanel(this, 2);
+		screens.add(reset);
 		
 		currScreen = screens.get(0);
 		
