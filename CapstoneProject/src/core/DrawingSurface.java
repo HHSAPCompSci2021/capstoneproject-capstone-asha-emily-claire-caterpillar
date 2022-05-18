@@ -8,6 +8,7 @@ import Player.Player;
 import Screen.ButterflyPanel;
 import Screen.CaterpillarPanel;
 import Screen.EggPanel;
+import Screen.EndPanel;
 import Screen.InstructionsPanel;
 import Screen.MenuPanel;
 import Screen.ResetPanel;
@@ -87,6 +88,8 @@ public class DrawingSurface extends PApplet{
 		ResetPanel reset = new ResetPanel(this, 2);
 		screens.add(reset);
 		
+		EndPanel end = new EndPanel(this);
+		screens.add(end);
 		//Game won panel
 		
 		currScreen = screens.get(0);

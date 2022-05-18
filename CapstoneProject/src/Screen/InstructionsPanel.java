@@ -45,7 +45,7 @@ public void draw() {
 					+ "\nyou’ll get the opportunity to choose what kind of butterfly you’ll end up being. "
 					+ "\nClick anywhere on the screen to cycle through designs."
 					+ "\nPress the spacebar when you are ready to start."
-					+ "\nClick on the start button when you are ready to start the next phase.",20, 20);
+					+ "\nClick on the start button when you are ready to start the next phase.",20, 50);
 		} else if(phaseType.equals("caterpillarPhase")) {
 			nextScreen = 3;
 			surface.text("Congrats! You are now a caterpillar! "
@@ -53,13 +53,13 @@ public void draw() {
 					+ "Make sure to collect leaves to progress through the game. They provide energy that will keep you alive."
 					+ "If you crash into an obstacle 3 times, you will unfortunaly have to start your journey over again."
 					+ "The same occurs when you run into a predator."
-					+ "Good luck!", 20, 20);
+					+ "Good luck!", 20, 50);
 		} else if(phaseType.equals("butterflyPhase")){
 			nextScreen = 7;
 			surface.text("Yay! You are now a butterfly!"
 					+ "Use the space bar to avoid obstacles/predators and to collect flowers."
 					+ "Eventually, the game will end and you will have reached your destination."
-					+ "Press esc to exit out of the screen", 20, 20);
+					+ "Press esc to exit out of the screen", 20, 50);
 		}
 		
 		surface.fill(255);
