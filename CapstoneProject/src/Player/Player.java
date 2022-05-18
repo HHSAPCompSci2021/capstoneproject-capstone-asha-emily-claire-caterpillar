@@ -24,6 +24,7 @@ public abstract class Player {
 	private int totalCollisions;
 	private double x, y;
 	private String design;
+	
 	//Add a variable for the image
 	/**
 	 * Constructs an Player that is alive with the number of collectibles needed. The collectablesEaten should continue to increase 

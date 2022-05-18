@@ -57,8 +57,8 @@ public class ResetPanel extends Screen{
 		quitGameButton = new Rectangle(200, 300, 400, 100);
 		player = null;
 		
-		SoundJLayer soundToPlay = new SoundJLayer("audio/Menu-Music.mp3");
-		soundToPlay.play();
+//		SoundJLayer soundToPlay = new SoundJLayer("audio/Menu-Music.mp3");
+//		soundToPlay.play();
 	}
 	
 	public ResetPanel(DrawingSurface drawer, int nextScreen, Player player) {

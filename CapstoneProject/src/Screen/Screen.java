@@ -6,7 +6,7 @@ package Screen;
  */
 public abstract class Screen {
 	public final int DRAWING_WIDTH, DRAWING_HEIGHT;
-	
+	private boolean currScreen;
 	/**
 	 * Creates a screen
 	 * @param width - the width of the screen
@@ -15,6 +15,7 @@ public abstract class Screen {
 	public Screen(int width, int height) {
 		this.DRAWING_WIDTH = width;
 		this.DRAWING_HEIGHT = height;
+		currScreen = false;
 	}
 	
 	/**
@@ -30,6 +31,15 @@ public abstract class Screen {
 	public void draw() {
 		
 	}
+	
+	public void setCurrScreen(boolean change) {
+		currScreen = change;
+	}
+	
+	public boolean getCurrScreen() {
+		return currScreen;
+	}
+	
 	
 	/**
 	 * Checks if the mouse is pressed
