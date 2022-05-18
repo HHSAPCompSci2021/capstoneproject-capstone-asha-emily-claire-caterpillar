@@ -2,7 +2,11 @@ package Obstacle;
 
 import processing.core.PApplet;
 import processing.core.PImage;
-
+/**
+ * Represents displaying a gif file
+ * @author Emily
+ *
+ */
 public class Gif {
 	private PImage[] image; 
 	private String name;
@@ -11,7 +15,16 @@ public class Gif {
 	private int width, height;
 	private PApplet surface; 
 	
-	
+	/**
+	 * Constructs a Gif
+	 * @param s - PApplet 
+	 * @param n - file name/location
+	 * @param f - amount of frames
+	 * @param x - x-coordinate of the gif
+	 * @param y - y-coordinate of the gif
+	 * @param w - width of the gif
+	 * @param h - height of the gif
+	 */
 	public Gif(PApplet s, String n, int f, double x, double y, int w, int h) {
 		surface = s;
 		image = new PImage[frames];
@@ -23,6 +36,9 @@ public class Gif {
 		height = h; 
 	}
 	
+	/**
+	 * Sets up the screen
+	 */
 	public void setup()
 	{
 		surface.size(width, height);
@@ -32,7 +48,9 @@ public class Gif {
 			image[i] = surface.loadImage(name+i+".gif");
 		}
 	}
-	
+	/**
+	 * Draws the image
+	 */
 	public void draw()
 	{
 		surface.image(image[surface.frameCount%frames], (float)x, (float)y);

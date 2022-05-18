@@ -14,14 +14,21 @@ import asha.shapes.Circle;
 import processing.*;
 import core.DrawingSurface;
 import processing.core.PApplet;
-
+/**
+ * Represents the instructors for the game
+ * @author Asha
+ */
 public class InstructionsPanel extends Screen{
 	
 	private DrawingSurface surface;
 	private String phaseType;
 	private Rectangle button;
 	private int nextScreen;
-	
+	/**
+	 * Constructs an instructions panel
+	 * @param drawer - the DrawingSurface
+	 * @param phaseType - What phase the panel is located in 
+	 */
 	public InstructionsPanel(DrawingSurface drawer, String phaseType) {
 		super(800, 600);
 		this.surface = drawer;
@@ -29,8 +36,10 @@ public class InstructionsPanel extends Screen{
 		button = new Rectangle(800/2-100,600/2,210,40);
 		nextScreen = 0;
 	}
-	
-public void draw() {
+	/**
+	 * Draws the panel
+	 */
+	public void draw() {
 		surface.background(255,255,255);
 		surface.image(surface.loadImage("img/fMenuPanel.gif"), 0, 0, 800, 600);
 		surface.fill(255);

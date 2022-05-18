@@ -13,13 +13,18 @@ import core.DrawingSurface;
 public class EndPanel extends Screen{
 	private Rectangle button;
 	private DrawingSurface surface;
-	
+	/**
+	 * Constructs an EndPanel
+	 * @param surface - the DrawingSurface
+	 */
 	public EndPanel(DrawingSurface surface) {
 		super(800, 600);
 		this.surface = surface;
 		button = new Rectangle(800/2-100,600/2,210,40);
 	}
-	
+	/**
+	 * Draws the panel
+	 */
 	public void draw() {
 		setCurrScreen(true);
 		surface.background(255, 255, 255);
@@ -32,6 +37,10 @@ public class EndPanel extends Screen{
 		surface.text("Exit", button.x+button.width/2-w/2, button.y+button.height/2);
 	}
 	
+	/**
+	 * Checks if the mouse is pressed. If the mouse is pressed, it exits the game
+	 * @postcondition the game is exited
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX, surface.mouseY));
 		 if(button.contains(p)) {
