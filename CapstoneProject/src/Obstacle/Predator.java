@@ -16,15 +16,21 @@ import processing.core.PImage;
 	/**
 	 * Creates a predator
 	 */
-	public Predator(DrawingSurface ds, String i, int x, int y, double s) {
-		super(ds, i, x, y, s);
+	public Predator(String i, int x, int y, double s) {
+		super(i, x, y, s);
 	}
 	
 	/**
 	 * Creates a predator
 	 */
-	public Predator(DrawingSurface ds, String i, double s) {
-		super(ds, i, s);
+	public Predator(String i, int x, int y, double s, int xsize, int ysize) {
+		super(i, x, y, s, xsize, ysize);
+	}
+	/**
+	 * Creates a predator
+	 */
+	public Predator(String i, double s) {
+		super(i, s);
 	}
 	
 	/**

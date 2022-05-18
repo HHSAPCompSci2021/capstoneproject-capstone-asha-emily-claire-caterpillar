@@ -64,29 +64,19 @@ public class CaterpillarPanel extends Screen{
 	 * Adds obstacles to randomized locations to the screen
 	 */
 	private void addRandompredator() {
-		int y = 0;
-		double choice = (int)(Math.random()*7);
+		double choice = (int)(Math.random()*4);
 		System.out.println(choice);
 
 		if(choice == 0) {	//mole
-			obstacles.add(new Predator(surface, "img/Predator.gif", DRAWING_WIDTH, y, 10));
-			y = 400;
+			obstacles.add(new Predator("img/Mole.png", DRAWING_WIDTH, 400, 10, 64, 64));
 		} else if(choice == 1) {	//centipede
-			y = 150;
+			obstacles.add(new Predator("img/centapede.png", DRAWING_WIDTH, 150, 10, 64, 64));
 		} else if(choice == 2) { //kite
-			y = 60;
+			obstacles.add(new Obstacle("img/Kite.gif", DRAWING_WIDTH, 60, 10));
 		} else if(choice == 3) { //predator
-			y = 100;
-		} else if(choice == 4) {
-			y = 384;
-		}else {
-			y = 512;
-		} 
-
-		if(choice >= 0.5) {
-			obstacles.add(new Predator(surface, "img/Predator.gif", DRAWING_WIDTH, y, 10));
-			//System.out.println(false);
+			obstacles.add(new Predator("img/Predator.gif", DRAWING_WIDTH, 100, 10, 64, 64));
 		}
+
 
 	}
 
@@ -96,7 +86,7 @@ public class CaterpillarPanel extends Screen{
 	private void addRandomCollectibles() {
 		for(int i = 0; i < 2; i++)
 		{
-			leaves.add(new Collectible(surface, "leaf", "img/Leaf.gif", 5, DRAWING_WIDTH+(i*DRAWING_WIDTH-5), DRAWING_HEIGHT/2+(i*50)));
+			leaves.add(new Collectible("leaf", "img/Leaf.gif", 5, DRAWING_WIDTH+(i*DRAWING_WIDTH-5), DRAWING_HEIGHT/2+(i*50)));
 		}
 	}
 
@@ -131,13 +121,14 @@ public class CaterpillarPanel extends Screen{
 		}
 
 		caterpillar.act(DRAWING_HEIGHT/2);
-		for(Element o : obstacles)
+		for(int i = 0; i < obstacles.size(); i++)
 		{
+			Element o = obstacles.get(i);
 			o.move();
 			if(o.collide(caterpillar.playerDesignRect()))
 			{
 				caterpillar.increaseCollisions(o);
-				o.moveByAmount(o.getX()+DRAWING_WIDTH, 10);
+				obstacles.remove(o);
 			}
 		}
 		for(Collectible c : leaves) {
@@ -163,12 +154,18 @@ public class CaterpillarPanel extends Screen{
 	 * Implements the side scrolling effect, by adding features to the screen
 	 */
 	public void sideScrolling() {
-		for(Element o : obstacles)
+		for(int i = 0; i < obstacles.size(); i++)
 		{
-			if(o.getX() < -64)
+			Element o = obstacles.get(i);
+			if(o.getX() < o.getBounds().getWidth())
 			{
-				o.moveByAmount(DRAWING_WIDTH, 0);
+				obstacles.remove(0);
+				addRandompredator();
 			}
+//			if(o.getX() == DRAWING_WIDTH/2)
+//			{
+//				addRandompredator();
+//			}
 		}
 		for(Collectible c : leaves)
 		{

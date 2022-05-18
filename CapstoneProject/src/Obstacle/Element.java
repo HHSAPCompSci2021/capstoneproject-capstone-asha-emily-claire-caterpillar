@@ -25,10 +25,8 @@ public class Element {
 	 * The element's image
 	 */
 	private String image;
+	private int width, height;
 
-	private PImage pimage;
-	
-	
 	/**
 	 * Contructs a game element
 	 */
@@ -39,37 +37,43 @@ public class Element {
 	/**
 	 * Contructs a game element
 	 */
-	public Element(DrawingSurface ds, String i, double s) {
+	public Element(String i, double s) {
 		image = i;
 		speed = -s;
-		pimage = ds.loadImage(i);
 	}
 	
 	/**
 	 * Contructs a game element
 	 */
-	public Element(DrawingSurface ds, String i, double x, double y, double s) {
+	public Element(String i, double x, double y, double s) {
 		this.x = x;
 		this.y = y;
 		speed = -s;
 		image = i;
-		pimage = ds.loadImage(i);
+		width = 64; 
+		height = 64;
 	}
 	
-	public Element(DrawingSurface ds, String i, double x, double y, double s, double xsize, double ysize) {
+	public Element(String i, double x, double y, double s, int xsize, int ysize) {
 		this.x = x;
 		this.y = y;
 		speed = -s;
 		image = i;
-		pimage = ds.loadImage(i);
+		width = xsize;
+		height = ysize;
 	}
 	
+	public void resize(int width, int height)
+	{
+		this.width = width;
+		this.height = height;
+	}
 	/**
 	 * Gets the rectangle bounds of the element
 	 * @return the rectangle that represents the bounds
 	 */
 	public Rectangle getBounds() {
-		return new Rectangle(x, y, 64, 64);
+		return new Rectangle(x, y, width, height);
 	}
 	
 	/**
@@ -130,7 +134,7 @@ public class Element {
 	 * @param s - the DrawingSurface
 	 */
 	public void draw(DrawingSurface s) {
-		s.image(pimage, (float)getX(), (float)getY(), 64, 64);
+		s.image(s.loadImage(image), (float)getX(), (float)getY(), width, height);
 
 	}
 
