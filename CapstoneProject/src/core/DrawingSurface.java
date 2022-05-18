@@ -115,7 +115,7 @@ public class DrawingSurface extends PApplet{
 		scale(ratioX, ratioY);
 		currScreen.draw();
 		
-		if(currScreen instanceof MenuPanel || currScreen instanceof ResetPanel || currScreen instanceof InstructionsPanel) {
+		if(currScreen instanceof MenuPanel || currScreen instanceof ResetPanel || currScreen instanceof InstructionsPanel || currScreen instanceof EndPanel) {
 			if(callTime < 1) {
 				songs.get(0).play();
 				callTime++;
@@ -210,7 +210,7 @@ public class DrawingSurface extends PApplet{
 		callTime = 0;
 		
 		//Closing all the songs
-		if(currScreen instanceof MenuPanel || currScreen instanceof ResetPanel || currScreen instanceof InstructionsPanel) {
+		if(currScreen instanceof MenuPanel || currScreen instanceof ResetPanel || currScreen instanceof InstructionsPanel || currScreen instanceof EndPanel) {
 				songs.get(0).getAdvancedPlayer().close();	
 		} else if(currScreen instanceof EggPanel) {
 			songs.get(1).getAdvancedPlayer().close();	

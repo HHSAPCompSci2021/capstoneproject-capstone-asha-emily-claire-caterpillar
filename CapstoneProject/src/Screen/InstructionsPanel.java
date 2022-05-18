@@ -49,17 +49,17 @@ public void draw() {
 		} else if(phaseType.equals("caterpillarPhase")) {
 			nextScreen = 3;
 			surface.text("Congrats! You are now a caterpillar! "
-					+ "Use the up and down arrows keys to toggle between movements. "
-					+ "Make sure to collect leaves to progress through the game. They provide energy that will keep you alive."
-					+ "If you crash into an obstacle 3 times, you will unfortunaly have to start your journey over again."
-					+ "The same occurs when you run into a predator."
-					+ "Good luck!", 20, 50);
+					+ "\nUse the up and down arrows keys to toggle between movements. "
+					+ "\nMake sure to collect leaves to progress through the game. They provide energy that will keep you alive."
+					+ "\nIf you crash into an obstacle 3 times, you will unfortunaly have to start your journey over again."
+					+ "\nThe same occurs when you run into a predator."
+					+ "\nGood luck!", 20, 50);
 		} else if(phaseType.equals("butterflyPhase")){
 			nextScreen = 7;
 			surface.text("Yay! You are now a butterfly!"
-					+ "Use the space bar to avoid obstacles/predators and to collect flowers."
-					+ "Eventually, the game will end and you will have reached your destination."
-					+ "Press esc to exit out of the screen", 20, 50);
+					+ "\nUse the space bar to avoid obstacles/predators and to collect flowers."
+					+ "\nEventually, the game will end and you will have reached your destination."
+					+ "\nPress esc to exit out of the screen", 20, 50);
 		}
 		
 		surface.fill(255);
