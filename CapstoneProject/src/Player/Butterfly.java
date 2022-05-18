@@ -2,6 +2,7 @@ package Player;
 
 import asha.shapes.Rectangle;
 import core.DrawingSurface;
+import processing.core.PImage;
 
 /**
  * Represents the player during the butterfly phase.
@@ -10,13 +11,13 @@ import core.DrawingSurface;
  */
 public class Butterfly extends Player{
 	
-	private DrawingSurface surface;
+	//private DrawingSurface surface;
 
 	
 	/**
 	 * Constructs a Butterfly
 	 */
-	public Butterfly(int numCollectable, double x, double y, String design) {
+	public Butterfly(int numCollectable, double x, double y, PImage design) {
 		//Asha: Edited this part to allow program to compile. Feel free to change it
 		super(numCollectable, x, y, design);
 	}
@@ -33,7 +34,7 @@ public class Butterfly extends Player{
 
 	@Override
 	public void draw(DrawingSurface s) {
-			s.image(s.loadImage(s.getDesign()), (float)getX(), (float)getY(), 100, 100);
+			s.image(getDesign(), (float)getX(), (float)getY(), 100, 100);
 			
 	}
 

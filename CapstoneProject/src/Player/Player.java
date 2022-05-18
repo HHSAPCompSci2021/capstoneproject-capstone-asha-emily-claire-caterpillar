@@ -23,7 +23,8 @@ public abstract class Player {
 	private Point currentLoc;
 	private int totalCollisions;
 	private double x, y;
-	private String design;
+	private PImage design;
+
 	
 	//Add a variable for the image
 	/**
@@ -31,7 +32,7 @@ public abstract class Player {
 	 * regardless of phase.
 	 * @param numCollectableNeedToEat - the int of collectibles that must be eaten
 	 */
-	public Player(int numCollectableNeedToEat, double x, double y, String design) {
+	public Player(int numCollectableNeedToEat, double x, double y, PImage design) {
 		this.numCollectibleNeedToEat = numCollectableNeedToEat;
 		this.x = x;
 		this.y = y;
@@ -40,20 +41,23 @@ public abstract class Player {
 		collectiblesEaten = 0;
 		isAlive = true;
 		totalCollisions = 0;
+		
+		
 	}
+	
 	
 	/**
 	 * Getter method for design
 	 * @return name of the design file
 	 */
-	public String getDesign() {
+	public PImage getDesign() {
 		return design;
 	}
 	/**
 	 * Changes 
 	 * @param newDesign
 	 */
-	public void setDesign(String newDesign) {
+	public void setDesign(PImage newDesign) {
 		design = newDesign;
 	}
 	/**

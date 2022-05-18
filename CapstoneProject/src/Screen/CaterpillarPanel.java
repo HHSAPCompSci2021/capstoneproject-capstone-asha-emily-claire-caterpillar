@@ -42,7 +42,7 @@ public class CaterpillarPanel extends Screen{
 		this.surface = surface;
 		obstacles = new ArrayList<Element>();
 		leaves = new ArrayList<Collectible>();
-		caterpillar = new Caterpillar(7, 20, DRAWING_HEIGHT/2, surface.getDesign());
+		
 		health = new HealthBar(caterpillar);
 		addRandompredator();
 		addRandomCollectibles();
@@ -56,6 +56,9 @@ public class CaterpillarPanel extends Screen{
 	 */
 	public void setup()
 	{
+		PImage p = surface.loadImage(surface.getDesign());
+		
+		caterpillar = new Caterpillar(7, 20, DRAWING_HEIGHT/2, p);
 		ground = surface.loadImage("img/ground.gif");
 		screenShown = true;
 	}
@@ -108,7 +111,7 @@ public class CaterpillarPanel extends Screen{
 			c.draw(surface);
 		}
 
-		health.draw(surface);
+		//health.draw(surface);
 		caterpillar.draw(surface);
 		sideScrolling();
 

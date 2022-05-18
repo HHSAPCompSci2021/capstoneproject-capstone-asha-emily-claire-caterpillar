@@ -1,5 +1,6 @@
 package Screen;
 
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
@@ -10,6 +11,7 @@ import Obstacle.Predator;
 import Player.Butterfly;
 import Sound.SoundJLayer;
 import core.DrawingSurface;
+import processing.core.PImage;
 /**
  * The screen during the Butterfly phase
  * @author Claire
@@ -27,6 +29,8 @@ public class ButterflyPanel extends Screen {
 	 */
 	private ArrayList<Element> obs;
 	
+	private ArrayList<Element> obs1;
+	
 	/*
 	 * Array List of all of the collectibles that the player must try and collect
 	 */
@@ -39,8 +43,10 @@ public class ButterflyPanel extends Screen {
 	
 	private HealthBar h;
 	
+	private ArrayList<PImage> img;
+	private PImage p;
 	
-	//private boolean restart;
+
 	
 	/**
 	 * Constructs a ButterflyPanel 
@@ -49,26 +55,38 @@ public class ButterflyPanel extends Screen {
 	public ButterflyPanel(DrawingSurface s) {
 		super(800,600);
 		surface = s;
-		//restart = false;
-		b = new Butterfly(5, 100, 100, "img/Butterfly1.gif");
-		obs = new ArrayList<Element>();
-		//col = new ArrayList<Collectible>();
-		int i = 0;
-		addRandomElement();
-		addRandomCollectible();
+		
 		
 //		SoundJLayer soundToPlay = new SoundJLayer("audio/Butterfly Panel Music.mp3");
 //		soundToPlay.play();
+	
 		
-		//System.out.println(obs);
+	}
+	
+	public void setup() {
+		
+
+		p = surface.loadImage("img/Butterfly1.gif");
+		
+		obs = new ArrayList<Element>();
+		obs1 = new ArrayList<Element>();
+		col = new ArrayList<Collectible>();
+		img = new ArrayList<PImage>();
+		
+		addRandomElement(obs);
+		addRandomCollectible(col);
+
+		b = new Butterfly(5, 100, 100, p);
 		h = new HealthBar(b);
+		
+		
 	}
 	
 	/**
 	 * Adds a number of predators to random locations
 	 */
-	public void addRandomElement() {
-		for(int i = 0; i < 15; i++) {
+	public void addRandomElement(ArrayList<Element> a) {
+		for(int i = 0; i < 20; i++) {
 			int y = 0;
 			//int y = (((int)(Math.random() * 301) + 100) / 10) * 10;
 			//System.out.println(y);
@@ -87,13 +105,19 @@ public class ButterflyPanel extends Screen {
 			} else {
 				y = 512;
 			} 
+		
 			
 			if(choice >= 0.5) {
-				obs.add(new Predator("img/Predator.gif", 800 + (i * x), y, speed));
+				a.add(new Predator("img/Predator.gif", 800, y, speed));
+				//img.add(createImage());
+				//return new Predator("img/Predator.gif", 800, y, 10);
 				//System.out.println(false);
+				
+				
 	
 			} else {
-				obs.add(new Obstacle("img/Kite.gif", 800 + (i * x), y, speed));
+				a.add(new Obstacle("img/Kite.gif", 800, y, speed));
+				//return new Obstacle("img/Kite.gif", 800, y, 10);
 				//System.out.println(true);
 	
 			}
@@ -104,7 +128,7 @@ public class ButterflyPanel extends Screen {
 	/**
 	 * Adds a number of collectables to random locations
 	 */
-	public void addRandomCollectible() {
+	public void addRandomCollectible(ArrayList<Collectible> a) {
 
 		for(int i = 0; i < 7; i++) {
 			
@@ -126,33 +150,18 @@ public class ButterflyPanel extends Screen {
 			int x = (((int)(Math.random() * 200) + 400) / 10) * 10;
 			
 			//Was this supposed to be added to the collectible array instead of obs
-			obs.add(new Collectible("flower", "img/Flower.gif", speed, 800 + (i * x), y));
+			col.add(new Collectible("flower", "img/Flower.gif", speed, 800 + (i * x), y));
 			//System.out.println(false);
 			
 		}	
 	}
 	
-	/**
-	 * Clears the screen when the phase needs to restart
-	 */
-	public void resetScreen() {
-		
-	}
-	
-	/**
-	 * Checks if this phase is won
-	 * @return boolean - if the phase is won
-	 */
-	public boolean wonGame() {
-		
-		return false;
-	}
 	
 	/**
 	 * Draws the screen for the phase
 	 */
 	public void draw() {
-		
+		//System.out.println(true);
 		surface.background(255,255,255);
 		surface.fill(0);
 		
@@ -166,42 +175,53 @@ public class ButterflyPanel extends Screen {
 			
 			
 			b.draw(surface);
+	
+			//int i = 0;
+			boolean next = true;
+
+			
+			while(obs.size() > 0 && next) {
+				next = false;
+				obs.get(0).draw(surface);
+				sideScrolling(obs.get(0));
+				
+				if(obs.get(0).getX() < 0) {
+					next = true;
+					obs.remove(0);
+				}
+			}
+			
+			boolean wow = true;
+
+			
+			
+			while(col.size() > 0 && wow) {
+				wow = false;
+				col.get(0).draw(surface);
+				sideScrolling(col.get(0));
+				
+				if(col.get(0).getX() < 0) {
+					wow = true;
+					col.remove(0);
+				}
+			}
+		
+			
 			
 			for(Element e : obs) {
 				e.draw(surface);
 			}
-				
-			sideScrolling();
 			
-//			for(Collectible m : col) {
-//				
-//				if(m.collide(b.playerDesignRect())) {
-//					System.out.print(true);
-//					m.eat(b);
-//					
-//					//m.moveByAmount(m.getX() + DRAWING_WIDTH, 0);
-//					
-//				} else {
-//					m.draw(surface, 64, 64);
-//				}
-//				
-//					
-//			}
+			for(Collectible c : col) {
+				c.draw(surface);
+			}
+				
+			//sideScrolling();
 			
 			
 			for(Element e : obs) {
 				
-				if(e instanceof Collectible) {
-					if(e.collide(b.playerDesignRect())) {
-						System.out.print(true);
-						
-						
-						e.moveByAmount(e.getX() - DRAWING_WIDTH, 0);
-						((Collectible) e).eat(b);
-					} else {
-						e.draw(surface);
-					}
-				} else {
+				
 					if(e.collide(b.playerDesignRect())) {
 						if(e instanceof Predator) {
 							b.increaseCollisions((Predator)e);
@@ -212,54 +232,70 @@ public class ButterflyPanel extends Screen {
 						
 					} else {
 						e.draw(surface);	
-					}
-				}
-				
-									
+					}						
 						
 			} 
 			
+			for(Collectible c : col) {
+				if(c instanceof Collectible) {
+					if(c.collide(b.playerDesignRect())) {
+						System.out.print(true);
+						
+						
+						c.moveByAmount(c.getX() - DRAWING_WIDTH, 0);
+						((Collectible) c).eat(b);
+					} else {
+						c.draw(surface);
+					}
+				}
+			}
+			
+			
+			
 		}	else {
-			surface.text("Game Over", 380, 300);
+			resetScreen();
 		}
 			
+		if(b.getNumCollectible() == b.getNumCollectiblesNeedToEat())
+		{
+			nextScreen();
+			return;
+		}
 		
-//		boolean screen = false; 
-//		for(Element e : obs) {
-//			if(e.getX() < 0) {
-//				screen = true;
-//			} else {
-//				screen = false;
-//			}
-//		}
-//		
-//		if(b.getNumCollectible() > 5 && screen) {
-//			surface.text("YOU WIN!", 380, 300);
-//		}
-
 		
 	}
+
 	
-	/**
-	 * Checks if a restart of the phase is need
-	 * @return boolean - if a restart is needed
-	 */
-	public void needRestart() {
-		//restart = true;
+	public void resetScreen() {
+		surface.switchScreen(5);
+	}
+	
+	public void nextScreen() {
+		surface.switchScreen(7);
 	}
 	
 	/**
 	 * Adds features to the screen in a side scrolling effect
 	 */
-	public void sideScrolling() {
+	public void sideScrolling(Element e) {
 		
-	
 		
-		for(Element e : obs) {
-			if(e.getX() > -64) { 
-				e.move();
-				
-			} 
+		if(e.getX() > -64) { 
+			e.move();
+////		
+//		for(Collectible c : col) {
+//			if(c.getX() > -64) { 
+//				c.move();
+//				
+//			} 
+//		}
+//		
+//		
+//		for(Element e : obs) {
+//			if(e.getX() > -64) { 
+//				e.move();
+//				
+//			} 
 		}
 		
 		
