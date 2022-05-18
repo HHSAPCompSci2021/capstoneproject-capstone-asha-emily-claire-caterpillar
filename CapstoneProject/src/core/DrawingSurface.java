@@ -8,6 +8,7 @@ import Player.Player;
 import Screen.ButterflyPanel;
 import Screen.CaterpillarPanel;
 import Screen.EggPanel;
+import Screen.InstructionsPanel;
 import Screen.MenuPanel;
 import Screen.ResetPanel;
 import Screen.Screen;
@@ -55,11 +56,17 @@ public class DrawingSurface extends PApplet{
 		MenuPanel menu = new MenuPanel(this, "eggPhase");
 		screens.add(menu);
 		
+		InstructionsPanel insturctions1 = new InstructionsPanel(this, "eggPhase");
+		screens.add(insturctions1);
+		
 		EggPanel egg = new EggPanel(this);
 		screens.add(egg);
 		
 		MenuPanel menuE = new MenuPanel(this, "caterpillarPhase");
 		screens.add(menuE);
+		
+		InstructionsPanel insturctions2 = new InstructionsPanel(this, "caterpillarPhase");
+		screens.add(insturctions2);
 		
 		CaterpillarPanel cater = new CaterpillarPanel(this);
 		screens.add(cater);
@@ -70,13 +77,17 @@ public class DrawingSurface extends PApplet{
 		MenuPanel menuB = new MenuPanel(this, "butterflyPhase");
 		screens.add(menuB);
 		
+		InstructionsPanel insturctions3 = new InstructionsPanel(this, "butterflyPhase");
+		screens.add(insturctions3);
+		
 		ButterflyPanel butter = new ButterflyPanel(this);
 		screens.add(butter);
 		
 		
-		
 		ResetPanel reset = new ResetPanel(this, 2);
 		screens.add(reset);
+		
+		//Game won panel
 		
 		currScreen = screens.get(0);
 		
@@ -101,7 +112,7 @@ public class DrawingSurface extends PApplet{
 		scale(ratioX, ratioY);
 		currScreen.draw();
 		
-		if(currScreen instanceof MenuPanel || currScreen instanceof ResetPanel) {
+		if(currScreen instanceof MenuPanel || currScreen instanceof ResetPanel || currScreen instanceof InstructionsPanel) {
 			if(callTime < 1) {
 				songs.get(0).play();
 				callTime++;
@@ -196,7 +207,7 @@ public class DrawingSurface extends PApplet{
 		callTime = 0;
 		
 		//Closing all the songs
-		if(currScreen instanceof MenuPanel || currScreen instanceof ResetPanel) {
+		if(currScreen instanceof MenuPanel || currScreen instanceof ResetPanel || currScreen instanceof InstructionsPanel) {
 				songs.get(0).getAdvancedPlayer().close();	
 		} else if(currScreen instanceof EggPanel) {
 			songs.get(1).getAdvancedPlayer().close();	
@@ -215,7 +226,7 @@ public class DrawingSurface extends PApplet{
 	 * @return name of the design file
 	 */
 	public String getDesign() {
-		EggPanel panel = (EggPanel)screens.get(1);
+		EggPanel panel = (EggPanel)screens.get(2);
 		return panel.selectDesign();
 	}
 
