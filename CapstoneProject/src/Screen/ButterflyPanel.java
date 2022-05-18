@@ -89,11 +89,11 @@ public class ButterflyPanel extends Screen {
 			} 
 			
 			if(choice >= 0.5) {
-				obs.add(new Predator("img/Predator.gif", 800 + (i * x), y, speed));
+				obs.add(new Predator(surface, "img/Predator.gif", 800 + (i * x), y, speed));
 				//System.out.println(false);
 	
 			} else {
-				obs.add(new Obstacle("img/Kite.gif", 800 + (i * x), y, speed));
+				obs.add(new Obstacle(surface, "img/Kite.gif", 800 + (i * x), y, speed));
 				//System.out.println(true);
 	
 			}

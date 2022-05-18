@@ -2,6 +2,8 @@ package Obstacle;
 
 import Player.Player;
 import asha.shapes.Rectangle;
+import core.DrawingSurface;
+import processing.core.PImage;
 
 /**
  * Represents a Predator (a form of obstacle) that the player may encounter
@@ -14,15 +16,15 @@ import asha.shapes.Rectangle;
 	/**
 	 * Creates a predator
 	 */
-	public Predator(String i, int x, int y, double s) {
-		super(i, x, y, s);
+	public Predator(DrawingSurface ds, String i, int x, int y, double s) {
+		super(ds, i, x, y, s);
 	}
 	
 	/**
 	 * Creates a predator
 	 */
-	public Predator(String i, double s) {
-		super(i, s);
+	public Predator(DrawingSurface ds, String i, double s) {
+		super(ds, i, s);
 	}
 	
 	/**

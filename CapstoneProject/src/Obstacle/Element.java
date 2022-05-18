@@ -2,6 +2,7 @@ package Obstacle;
 
 import asha.shapes.Rectangle;
 import core.DrawingSurface;
+import processing.core.PImage;
 
 public class Element {
 
@@ -24,6 +25,9 @@ public class Element {
 	 * The element's image
 	 */
 	private String image;
+
+	private PImage pimage;
+	
 	
 	/**
 	 * Contructs a game element
@@ -35,19 +39,29 @@ public class Element {
 	/**
 	 * Contructs a game element
 	 */
-	public Element(String i, double s) {
+	public Element(DrawingSurface ds, String i, double s) {
 		image = i;
 		speed = -s;
+		pimage = ds.loadImage(i);
 	}
 	
 	/**
 	 * Contructs a game element
 	 */
-	public Element(String i, double x, double y, double s) {
+	public Element(DrawingSurface ds, String i, double x, double y, double s) {
 		this.x = x;
 		this.y = y;
 		speed = -s;
 		image = i;
+		pimage = ds.loadImage(i);
+	}
+	
+	public Element(DrawingSurface ds, String i, double x, double y, double s, double xsize, double ysize) {
+		this.x = x;
+		this.y = y;
+		speed = -s;
+		image = i;
+		pimage = ds.loadImage(i);
 	}
 	
 	/**
