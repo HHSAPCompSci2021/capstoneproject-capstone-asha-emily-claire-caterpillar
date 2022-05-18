@@ -8,6 +8,7 @@ import Obstacle.Element;
 import Obstacle.Obstacle;
 import Obstacle.Predator;
 import Player.Butterfly;
+import Sound.SoundJLayer;
 import core.DrawingSurface;
 /**
  * The screen during the Butterfly phase
@@ -53,6 +54,10 @@ public class ButterflyPanel extends Screen {
 		int i = 0;
 		addRandomElement();
 		addRandomCollectible();
+		
+//		SoundJLayer soundToPlay = new SoundJLayer("audio/Butterfly Panel Music.mp3");
+//		soundToPlay.play();
+		
 		//System.out.println(obs);
 	}
 	

@@ -23,6 +23,7 @@ import javax.sound.sampled.Clip;
 
 import Obstacle.Gif;
 import Player.Player;
+import Sound.SoundJLayer;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -55,6 +56,9 @@ public class ResetPanel extends Screen{
 		retryButton = new Rectangle(200, 100, 400, 100);
 		quitGameButton = new Rectangle(200, 300, 400, 100);
 		player = null;
+		
+		SoundJLayer soundToPlay = new SoundJLayer("audio/Menu-Music.mp3");
+		soundToPlay.play();
 	}
 	
 	public ResetPanel(DrawingSurface drawer, int nextScreen, Player player) {
@@ -64,6 +68,9 @@ public class ResetPanel extends Screen{
 		retryButton = new Rectangle(200, 100, 400, 100);
 		quitGameButton = new Rectangle(200, 300, 400, 100);
 		this.player = player;
+		
+//		SoundJLayer soundToPlay = new SoundJLayer("audio/Menu-Music.mp3");
+//		soundToPlay.play();
 	}
 	
 	/**

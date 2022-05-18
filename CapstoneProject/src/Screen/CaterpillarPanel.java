@@ -9,6 +9,7 @@ import Obstacle.Element;
 import Obstacle.Obstacle;
 import Obstacle.Predator;
 import Player.Caterpillar;
+import Sound.SoundJLayer;
 import asha.shapes.Rectangle;
 import asha.shapes.Shape;
 import core.DrawingSurface;
@@ -44,6 +45,9 @@ public class CaterpillarPanel extends Screen{
 		health = new HealthBar(caterpillar);
 		addRandompredator();
 		addRandomCollectibles();
+		
+//		SoundJLayer soundToPlay = new SoundJLayer("audio/Caterpillar Panel.mp3");
+//		soundToPlay.play();
 	}
 	
 	/**
@@ -157,12 +161,12 @@ public class CaterpillarPanel extends Screen{
 	 * Clears the screen and restarts the phase
 	 */
 	public void resetScreen() {
-		surface.switchScreen(0);
+		surface.switchScreen(4);
 	}
 	/**
 	 * Transitions to the next panel
 	 */
 	public void nextScreen() {
-		surface.switchScreen(3);
+		surface.switchScreen(5);
 	}
 }

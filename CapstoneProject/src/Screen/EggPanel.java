@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Player.Egg;
+import Sound.SoundJLayer;
 import core.DrawingSurface;
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -44,6 +45,9 @@ public class EggPanel extends Screen{
 		designChoices.add("img/ButterflySprite3.gif");
 		indexDisplayed = 0;
 		designChoosen = designChoices.get(0);
+		
+//		SoundJLayer soundToPlay = new SoundJLayer("audio/Egg Panel Music.mp3");
+//		soundToPlay.play();
 
 	}
 	
