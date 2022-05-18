@@ -50,6 +50,7 @@ public class MenuPanel extends Screen {
 	private int nextScreen = 1;
 	
 	
+	
 	/**
 	 * Constructs a menu panel window with the purpose of showing instructions and starting the game
 	 * @precondition phaseType is either eggPhase, caterpillarPhase, or butterflyPhase
@@ -61,13 +62,17 @@ public class MenuPanel extends Screen {
 		
 		this.surface = drawer;
 		this.phaseType = phaseType;
+		
 	
 
 		button = new Rectangle(800/2-100,600/2-50,200,100);
 		
+		if(getCurrScreen()) {
+			System.out.println("Menu Music");
+//			SoundJLayer soundToPlay = new SoundJLayer("audio/Menu-Music.mp3");
+//			soundToPlay.play();
+		}
 		
-		SoundJLayer soundToPlay = new SoundJLayer("audio/Menu-Music.mp3");
-		soundToPlay.play();
 	}
 	
 	
@@ -78,11 +83,12 @@ public class MenuPanel extends Screen {
 	 */
 	public void draw() {
 		
+		setCurrScreen(true);
 		
 		surface.background(255,255,255);
 		surface.image(surface.loadImage("img/fMenuPanel.gif"), 0, 0, 800, 600);
 		surface.fill(255);
-		System.out.println(phaseType);
+		
 		if(phaseType.equals("eggPhase")) {
 			nextScreen = 1;
 			surface.text("You're a butterfly ready to embark on a new adventure to discover yourself and the world around you. "
@@ -133,10 +139,14 @@ public class MenuPanel extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX, surface.mouseY));
         if(button.contains(p)) {
+        	setCurrScreen(false);
         	surface.switchScreen(nextScreen);
         }
 	
 		
 	}
+
+
+	
 	
 }

@@ -1,17 +1,28 @@
 package Sound;
 import javazoom.jl.player.advanced.*;
 
+
+/**
+ * Represents a song player 
+ */
 public class SoundJLayer extends PlaybackListener implements Runnable
 {
     private String filePath;
     private AdvancedPlayer player;
     private Thread playerThread;    
-
+    
+    /**
+     * Constructs a song player
+     * @param filePath - the mp3 file it will be playing
+     */
     public SoundJLayer(String filePath)
     {
         this.filePath = filePath;
     }
-
+    
+    /**
+     * Plays the song
+     */
     public void play()
     {
         try
@@ -33,22 +44,28 @@ public class SoundJLayer extends PlaybackListener implements Runnable
         }
     }
 
-    // PlaybackListener members
-
-    public void playbackStarted(PlaybackEvent playbackEvent)
-    {
-        System.out.println("playbackStarted");
-    }
-
-    public void playbackFinished(PlaybackEvent playbackEvent)
-    {
-        System.out.println("playbackEnded");
-    }    
+       
+    
+//    // PlaybackListener members
+//    
+//    public void playbackStarted(PlaybackEvent playbackEvent)
+//    {
+//        System.out.println("playbackStarted");
+//    }
+//
+//    public void playbackFinished(PlaybackEvent playbackEvent)
+//    {
+//        System.out.println("playbackEnded");
+//    }    
 
     // Runnable members
-
+    
+    /**
+     * Runs through the song
+     */
     public void run()
     {
+
         try
         {
             this.player.play();
@@ -59,4 +76,13 @@ public class SoundJLayer extends PlaybackListener implements Runnable
         }
 
     }
-}
+    
+    /**
+     * Getter method for the AdvancedPlayer
+     * @return player - the AdvancedPlayer
+     */
+    public AdvancedPlayer getAdvancedPlayer() {
+    	return player;
+    }
+    
+    }

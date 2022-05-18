@@ -45,10 +45,11 @@ public class EggPanel extends Screen{
 		designChoices.add("img/Butterfly3.gif");
 		indexDisplayed = 0;
 		designChoosen = designChoices.get(0);
-		
+		if(getCurrScreen()) {
+			System.out.println("Egg panel Music");
 //		SoundJLayer soundToPlay = new SoundJLayer("audio/Egg Panel Music.mp3");
 //		soundToPlay.play();
-
+		}
 	}
 	
 	
@@ -86,6 +87,8 @@ public class EggPanel extends Screen{
 	 * Draws the screen
 	 */
 	public void draw() {
+		
+		setCurrScreen(true);
 		surface.background(255,255,255);
 		surface.fill(255);
 		surface.image(surface.loadImage("img/fEggPanel2.gif"), 0, 0, 800, 600);
@@ -97,6 +100,7 @@ public class EggPanel extends Screen{
 	
 		if (surface.isPressed(KeyEvent.VK_SPACE)) {
 			designChoosen = designChoices.get(indexDisplayed);
+			setCurrScreen(false);
 			surface.switchScreen(2);
 		}
 	}

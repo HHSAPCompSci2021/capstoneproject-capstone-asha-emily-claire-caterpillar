@@ -11,6 +11,7 @@ import Screen.EggPanel;
 import Screen.MenuPanel;
 import Screen.ResetPanel;
 import Screen.Screen;
+import Sound.SoundJLayer;
 import processing.core.PApplet;
 /**
  * 
@@ -24,6 +25,9 @@ public class DrawingSurface extends PApplet{
 	private Screen currScreen; 
 	public float ratioX, ratioY;
 	private ArrayList<Integer> keys;
+	
+	private ArrayList<SoundJLayer> songs;
+	private int callTime = 0;
 	
 	/**
 	 * Creates a DrawingSurface that displays all the screens
@@ -40,8 +44,14 @@ public class DrawingSurface extends PApplet{
 		screens = new ArrayList<Screen>();
 		keys = new ArrayList<Integer>();
 		
+		//Songs Added
+		songs = new ArrayList<SoundJLayer>();
+		songs.add(new SoundJLayer("audio/Menu-Music.mp3"));
+		songs.add(new SoundJLayer("audio/Egg Panel Music.mp3"));
+		songs.add(new SoundJLayer("audio/Caterpillar Panel.mp3"));
+		songs.add(new SoundJLayer("audio/Butterfly Panel Music.mp3"));
 	
-		
+		//Screens
 		MenuPanel menu = new MenuPanel(this, "eggPhase");
 		screens.add(menu);
 		
@@ -70,6 +80,7 @@ public class DrawingSurface extends PApplet{
 		
 		currScreen = screens.get(0);
 		
+		
 	}
 	/**
 	 * Provides the basis for setup of the program
@@ -89,6 +100,32 @@ public class DrawingSurface extends PApplet{
 		push();
 		scale(ratioX, ratioY);
 		currScreen.draw();
+		
+		if(currScreen instanceof MenuPanel || currScreen instanceof ResetPanel) {
+			if(callTime < 1) {
+				songs.get(0).play();
+				callTime++;
+			}
+		} else if(currScreen instanceof EggPanel) {
+			
+			if(callTime < 1) {
+				songs.get(1).play();
+				callTime++;
+			}
+			
+		} else if(currScreen instanceof CaterpillarPanel) {
+			
+			if(callTime < 1) {
+				songs.get(2).play();
+				callTime++;
+			}
+		} else if(currScreen instanceof ButterflyPanel) {
+			if(callTime < 1) {
+				songs.get(3).play();
+				callTime++;
+			}
+		} 
+		
 		pop();
 	}
 	
@@ -151,10 +188,25 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	/**
-	 * Switches to a different screen, progresses the game
+	 * Switches to a different screen, progresses the game. Changes the music played
 	 * @param i - the screen index to switch too
+	 * @postcondition song played is changed/closes
 	 */
 	public void switchScreen(int i) {
+		callTime = 0;
+		
+		//Closing all the songs
+		if(currScreen instanceof MenuPanel || currScreen instanceof ResetPanel) {
+				songs.get(0).getAdvancedPlayer().close();	
+		} else if(currScreen instanceof EggPanel) {
+			songs.get(1).getAdvancedPlayer().close();	
+		} else if(currScreen instanceof CaterpillarPanel) {
+			songs.get(2).getAdvancedPlayer().close();
+		} else if(currScreen instanceof ButterflyPanel) {
+			songs.get(3).getAdvancedPlayer().close();
+			
+		} 
+		
 		currScreen = screens.get(i);
 	}
 	
