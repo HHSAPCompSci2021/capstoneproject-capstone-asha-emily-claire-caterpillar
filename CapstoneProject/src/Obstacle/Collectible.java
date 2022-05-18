@@ -20,8 +20,8 @@ public class Collectible extends Element{
 	 * @precondition collectableType is either a "leaf" or "flower"
 	 * @param collectibleType - leaf or flower
 	 */
-	public Collectible(String collectibleType, String image, double speed, double x, double y) {
-		super(image, x, y, speed);
+	public Collectible(DrawingSurface ds, String collectibleType, String image, double speed, double x, double y) {
+		super(ds, image, x, y, speed);
 		this.collectibleType = collectibleType;
 		eatenYet = false;
 		

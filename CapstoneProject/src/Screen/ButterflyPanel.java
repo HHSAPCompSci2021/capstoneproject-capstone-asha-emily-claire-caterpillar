@@ -68,7 +68,7 @@ public class ButterflyPanel extends Screen {
 	 * Adds a number of predators to random locations
 	 */
 	public void addRandomElement() {
-		for(int i = 0; i < 15; i++) {
+		for(int i = 0; i < 17; i++) {
 			int y = 0;
 			//int y = (((int)(Math.random() * 301) + 100) / 10) * 10;
 			//System.out.println(y);
@@ -106,7 +106,7 @@ public class ButterflyPanel extends Screen {
 	 */
 	public void addRandomCollectible() {
 
-		for(int i = 0; i < 7; i++) {
+		for(int i = 0; i < 15; i++) {
 			
 			double speed = 10 + (i * 0.5);
 			
@@ -123,10 +123,10 @@ public class ButterflyPanel extends Screen {
 				y = 448;
 			} 
 			
-			int x = (((int)(Math.random() * 200) + 400) / 10) * 10;
+			int x = (((int)(Math.random() * 200) + 800) / 10) * 10;
 			
 			//Was this supposed to be added to the collectible array instead of obs
-			obs.add(new Collectible("flower", "img/Flower.gif", speed, 800 + (i * x), y));
+			obs.add(new Collectible(surface, "flower", "img/Flower.gif", speed, 800 + (i * x), y));
 			//System.out.println(false);
 			
 		}	
