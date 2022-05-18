@@ -40,9 +40,9 @@ public class EggPanel extends Screen{
 		this.surface = surface;
 		isFinished = false;
 		designChoices = new ArrayList<String>();
-		designChoices.add("img/ButterflySprite1.gif");
-		designChoices.add("img/ButterflySprite2.gif");
-		designChoices.add("img/ButterflySprite3.gif");
+		designChoices.add("img/Butterfly1.gif");
+		designChoices.add("img/Butterfly2.gif");
+		designChoices.add("img/Butterfly3.gif");
 		indexDisplayed = 0;
 		designChoosen = designChoices.get(0);
 		
@@ -88,11 +88,11 @@ public class EggPanel extends Screen{
 	public void draw() {
 		surface.background(255,255,255);
 		surface.fill(255);
-		surface.image(surface.loadImage("img/background1.jpg"), 0, 0, 800, 600);
+		surface.image(surface.loadImage("img/fEggPanel2.gif"), 0, 0, 800, 600);
 	
-		surface.image(surface.loadImage(designChoices.get(indexDisplayed)), DRAWING_WIDTH/2, 300, 64, 64);
-		surface.text("Click on the screen to choose the butterfly you aspire to be one day. \n "
-				+ "Press the spacebar when you are ready to hatch.", DRAWING_WIDTH/3, 400);
+		surface.image(surface.loadImage(designChoices.get(indexDisplayed)), DRAWING_WIDTH/2 - 75, 275, 150, 150);
+		//surface.text("Click on the screen to choose the butterfly you aspire to be one day. \n "
+		//		+ "Press the spacebar when you are ready to hatch.", DRAWING_WIDTH/3, 400);
 		
 	
 		if (surface.isPressed(KeyEvent.VK_SPACE)) {

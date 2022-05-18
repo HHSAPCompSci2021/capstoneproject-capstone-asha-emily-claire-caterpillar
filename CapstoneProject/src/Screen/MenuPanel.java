@@ -80,7 +80,7 @@ public class MenuPanel extends Screen {
 		
 		
 		surface.background(255,255,255);
-		surface.image(surface.loadImage("img/menupanelBackground.gif"), 0, 0, 800, 600);
+		surface.image(surface.loadImage("img/fMenuPanel.gif"), 0, 0, 800, 600);
 		surface.fill(255);
 		System.out.println(phaseType);
 		if(phaseType.equals("eggPhase")) {

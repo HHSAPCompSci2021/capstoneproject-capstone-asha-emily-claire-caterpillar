@@ -214,6 +214,7 @@ public class ButterflyPanel extends Screen {
 						e.draw(surface);	
 					}
 				}
+				
 									
 						
 			} 
@@ -222,7 +223,19 @@ public class ButterflyPanel extends Screen {
 			surface.text("Game Over", 380, 300);
 		}
 			
-
+		
+//		boolean screen = false; 
+//		for(Element e : obs) {
+//			if(e.getX() < 0) {
+//				screen = true;
+//			} else {
+//				screen = false;
+//			}
+//		}
+//		
+//		if(b.getNumCollectible() > 5 && screen) {
+//			surface.text("YOU WIN!", 380, 300);
+//		}
 
 		
 	}

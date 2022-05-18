@@ -33,7 +33,7 @@ public class Butterfly extends Player{
 
 	@Override
 	public void draw(DrawingSurface s) {
-			s.image(s.loadImage(s.getDesign()), (float)getX(), (float)getY(), 64, 64);
+			s.image(s.loadImage(s.getDesign()), (float)getX(), (float)getY(), 100, 100);
 			
 	}
 
