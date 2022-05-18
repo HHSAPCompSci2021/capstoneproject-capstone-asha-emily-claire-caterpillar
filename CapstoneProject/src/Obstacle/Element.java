@@ -130,7 +130,7 @@ public class Element {
 	 * @param s - the DrawingSurface
 	 */
 	public void draw(DrawingSurface s) {
-		s.image(s.loadImage(image), (float)getX(), (float)getY(), 64, 64);
+		s.image(pimage, (float)getX(), (float)getY(), 64, 64);
 
 	}
 
