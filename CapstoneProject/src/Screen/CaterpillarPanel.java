@@ -27,7 +27,7 @@ public class CaterpillarPanel extends Screen{
 	private Caterpillar caterpillar; 
 	private HealthBar health; 
 	private PImage ground;
-	private PImage sky;
+	private PImage[] obs;
 	private boolean screenShown;
 
 
@@ -42,15 +42,15 @@ public class CaterpillarPanel extends Screen{
 		this.surface = surface;
 		obstacles = new ArrayList<Element>();
 		leaves = new ArrayList<Collectible>();
-		caterpillar = new Caterpillar(5, 20, DRAWING_HEIGHT/2, surface.getDesign());
+		caterpillar = new Caterpillar(7, 20, DRAWING_HEIGHT/2, surface.getDesign());
 		health = new HealthBar(caterpillar);
 		addRandompredator();
 		addRandomCollectibles();
-		
-//		SoundJLayer soundToPlay = new SoundJLayer("audio/Caterpillar Panel.mp3");
-//		soundToPlay.play();
+
+		//		SoundJLayer soundToPlay = new SoundJLayer("audio/Caterpillar Panel.mp3");
+		//		soundToPlay.play();
 	}
-	
+
 	/**
 	 * Set up the caterpillar panel
 	 */
@@ -59,12 +59,38 @@ public class CaterpillarPanel extends Screen{
 		ground = surface.loadImage("img/ground.gif");
 		screenShown = true;
 	}
-	
+
 	/**
 	 * Adds obstacles to randomized locations to the screen
 	 */
 	private void addRandompredator() {
-		obstacles.add(new Predator("img/Predator.gif", (int)(Math.random()*5)+DRAWING_WIDTH, 450, 5));
+//		int y = 0;
+//		double choice = (int)(Math.random()*7);
+//		//System.out.println(choice);
+//		int x = (((int)(Math.random() * 200) + 800) / 10) * 10;
+//		double speed = 10 + (i * 0.5);
+//		if(choice >= 0.9) {
+//			y = 64;
+//		} else if(choice >= 0.7) {
+//			y = 128;
+//		} else if(choice >= 0.5) {
+//			y = 256;
+//		} else if(choice >= 0.3) {
+//			y = 384;
+//		} else {
+//			y = 512;
+//		} 
+//
+//		if(choice >= 0.5) {
+//			obstacles.add(new Predator("img/Predator.gif", 800 + (i * x), y, speed));
+//			//System.out.println(false);
+//
+//		} else {
+//			obstacles.add(new Obstacle("img/Kite.gif", 800 + (i * x), y, speed));
+//			//System.out.println(true);
+//
+//		}
+
 	}
 
 	/**
@@ -94,7 +120,7 @@ public class CaterpillarPanel extends Screen{
 		{
 			c.draw(surface);
 		}
-		
+
 		health.draw(surface);
 		caterpillar.draw(surface);
 		sideScrolling();
@@ -120,10 +146,8 @@ public class CaterpillarPanel extends Screen{
 		for(Collectible c : leaves) {
 			c.move();
 			if(c.collide(caterpillar.playerDesignRect())) {
-				System.out.println("here");
 				c.moveByAmount(c.getX()+DRAWING_WIDTH, 10);
 				c.eat(caterpillar);
-				System.out.println(caterpillar.getNumCollectible());
 			}
 
 		}
@@ -146,7 +170,7 @@ public class CaterpillarPanel extends Screen{
 		{
 			if(o.getX() < -64)
 			{
-				o.moveByAmount(o.getX()+DRAWING_WIDTH, 0);
+				o.moveByAmount(DRAWING_WIDTH, 0);
 			}
 		}
 		for(Collectible c : leaves)
@@ -166,7 +190,7 @@ public class CaterpillarPanel extends Screen{
 	{
 		return screenShown;
 	}
-	
+
 	/**
 	 * Clears the screen and restarts the phase
 	 */
