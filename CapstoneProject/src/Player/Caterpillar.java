@@ -22,7 +22,7 @@ public class Caterpillar extends Player{
 	/**
 	 * Constructs a Caterpillar 
 	 */
-	public Caterpillar(int numCollectableNeedToEat, double x, double y, String design)
+	public Caterpillar(int numCollectableNeedToEat, double x, double y, PImage design)
 	{
 		super(numCollectableNeedToEat, x, y, design);
 		onSurface = true;
