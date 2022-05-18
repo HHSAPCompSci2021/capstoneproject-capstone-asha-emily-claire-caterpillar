@@ -64,32 +64,29 @@ public class CaterpillarPanel extends Screen{
 	 * Adds obstacles to randomized locations to the screen
 	 */
 	private void addRandompredator() {
-//		int y = 0;
-//		double choice = (int)(Math.random()*7);
-//		//System.out.println(choice);
-//		int x = (((int)(Math.random() * 200) + 800) / 10) * 10;
-//		double speed = 10 + (i * 0.5);
-//		if(choice >= 0.9) {
-//			y = 64;
-//		} else if(choice >= 0.7) {
-//			y = 128;
-//		} else if(choice >= 0.5) {
-//			y = 256;
-//		} else if(choice >= 0.3) {
-//			y = 384;
-//		} else {
-//			y = 512;
-//		} 
-//
-//		if(choice >= 0.5) {
-//			obstacles.add(new Predator("img/Predator.gif", 800 + (i * x), y, speed));
-//			//System.out.println(false);
-//
-//		} else {
-//			obstacles.add(new Obstacle("img/Kite.gif", 800 + (i * x), y, speed));
-//			//System.out.println(true);
-//
-//		}
+		int y = 0;
+		double choice = (int)(Math.random()*7);
+		System.out.println(choice);
+
+		if(choice == 0) {	//mole
+			obstacles.add(new Predator(surface, "img/Predator.gif", DRAWING_WIDTH, y, 10));
+			y = 400;
+		} else if(choice == 1) {	//centipede
+			y = 150;
+		} else if(choice == 2) { //kite
+			y = 60;
+		} else if(choice == 3) { //predator
+			y = 100;
+		} else if(choice == 4) {
+			y = 384;
+		}else {
+			y = 512;
+		} 
+
+		if(choice >= 0.5) {
+			obstacles.add(new Predator(surface, "img/Predator.gif", DRAWING_WIDTH, y, 10));
+			//System.out.println(false);
+		}
 
 	}
 
@@ -99,7 +96,7 @@ public class CaterpillarPanel extends Screen{
 	private void addRandomCollectibles() {
 		for(int i = 0; i < 2; i++)
 		{
-			leaves.add(new Collectible("leaf", "img/Leaf.gif", 5, DRAWING_WIDTH+(i*DRAWING_WIDTH-5), DRAWING_HEIGHT/2+(i*50)));
+			leaves.add(new Collectible(surface, "leaf", "img/Leaf.gif", 5, DRAWING_WIDTH+(i*DRAWING_WIDTH-5), DRAWING_HEIGHT/2+(i*50)));
 		}
 	}
 
