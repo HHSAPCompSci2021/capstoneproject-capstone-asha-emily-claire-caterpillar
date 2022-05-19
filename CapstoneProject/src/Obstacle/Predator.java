@@ -33,6 +33,10 @@ import processing.core.PImage;
 		super(i, s);
 	}
 	
+	public Predator(PImage pImage, int x, int y, double s, int xsize, int ysize) {
+		super(pImage, x, y, s, xsize, ysize);	
+		}
+
 	/**
 	 * Checks if the player runs into the predator
 	 * @return boolean - if the player runs into the predator

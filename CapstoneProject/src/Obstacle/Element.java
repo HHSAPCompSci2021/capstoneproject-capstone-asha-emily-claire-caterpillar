@@ -1,6 +1,7 @@
 package Obstacle;
 
-import asha.shapes.Rectangle;
+import java.awt.Rectangle;
+
 import core.DrawingSurface;
 import processing.core.PImage;
 
@@ -26,6 +27,7 @@ public class Element {
 	 */
 	private String image;
 	private int width, height;
+	private PImage im;
 
 	/**
 	 * Contructs a game element
@@ -63,6 +65,15 @@ public class Element {
 		height = ysize;
 	}
 	
+	public Element(PImage p, double x, double y, double s, int xsize, int ysize) {
+		this.x = x;
+		this.y = y;
+		speed = -s;
+		im = p;
+		width = xsize;
+		height = ysize;
+	}
+	
 	public void resize(int width, int height)
 	{
 		this.width = width;
@@ -73,7 +84,7 @@ public class Element {
 	 * @return the rectangle that represents the bounds
 	 */
 	public Rectangle getBounds() {
-		return new Rectangle(x, y, width, height);
+		return new Rectangle((int)x,(int) y, width, height);
 	}
 	
 	/**
@@ -140,6 +151,15 @@ public class Element {
 	
 	public String getImage() {
 		return image;
+	}
+	
+	/**
+	 * Draws the player on the screen
+	 * @param s - the DrawingSurface
+	 */
+	public void draw1(DrawingSurface s) {
+		s.image(im, (float)getX(), (float)getY(), width, height);
+
 	}
 
 	
