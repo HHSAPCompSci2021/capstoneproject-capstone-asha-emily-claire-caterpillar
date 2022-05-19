@@ -47,7 +47,7 @@ public class Caterpillar extends Player{
 
 	public void draw(DrawingSurface p) {
 		// TODO Auto-generated method stub
-		p.image(p.loadImage(selectedImage("caterpillar")), (float)getX(), (float)getY(), 64, 64);
+		p.image(getDesign(), (float)getX(), (float)getY(), 64, 64);
 
 	}
 

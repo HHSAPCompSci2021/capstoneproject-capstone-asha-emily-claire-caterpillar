@@ -13,7 +13,7 @@ public class Collectible extends Element{
 	private String collectibleType;
 	private String typeDesign;
 	private double x, y;
-	
+
 	//Emily - edited to reflect the new heirarchy
 	/**
 	 * Constructs a collectible (either a leaf or flower)
@@ -24,25 +24,43 @@ public class Collectible extends Element{
 		super(image, x, y, speed);
 		this.collectibleType = collectibleType;
 		eatenYet = false;
-		
+
 		if(collectibleType.equals("leaf")) {
 			typeDesign = "img/Leaf.gif";
 		} else {
 			typeDesign = "img/Flower.gif";
 		}
 	}
-	
+
+	//Emily - edited to reflect the new heirarchy
+	/**
+	 * Constructs a collectible (either a leaf or flower)
+	 * @precondition collectableType is either a "leaf" or "flower"
+	 * @param collectibleType - leaf or flower
+	 */
+	public Collectible(String collectibleType, PImage image, double speed, double x, double y) {
+		super(image, x, y, speed, 64, 64);
+		this.collectibleType = collectibleType;
+		eatenYet = false;
+
+		if(collectibleType.equals("leaf")) {
+			typeDesign = "img/Leaf.gif";
+		} else {
+			typeDesign = "img/Flower.gif";
+		}
+	}
+
 	/**
 	 * The collectible is collected. The total number of collectibles and the number of collectibles per phase increase.
 	 * The collectible becomes eaten and on other methods managed by the panel should disappear.
 	 * @param player - A Player object that will collect this collectible
 	 */
 	public void eat(Player player) {
-		
+
 		player.eatCollectable();
 		eatenYet = true;
 	}
-	
+
 	/**
 	 * Getter method for if the collectible is eaten yet
 	 * @return eatenYet - if the collectible has been eaten
@@ -51,7 +69,7 @@ public class Collectible extends Element{
 	public boolean getEatenYet() {
 		return eatenYet;
 	}
-	
+
 	/**
 	 * Displays the image on the screen
 	 * @precondition surface is not null. x, y, width, and height are all positive
@@ -66,7 +84,7 @@ public class Collectible extends Element{
 		while(!eatenYet) {
 			surface.image(surface.loadImage(typeDesign), (float) x, (float) y, width, height);
 		}
-		
+
 	}
 	/**
 	 * Returns the type of collectible it is: leaf or flower
@@ -75,5 +93,5 @@ public class Collectible extends Element{
 	public String getCollectibleType() {
 		return collectibleType;
 	}
-	
+
 }
