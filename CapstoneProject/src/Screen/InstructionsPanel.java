@@ -52,9 +52,10 @@ public class InstructionsPanel extends Screen{
 					+ "\nIn this side-scrolling runner game, you will be dropped into this deadly, but exciting world as an egg, but will slowly grow "
 					+ "\novertime into a caterpillar, a pupa, and eventually a butterfly. Before you start, "
 					+ "\nyou’ll get the opportunity to choose what kind of butterfly you’ll end up being. "
+					+ "\n\n"
 					+ "\nClick anywhere on the screen to cycle through designs."
 					+ "\nPress the spacebar when you are ready to start."
-					+ "\nClick on the start button when you are ready to start the next phase.",20, 50);
+					+ "\nClick on the start button when you are ready to start the next phase.",30, 150);
 		} else if(phaseType.equals("caterpillarPhase")) {
 			nextScreen = 3;
 			surface.text("Congrats! You are now a caterpillar! "
@@ -62,13 +63,13 @@ public class InstructionsPanel extends Screen{
 					+ "\nMake sure to collect leaves to progress through the game. They provide energy that will keep you alive."
 					+ "\nIf you crash into an obstacle 3 times, you will unfortunaly have to start your journey over again."
 					+ "\nThe same occurs when you run into a predator."
-					+ "\nGood luck!", 20, 50);
+					+ "\nGood luck!", 30, 150);
 		} else if(phaseType.equals("butterflyPhase")){
 			nextScreen = 7;
 			surface.text("Yay! You are now a butterfly!"
 					+ "\nUse the space bar to avoid obstacles/predators and to collect flowers."
 					+ "\nEventually, the game will end and you will have reached your destination."
-					+ "\nPress esc to exit out of the screen", 20, 50);
+					+ "\nPress esc to exit out of the screen", 30, 150);
 		}
 		
 		surface.fill(255);

@@ -98,7 +98,7 @@ public class DrawingSurface extends PApplet{
 		RhythmPanel r = new RhythmPanel(this);
 		screens.add(r);
 		
-		currScreen = screens.get(5);
+		currScreen = screens.get(0);
 
 		
 	}

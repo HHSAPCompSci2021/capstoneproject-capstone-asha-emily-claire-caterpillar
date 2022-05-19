@@ -46,9 +46,6 @@ public class CaterpillarPanel extends Screen{
 		health = new HealthBar(caterpillar);
 		addRandompredator();
 		addRandomCollectibles();
-
-		//		SoundJLayer soundToPlay = new SoundJLayer("audio/Caterpillar Panel.mp3");
-		//		soundToPlay.play();
 	}
 
 	/**
