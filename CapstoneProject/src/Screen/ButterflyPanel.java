@@ -77,6 +77,7 @@ public class ButterflyPanel extends Screen {
 		img = new ArrayList<PImage>();
 		
 		addRandomElement(obs);
+		addRandomElement(obs1);
 		addRandomCollectible(col);
 
 		b = new Butterfly(5, 100, 100, p1);
@@ -89,7 +90,7 @@ public class ButterflyPanel extends Screen {
 	 * Adds a number of predators to random locations
 	 */
 	public void addRandomElement(ArrayList<Element> a) {
-		for(int i = 0; i < 20; i++) {
+		for(int i = 0; i < 25; i++) {
 			int y = 0;
 			//int y = (((int)(Math.random() * 301) + 100) / 10) * 10;
 			//System.out.println(y);
@@ -185,7 +186,7 @@ public class ButterflyPanel extends Screen {
 			if (surface.isPressed(KeyEvent.VK_DOWN) &&  b.getY() < 600 - 64)
 				b.moveByAmount(0, 10);
 			
-			
+			b.draw2(surface);
 		
 	
 			//b.draw(surface);
@@ -202,6 +203,18 @@ public class ButterflyPanel extends Screen {
 				if(obs.get(0).getX() < 0) {
 					next = true;
 					obs.remove(0);
+				}
+			}
+			
+			boolean next1 = true;
+			while(obs1.size() > 0 && next1) {
+				next1 = false;
+				obs1.get(0).draw(surface);
+				sideScrolling(obs1.get(0));
+				
+				if(obs1.get(0).getX() < 0) {
+					next1 = true;
+					obs1.remove(0);
 				}
 			}
 			
@@ -274,6 +287,10 @@ public class ButterflyPanel extends Screen {
 		{
 			nextScreen();
 			return;
+		}
+		
+		if(obs.size() == 0 && obs1.size() == 0) {
+			resetScreen();
 		}
 		
 		

@@ -59,7 +59,7 @@ public class CaterpillarPanel extends Screen{
 		PImage p = surface.loadImage(surface.getDesign());
 		
 		caterpillar = new Caterpillar(7, 20, DRAWING_HEIGHT/2, p);
-		ground = surface.loadImage("img/ground.gif");
+		ground = surface.loadImage("img/cBackground.gif");
 		screenShown = true;
 	}
 
@@ -99,7 +99,8 @@ public class CaterpillarPanel extends Screen{
 	 */
 	public void draw() {
 		surface.background(255,255,255);
-		surface.image(ground, 0, DRAWING_HEIGHT/2+32, 800, 600);
+		
+		surface.image(ground, 0, 0, 800, 600);
 
 		for(Element o : obstacles)
 		{
