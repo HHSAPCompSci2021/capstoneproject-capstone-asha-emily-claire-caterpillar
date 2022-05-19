@@ -80,8 +80,6 @@ public class MenuPanel extends Screen {
 	 */
 	public void draw() {
 		
-		System.out.println(nextScreen);
-		
 		setCurrScreen(true);
 		
 		surface.background(255,255,255);
