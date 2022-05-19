@@ -78,7 +78,7 @@ public class CaterpillarPanel extends Screen{
 		if(choice == 0) {	//mole
 			obstacles.add(new Predator("img/Mole.png", DRAWING_WIDTH, 400, 10, 64, 64));
 		} else if(choice == 1) {	//centipede
-			obstacles.add(new Predator("img/centapede.png", DRAWING_WIDTH, 150, 10, 64, 64));
+			obstacles.add(new Predator("img/Centi.png", DRAWING_WIDTH, 150, 10, 64, 64));
 		} else if(choice == 2) { //kite
 			obstacles.add(new Obstacle("img/Kite.gif", DRAWING_WIDTH, 60, 10));
 		} else if(choice == 3) { //predator

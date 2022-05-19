@@ -75,7 +75,7 @@ public class DrawingSurface extends PApplet{
 		CaterpillarPanel cater = new CaterpillarPanel(this);
 		screens.add(cater);
 		
-		ResetPanel resetPanel = new ResetPanel(this, 5);
+		ResetPanel resetPanel = new ResetPanel(this, 3);
 		screens.add(resetPanel);
 		
 		MenuPanel menuB = new MenuPanel(this, "butterflyPhase");
@@ -88,7 +88,7 @@ public class DrawingSurface extends PApplet{
 		screens.add(butter);
 		
 		
-		ResetPanel reset = new ResetPanel(this, 2);
+		ResetPanel reset = new ResetPanel(this, 9);
 		screens.add(reset);
 		
 		EndPanel end = new EndPanel(this);
@@ -98,7 +98,7 @@ public class DrawingSurface extends PApplet{
 		RhythmPanel r = new RhythmPanel(this);
 		screens.add(r);
 		
-		currScreen = screens.get(0);
+		currScreen = screens.get(5);
 
 		
 	}
