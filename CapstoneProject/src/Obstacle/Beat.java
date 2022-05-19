@@ -10,6 +10,10 @@ public class Beat extends Element{
 		
 	}
 	
+	public Beat(String i, double x, double y, double s, int w, int l) {
+		super(i, x, y, s, w, l);
+	}
+	
 	public boolean getView() {
 		return view;
 	}

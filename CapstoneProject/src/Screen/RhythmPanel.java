@@ -36,9 +36,9 @@ public class RhythmPanel extends Screen{
 		e2 = new ArrayList<Beat>();
 		e3 = new ArrayList<Beat>();
 		e4 = new ArrayList<Beat>();
-		up = new Beat("img/Kite.gif", 200, 450, 0);
-		down = new Beat("img/Kite.gif", 300, 450, 0);
-		left = new Beat("img/Kite.gif", 400, 450, 0);
+		up = new Beat("img/Kite.gif", 300, 450, 0);
+		down = new Beat("img/Kite.gif", 400, 450, 0);
+		left = new Beat("img/Kite.gif", 200, 450, 0);
 		right = new Beat("img/Kite.gif", 500, 450, 0);
 
 
@@ -46,59 +46,43 @@ public class RhythmPanel extends Screen{
 	}
 	
 	public void addBeats() {
-		e1.add(new Beat("img/Flower.gif", 200, -64, 10));
-		e1.add(new Beat("img/Leaf.gif", 200, -64, 10));
-		e1.add(new Beat("img/Flower.gif", 200, -64, 10));
-//		e1.add(new Beat("img/Flower.gif", 200, -64, 10));
-//		e1.add(new Beat("img/Flower.gif", 200, -64, 10));
-//		e1.add(new Beat("img/Flower.gif", 200, -64, 10));
-//		e1.add(new Beat("img/Flower.gif", 200, -64, 10));
-//		e1.add(new Beat("img/Flower.gif", 200, -64, 10));
-
-
-		e2.add(new Beat("img/Flower.gif", 300, -64, 10));
-		e2.add(new Beat("img/Flower.gif", 300, -64, 10));
-		e2.add(new Beat("img/Flower.gif", 300, -64, 10));
-//		e2.add(new Beat("img/Flower.gif", 300, -64, 10));
-//		e2.add(new Beat("img/Flower.gif", 300, -64, 10));
-//		e2.add(new Beat("img/Flower.gif", 300, -64, 10));
-//		e2.add(new Beat("img/Flower.gif", 300, -64, 10));
+		
+		e1.add(new Beat("img/Leaf.gif", 300, 0, 10));
+		e2.add(new Beat("img/Leaf.gif", 400, 0, 10));
+		e3.add(new Beat("img/Leaf.gif", 200, 0, 10));
+		e4.add(new Beat("img/Leaf.gif", 500, 0, 10));
 
 		
-		e3.add(new Beat("img/Flower.gif", 400, -64, 10));
-//		e3.add(new Beat("img/Flower.gif", 400, -64, 10));
-//		e3.add(new Beat("img/Flower.gif", 400, -64, 10));
-//		e3.add(new Beat("img/Flower.gif", 400, -64, 10));
-//		e3.add(new Beat("img/Flower.gif", 400, -64, 10));
-//		e3.add(new Beat("img/Flower.gif", 400, -64, 10));
-//		e3.add(new Beat("img/Flower.gif", 400, -64, 10));
-//		e3.add(new Beat("img/Flower.gif", 400, -64, 10));
+		for(int i = 0; i < 45; i++) {
+			e1.add(new Beat("img/Flower.gif", 300, -64, 10));
+			e2.add(new Beat("img/Flower.gif", 400, -64, 10));
+			e3.add(new Beat("img/Flower.gif", 200, -64, 10));
+			e4.add(new Beat("img/Flower.gif", 500, -64, 10));
 
-		e4.add(new Beat("img/Flower.gif", 500, -64, 10));
-//		e4.add(new Beat("img/Flower.gif", 500, -64, 10));
-//		e4.add(new Beat("img/Flower.gif", 500, -64, 10));
-//		e4.add(new Beat("img/Flower.gif", 500, -64, 10));
-//		e4.add(new Beat("img/Flower.gif", 500, -64, 10));
-//		e4.add(new Beat("img/Flower.gif", 500, -64, 10));
-//		e4.add(new Beat("img/Flower.gif", 500, -64, 10));
-//		e4.add(new Beat("img/Flower.gif", 500, -64, 10));
-
-
+			
+		}
 		
+		e1.add(new Beat("img/Flower.gif", 300, 0, 10, 64, 200));
+		e2.add(new Beat("img/Flower.gif", 400, 0, 10, 64, 200));
+		e3.add(new Beat("img/Flower.gif", 200, 0, 10, 64, 200));
+		e4.add(new Beat("img/Flower.gif", 500, 0, 10, 64, 200));
+	
 	}
 	
 	public void move(ArrayList<Beat> obs) {
 		
+			int i = 0;
 			boolean o = true;
-			while(o) {
+			while(o && i < obs.size()) {
 				o = false;
-				if(obs.get(0).getImage().equals("img/Flower.gif") && obs.get(0).getView())
-					obs.get(0).draw(surface);
-				obs.get(0).moveByAmount(0, 10);
+				if(obs.get(i).getImage().equals("img/Flower.gif") && obs.get(i).getView())
+					obs.get(i).draw(surface);
+				obs.get(i).moveByAmount(0, 10.5);
 				
-				if(obs.get(0).getX() < -64 && obs.size() > 1) {
-					obs.remove(0);
+				if(obs.get(i).getY() > 250 && obs.size() > 1) {
+					//obs.remove(0);
 					o = true;
+					i++;
 				}
 			
 		}	
@@ -118,23 +102,46 @@ public class RhythmPanel extends Screen{
 		for(Beat e: e1) {
 			if (surface.isPressed(KeyEvent.VK_UP) && e.collide(up.getBounds())) {
 				e.setView(false);
+				surface.text("YAY", 20, 20);
+			}
+			
+			if(e.getY() > 664) {
+				e.setView(false);
 			}
 		}
 		
 		for(Beat e: e2) {
 			if (surface.isPressed(KeyEvent.VK_DOWN) && e.collide(down.getBounds())) {
 				e.setView(false);
+				surface.text("YAY", 20, 20);
+
+			}
+			
+			if(e.getY() > 664) {
+				e.setView(false);		
 			}
 		}
 		
 		for(Beat e: e3) {
 			if (surface.isPressed(KeyEvent.VK_LEFT) && e.collide(left.getBounds())) {
 				e.setView(false);
+				surface.text("YAY", 20, 20);
+
 			}
+			
+			if(e.getY() > 664) {
+				e.setView(false);
+			}	
 		}
 		
 		for(Beat e: e4) {
 			if (surface.isPressed(KeyEvent.VK_RIGHT) && e.collide(right.getBounds())) {
+				e.setView(false);
+				surface.text("YAY", 20, 20);
+
+			}
+			
+			if(e.getY() > 664) {
 				e.setView(false);
 			}
 		}

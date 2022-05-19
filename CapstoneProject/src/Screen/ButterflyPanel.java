@@ -43,7 +43,6 @@ public class ButterflyPanel extends Screen {
 	
 	private HealthBar h;
 	
-	private ArrayList<PImage> img;
 	private PImage p1, p2, p3;
 	
 
@@ -74,7 +73,6 @@ public class ButterflyPanel extends Screen {
 		obs = new ArrayList<Element>();
 		obs1 = new ArrayList<Element>();
 		col = new ArrayList<Collectible>();
-		img = new ArrayList<PImage>();
 		
 		addRandomElement(obs);
 		addRandomElement(obs1);
@@ -280,6 +278,7 @@ public class ButterflyPanel extends Screen {
 			
 			
 		}	else {
+			b.setTotalCollisions(0);
 			resetScreen();
 		}
 			
@@ -291,6 +290,8 @@ public class ButterflyPanel extends Screen {
 		
 		if(obs.size() == 0 && obs1.size() == 0) {
 			resetScreen();
+			b.setTotalCollisions(0);
+
 		}
 		
 		

@@ -192,6 +192,7 @@ public class CaterpillarPanel extends Screen{
 	 * Clears the screen and restarts the phase
 	 */
 	public void resetScreen() {
+		
 		surface.switchScreen(6);
 	}
 	/**
