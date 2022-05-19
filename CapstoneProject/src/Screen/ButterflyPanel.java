@@ -44,7 +44,7 @@ public class ButterflyPanel extends Screen {
 	private HealthBar h;
 	
 	private ArrayList<PImage> img;
-	private PImage p;
+	private PImage p1, p2, p3;
 	
 
 	
@@ -66,7 +66,10 @@ public class ButterflyPanel extends Screen {
 	public void setup() {
 		
 
-		p = surface.loadImage("img/Butterfly1.gif");
+		p1 = surface.loadImage("img/Butterfly1.gif");
+		p2 = surface.loadImage("img/Butterfly2.gif");
+		p3 = surface.loadImage("img/Butterfly3.gif");
+		
 		
 		obs = new ArrayList<Element>();
 		obs1 = new ArrayList<Element>();
@@ -76,7 +79,7 @@ public class ButterflyPanel extends Screen {
 		addRandomElement(obs);
 		addRandomCollectible(col);
 
-		b = new Butterfly(5, 100, 100, p);
+		b = new Butterfly(5, 100, 100, p1);
 		h = new HealthBar(b);
 		
 		
@@ -161,6 +164,15 @@ public class ButterflyPanel extends Screen {
 	 * Draws the screen for the phase
 	 */
 	public void draw() {
+		
+		if(surface.getDesign().equals("img/Butterfly1.gif")) {
+			b.setDesign(p1);
+		} else if(surface.getDesign().equals("img/Butterfly2.gif")) {
+			b.setDesign(p2);
+		} else  {
+			b.setDesign(p3);
+		}
+		
 		//System.out.println(true);
 		surface.background(255,255,255);
 		surface.fill(0);
@@ -174,8 +186,10 @@ public class ButterflyPanel extends Screen {
 				b.moveByAmount(0, 10);
 			
 			
-			b.draw(surface);
+		
 	
+			//b.draw(surface);
+			
 			//int i = 0;
 			boolean next = true;
 

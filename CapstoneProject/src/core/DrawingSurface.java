@@ -15,6 +15,7 @@ import Screen.ResetPanel;
 import Screen.Screen;
 import Sound.SoundJLayer;
 import processing.core.PApplet;
+import processing.core.PImage;
 /**
  * 
  * @author Emily
@@ -27,7 +28,7 @@ public class DrawingSurface extends PApplet{
 	private Screen currScreen; 
 	public float ratioX, ratioY;
 	private ArrayList<Integer> keys;
-	
+	private PImage p;
 	private ArrayList<SoundJLayer> songs;
 	private int callTime = 0;
 	
@@ -100,6 +101,9 @@ public class DrawingSurface extends PApplet{
 	 * Provides the basis for setup of the program
 	 */
 	public void setup() {
+		
+		
+		
 		for (Screen s : screens)
 			s.setup();
 	}
@@ -230,7 +234,9 @@ public class DrawingSurface extends PApplet{
 	 */
 	public String getDesign() {
 		EggPanel panel = (EggPanel)screens.get(2);
+		System.out.print(panel.selectDesign());
 		return panel.selectDesign();
+		//return p;
 	}
 
 }
