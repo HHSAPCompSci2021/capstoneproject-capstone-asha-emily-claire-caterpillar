@@ -157,7 +157,9 @@ public class CaterpillarPanel extends Screen{
 		}
 		if(caterpillar.getTotalCollisions() == 3)
 		{
+			System.out.println("here: " + caterpillar.getTotalCollisions());
 			resetScreen();
+			caterpillar.setTotalCollisions(0);
 			return;
 		}
 	}

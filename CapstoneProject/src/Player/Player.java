@@ -118,7 +118,7 @@ public abstract class Player {
 	 * @param add the number to add to the total collisions
 	 */
 	public void setTotalCollisions(int add) {
-		totalCollisions += add;
+		totalCollisions = add;
 	}
 	
 	/**
