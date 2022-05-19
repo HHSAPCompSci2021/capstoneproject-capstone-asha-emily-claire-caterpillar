@@ -47,7 +47,7 @@ public class Caterpillar extends Player{
 
 	public void draw(DrawingSurface p) {
 		// TODO Auto-generated method stub
-		p.image(p.loadImage(selectedImage("caterpillar")), (float)getX(), (float)getY(), 64, 64);
+		p.image(getDesign(), (float)getX(), (float)getY(), 64, 64);
 
 	}
 
@@ -57,7 +57,7 @@ public class Caterpillar extends Player{
 	public void dive() {
 		// TODO Auto-generated method stub
 		if(onSurface) {
-			yVol = 5;
+			yVol = 13;
 			upDown = -1;
 		}
 	}
@@ -68,7 +68,7 @@ public class Caterpillar extends Player{
 	public void jump() {
 		// TODO Auto-generated method stub
 		if(onSurface) {
-			yVol = -5;
+			yVol = -13;
 			upDown = 1;
 		}
 
@@ -82,10 +82,10 @@ public class Caterpillar extends Player{
 		// TODO Auto-generated method stub
 		onSurface = false;
 		if(upDown == 1) {
-			yVol += 0.1;
+			yVol += 0.5;
 		} else if(upDown == -1)
 		{
-			yVol -= 0.1;
+			yVol -= 0.5;
 		}
 
 		setY(getY() + yVol);

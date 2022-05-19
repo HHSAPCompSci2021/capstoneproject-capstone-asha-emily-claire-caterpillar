@@ -1,12 +1,13 @@
 package Player;
 
 import java.awt.Point;
+import java.awt.Rectangle;
+
 //Originally had the wrong element export but i changed it -claire
 import Obstacle.Element;
 import Obstacle.Obstacle;
 import Obstacle.Predator;
 import Screen.EggPanel;
-import asha.shapes.Rectangle;
 import core.DrawingSurface;
 import processing.core.PImage;
 /**
@@ -117,7 +118,7 @@ public abstract class Player {
 	 * @param add the number to add to the total collisions
 	 */
 	public void setTotalCollisions(int add) {
-		totalCollisions += add;
+		totalCollisions = add;
 	}
 	
 	/**
@@ -153,7 +154,7 @@ public abstract class Player {
 	 * @return the rectangular frame of the player's image
 	 */
 	public Rectangle playerDesignRect() {
-		return new Rectangle(x, y, 64, 64);
+		return new Rectangle((int)x, (int)y, 64, 64);
 	}
 	
 	

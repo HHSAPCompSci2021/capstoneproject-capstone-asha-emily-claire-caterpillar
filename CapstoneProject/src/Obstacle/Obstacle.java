@@ -29,6 +29,11 @@ public class Obstacle extends Element{
 		super(i, s);
 	}
 	
+	public Obstacle(PImage pImage, int x, int y, int s) {
+		// TODO Auto-generated constructor stub
+		super(pImage, x, y, s, 64, 64);
+	}
+
 	/**
 	 * Bounces the character back from the obstacle
 	 */
