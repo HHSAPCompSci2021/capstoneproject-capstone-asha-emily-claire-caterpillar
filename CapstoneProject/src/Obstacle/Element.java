@@ -74,11 +74,17 @@ public class Element {
 		height = ysize;
 	}
 	
+	/**
+	 * Resizes the game element
+	 * @param width - the new width of the element
+	 * @param height - the new height of the element
+	 */
 	public void resize(int width, int height)
 	{
 		this.width = width;
 		this.height = height;
 	}
+
 	/**
 	 * Gets the rectangle bounds of the element
 	 * @return the rectangle that represents the bounds
