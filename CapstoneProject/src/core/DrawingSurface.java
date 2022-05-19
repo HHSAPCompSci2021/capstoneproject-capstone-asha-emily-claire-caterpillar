@@ -12,9 +12,11 @@ import Screen.EndPanel;
 import Screen.InstructionsPanel;
 import Screen.MenuPanel;
 import Screen.ResetPanel;
+import Screen.RhythmPanel;
 import Screen.Screen;
 import Sound.SoundJLayer;
 import processing.core.PApplet;
+import processing.core.PImage;
 /**
  * 
  * @author Emily
@@ -27,7 +29,7 @@ public class DrawingSurface extends PApplet{
 	private Screen currScreen; 
 	public float ratioX, ratioY;
 	private ArrayList<Integer> keys;
-	
+	private PImage p;
 	private ArrayList<SoundJLayer> songs;
 	private int callTime = 0;
 	
@@ -52,6 +54,7 @@ public class DrawingSurface extends PApplet{
 		songs.add(new SoundJLayer("audio/Egg Panel Music.mp3"));
 		songs.add(new SoundJLayer("audio/Caterpillar Panel.mp3"));
 		songs.add(new SoundJLayer("audio/Butterfly Panel Music.mp3"));
+		songs.add(new SoundJLayer("audio/Rhythm.mp3"));
 	
 		//Screens
 		MenuPanel menu = new MenuPanel(this, "eggPhase");
@@ -92,14 +95,20 @@ public class DrawingSurface extends PApplet{
 		screens.add(end);
 		//Game won panel
 		
-		currScreen = screens.get(0);
+		RhythmPanel r = new RhythmPanel(this);
+		screens.add(r);
 		
+		currScreen = screens.get(0);
+
 		
 	}
 	/**
 	 * Provides the basis for setup of the program
 	 */
 	public void setup() {
+		
+		
+		
 		for (Screen s : screens)
 			s.setup();
 	}
@@ -138,7 +147,12 @@ public class DrawingSurface extends PApplet{
 				songs.get(3).play();
 				callTime++;
 			}
-		} 
+		} else if(currScreen instanceof RhythmPanel) {
+			if(callTime < 1) {
+				songs.get(4).play();
+				callTime++;
+			}
+		}
 		
 		pop();
 	}
@@ -230,7 +244,9 @@ public class DrawingSurface extends PApplet{
 	 */
 	public String getDesign() {
 		EggPanel panel = (EggPanel)screens.get(2);
+		System.out.print(panel.selectDesign());
 		return panel.selectDesign();
+		//return p;
 	}
 
 }

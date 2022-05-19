@@ -57,9 +57,14 @@ public class CaterpillarPanel extends Screen{
 	public void setup()
 	{
 		PImage p = surface.loadImage(surface.getDesign());
-		
+		obs = new PImage[4];
+		obs[0] = surface.loadImage("img/Mole.png");
+		obs[1] = surface.loadImage("img/Centi.png");
+		obs[2] = surface.loadImage("img/Kite.gif");
+		obs[3] = surface.loadImage("img/Predator.gif");
+
 		caterpillar = new Caterpillar(7, 20, DRAWING_HEIGHT/2, p);
-		ground = surface.loadImage("img/ground.gif");
+		ground = surface.loadImage("img/cBackground.gif");
 		screenShown = true;
 	}
 
@@ -89,7 +94,7 @@ public class CaterpillarPanel extends Screen{
 	private void addRandomCollectibles() {
 		for(int i = 0; i < 2; i++)
 		{
-			//leaves.add(new Collectible("leaf", "img/Leaf.gif", 5, DRAWING_WIDTH+(i*DRAWING_WIDTH-5), DRAWING_HEIGHT/2+(i*50)));
+			leaves.add(new Collectible("leaf", "img/Leaf.gif", 5, DRAWING_WIDTH+(i*DRAWING_WIDTH-5), DRAWING_HEIGHT/2+(i*50)));
 		}
 	}
 
@@ -99,10 +104,12 @@ public class CaterpillarPanel extends Screen{
 	 */
 	public void draw() {
 		surface.background(255,255,255);
-		surface.image(ground, 0, DRAWING_HEIGHT/2+32, 800, 600);
+		
+		surface.image(ground, 0, 0, 800, 600);
 
 		for(Element o : obstacles)
 		{
+			
 			o.draw(surface);
 		}
 

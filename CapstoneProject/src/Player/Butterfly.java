@@ -34,16 +34,27 @@ public class Butterfly extends Player{
 
 	@Override
 	public void draw(DrawingSurface s) {
-			s.image(getDesign(), (float)getX(), (float)getY(), 100, 100);
+			s.image(s.loadImage(s.getDesign()), (float)getX(), (float)getY(), 100, 100);
 			
 	}
+	
+	public void draw2(DrawingSurface s) {
+		s.image(getDesign(), (float)getX(), (float)getY(), 100, 100);
+		
+}
 
+	public void draw1(DrawingSurface s, PImage p) {
+		s.image(p, (float)getX(), (float)getY(), 100, 100);
+		
+}
 
 	@Override
 	public void applyWindowLimits(int windowWidth, int windowHeight) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+
 	
 	
 	

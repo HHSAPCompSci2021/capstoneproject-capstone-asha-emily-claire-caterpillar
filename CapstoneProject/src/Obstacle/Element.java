@@ -137,6 +137,10 @@ public class Element {
 		s.image(s.loadImage(image), (float)getX(), (float)getY(), width, height);
 
 	}
+	
+	public String getImage() {
+		return image;
+	}
 
 	
 }

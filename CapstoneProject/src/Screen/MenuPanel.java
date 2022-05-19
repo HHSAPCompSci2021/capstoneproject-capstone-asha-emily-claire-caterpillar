@@ -83,7 +83,14 @@ public class MenuPanel extends Screen {
 		setCurrScreen(true);
 		
 		surface.background(255,255,255);
-		surface.image(surface.loadImage("img/fMenuPanel.gif"), 0, 0, 800, 600);
+		
+		if(phaseType.equals("caterpillarPhase") || phaseType.equals("butterflyPhase") ) {
+			surface.image(surface.loadImage("img/bBackground.gif"), 0, 0, 800, 600);
+
+		} else {
+			surface.image(surface.loadImage("img/fMenuPanel.gif"), 0, 0, 800, 600);
+		}
+		
 		surface.fill(255);
 		
 		if(phaseType.equals("eggPhase")) {
