@@ -50,10 +50,10 @@ public class DrawingSurface extends PApplet{
 		
 		//Songs Added
 		songs = new ArrayList<SoundJLayer>();
-		songs.add(new SoundJLayer("audio/Menu-Music.mp3"));
-		songs.add(new SoundJLayer("audio/Egg Panel Music.mp3"));
-		songs.add(new SoundJLayer("audio/Caterpillar Panel.mp3"));
-		songs.add(new SoundJLayer("audio/Butterfly Panel Music.mp3"));
+		songs.add(new SoundJLayer("audio/Menu Jazz.mp3"));
+		songs.add(new SoundJLayer("audio/Menu Jazz.mp3"));
+		songs.add(new SoundJLayer("audio/Game Jazz.mp3"));
+		songs.add(new SoundJLayer("audio/Game Jazz.mp3"));
 		songs.add(new SoundJLayer("audio/Rhythm.mp3"));
 	
 		//Screens

@@ -106,10 +106,7 @@ public class MenuPanel extends Screen {
 		}
 
 	}
-			
-
-    
-	
+		
 	//edited by Emily 5/10
 	/**
 	 * Checks if the mouse presses the start button. If so, the screen changes.
