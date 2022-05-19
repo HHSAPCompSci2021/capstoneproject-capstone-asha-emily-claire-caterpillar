@@ -66,8 +66,8 @@ public class MenuPanel extends Screen {
 		this.phaseType = phaseType;
 		nextScreen = 1;
 	
-		button = new Rectangle(800/2-100,600/2-45,210,40);
-		instructionsButton = new Rectangle(800/2-120,315,235,40);
+		button = new Rectangle(800/2-100,600/2-45,205,40);
+		instructionsButton = new Rectangle(800/2-120,315,235, 50);
 		instructionsScreen = 1;
 		
 	}
@@ -104,13 +104,7 @@ public class MenuPanel extends Screen {
 			instructionsScreen = 8;
 
 		}
-		
-//		surface.fill(255);
-//		surface.rect(instructionsButton.x, instructionsButton.y, instructionsButton.width, instructionsButton.height);
-//		surface.fill(0);
-//		String str = "Start!";
-//		float w = surface.textWidth(str);
-//		surface.text(str, instructionsButton.x+instructionsButton.width/2-w/2, instructionsButton.y+instructionsButton.height/2);
+
 	}
 			
 
