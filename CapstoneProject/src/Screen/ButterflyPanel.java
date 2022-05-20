@@ -138,7 +138,7 @@ public class ButterflyPanel extends Screen {
 	 */
 	public void addRandomCollectible(ArrayList<Collectible> a) {
 
-		for(int i = 0; i < 7; i++) {
+		for(int i = 0; i < 15; i++) {
 			
 			double speed = 10 + (i * 0.5);
 			
