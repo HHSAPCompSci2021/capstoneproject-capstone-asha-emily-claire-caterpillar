@@ -233,11 +233,14 @@ public class RhythmPanel extends Screen{
 		move(e2);
 		move(e3);
 		move(e4);
-		
+		System.out.println(win);
 
-		if(totalCount > 49 && win) {
+		System.out.println(totalCount);
+		if(totalCount > 330 && win) {
 			nextScreen();
-		} else if(totalCount <= 49 && win) {
+		} else if(totalCount <= 330 && win) {
+			totalCount = 0;
+			win = false;
 			resetScreen();
 		}
 
