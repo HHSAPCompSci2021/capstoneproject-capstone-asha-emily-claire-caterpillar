@@ -50,11 +50,13 @@ public class CaterpillarPanel extends Screen{
 	public void setup()
 	{
 		PImage p = surface.loadImage("img/Caterpillar.gif");
-		obs = new PImage[4];
+		obs = new PImage[6];
 		obs[0] = surface.loadImage("img/Mole.png");
 		obs[1] = surface.loadImage("img/Centi.png");
-		obs[2] = surface.loadImage("img/Kite.gif");
-		obs[3] = surface.loadImage("img/Predator.gif");
+		obs[2] = surface.loadImage("img/Bottle.png");
+		obs[3] = surface.loadImage("img/Robin.png");
+		obs[4] = surface.loadImage("img/Spider.png");
+		obs[5] = surface.loadImage("img/Rock.png");
 		ground = surface.loadImage("img/cBackground.gif");
 		
 		caterpillar = new Caterpillar(7, 20, DRAWING_HEIGHT/2, p);
@@ -69,17 +71,21 @@ public class CaterpillarPanel extends Screen{
 	 * Adds obstacles to randomized locations to the screen
 	 */
 	private void addRandompredator() {
-		int choice = (int)(Math.random()*4);
+		int choice = (int)(Math.random()*6);
 		System.out.println(choice);
 
 		if(choice == 0) {	//mole
 			obstacles.add(new Predator(obs[0], DRAWING_WIDTH, DRAWING_HEIGHT/2-40, 10, 140, 200));
 		} else if(choice == 1) {	//centipede
 			obstacles.add(new Predator(obs[1], DRAWING_WIDTH, DRAWING_HEIGHT/2-10, 10, 80, 350));
-		} else if(choice == 2) { //kite
-			obstacles.add(new Obstacle(obs[2], DRAWING_WIDTH, 60, 10));
-		} else if(choice == 3) { //predator
-			obstacles.add(new Predator(obs[3], DRAWING_WIDTH, 100, 10, 64, 64));
+		} else if(choice == 2) { //bottle
+			obstacles.add(new Obstacle(obs[2], DRAWING_WIDTH, DRAWING_HEIGHT/4, 10, 50, 200));
+		} else if(choice == 3) { //Robin
+			obstacles.add(new Predator(obs[3], DRAWING_WIDTH, DRAWING_HEIGHT/2-40, 10, 64, 64));
+		} else if(choice == 4){ //spider
+			obstacles.add(new Predator(obs[4], DRAWING_WIDTH, 0, 10, 90, DRAWING_HEIGHT/2+30));
+		} else { //rock
+			obstacles.add(new Obstacle(obs[5], DRAWING_WIDTH, DRAWING_HEIGHT/2+10, 10, 75, 60));
 		}
 
 

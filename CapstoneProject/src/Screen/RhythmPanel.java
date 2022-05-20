@@ -212,7 +212,7 @@ public class RhythmPanel extends Screen{
 				totalCount++;
 				if(e.getLast())
 				{
-					System.out.println("here");
+					System.out.println("collide");
 					win = true;
 				}
 
@@ -222,7 +222,7 @@ public class RhythmPanel extends Screen{
 				e.setView(false);
 				if(e.getLast())
 				{
-					System.out.println("here");
+					System.out.println("out");
 					win = true;
 				}
 			}

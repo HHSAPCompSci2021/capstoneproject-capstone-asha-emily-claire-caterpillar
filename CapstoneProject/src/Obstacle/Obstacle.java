@@ -33,6 +33,12 @@ public class Obstacle extends Element{
 		// TODO Auto-generated constructor stub
 		super(pImage, x, y, s, 64, 64);
 	}
+	
+	public Obstacle(PImage pImage, int x, int y, int s, int sizeX, int sizeY) {
+		// TODO Auto-generated constructor stub
+		super(pImage, x, y, s, sizeX, sizeY);
+	}
+
 
 	/**
 	 * Bounces the character back from the obstacle
