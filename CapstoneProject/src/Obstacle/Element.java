@@ -60,6 +60,9 @@ public class Element {
 		height = 64;
 	}
 	
+	/**
+	 * Constructs a game element
+	 */
 	public Element(String i, double x, double y, double s, int xsize, int ysize) {
 		this.x = x;
 		this.y = y;
@@ -68,7 +71,9 @@ public class Element {
 		width = xsize;
 		height = ysize;
 	}
-	
+	/**
+	 * Constructs a game element
+	 */
 	public Element(PImage p, double x, double y, double s, int xsize, int ysize) {
 		this.x = x;
 		this.y = y;
