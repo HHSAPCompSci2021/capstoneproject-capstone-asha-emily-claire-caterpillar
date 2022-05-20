@@ -62,12 +62,6 @@ public class ButterflyPanel extends Screen {
 	public ButterflyPanel(DrawingSurface s) {
 		super(800,600);
 		surface = s;
-		
-		
-//		SoundJLayer soundToPlay = new SoundJLayer("audio/Butterfly Panel Music.mp3");
-//		soundToPlay.play();
-	
-		
 	}
 	
 	/**
@@ -424,9 +418,6 @@ public class ButterflyPanel extends Screen {
 		
 		
 	}
-	
-
-	
 	
 
 	
