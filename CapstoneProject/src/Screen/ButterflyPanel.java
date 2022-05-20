@@ -304,6 +304,7 @@ public class ButterflyPanel extends Screen {
 
 	
 	public void resetScreen() {
+		surface.reset("b");
 		surface.switchScreen(14);
 		
 	}

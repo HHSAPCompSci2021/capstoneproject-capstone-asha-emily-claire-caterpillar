@@ -251,7 +251,7 @@ public class RhythmPanel extends Screen{
 	
 	public void resetScreen() {
 	
-		surface.setRhythm();
+		surface.reset("r");
 		surface.switchScreen(10);
 
 	}
