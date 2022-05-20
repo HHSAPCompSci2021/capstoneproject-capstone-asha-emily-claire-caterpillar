@@ -73,7 +73,9 @@ public class CaterpillarPanel extends Screen{
 		System.out.println(choice);
 
 		if(choice == 0) {	//mole
-			obstacles.add(new Predator(obs[0], DRAWING_WIDTH, DRAWING_HEIGHT/2-40, 10, 200, 200));
+			Element mole = new Predator(obs[0], DRAWING_WIDTH, DRAWING_HEIGHT/2-40, 10, 200, 200);
+			obstacles.add(mole);
+			mole.resizeBounds((int)mole.getX()+30, (int)mole.getY(), 140, 200); 
 		} else if(choice == 1) {	//centipede
 			obstacles.add(new Predator(obs[1], DRAWING_WIDTH, DRAWING_HEIGHT/2-10, 10, 80, 350));
 		} else if(choice == 2) { //kite
@@ -107,6 +109,7 @@ public class CaterpillarPanel extends Screen{
 		for(Element o : obstacles)
 		{
 			o.draw1(surface);
+//			surface.rect((float)o.getBounds().getX(), (float)o.getBounds().getY(), (float)o.getBounds().getWidth(), (float)o.getBounds().getHeight());
 		}
 
 		for(Collectible c : leaves)

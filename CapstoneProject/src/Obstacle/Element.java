@@ -75,11 +75,13 @@ public class Element {
 	}
 	
 	/**
-	 * Resizes the game element
-	 * @param width - the new width of the element
+	 * Resizes the bounds of the game element
+	 * @param x - the x of the bounds
+	 * @param y - the y of the bounds
+	 * @param width - the new width of the bounds
 	 * @param height - the new height of the element
 	 */
-	public void resize(int width, int height)
+	public void resizeBounds(int x, int y, int width, int height)
 	{
 		this.width = width;
 		this.height = height;
@@ -92,6 +94,7 @@ public class Element {
 	public Rectangle getBounds() {
 		return new Rectangle((int)x,(int) y, width, height);
 	}
+	
 	
 	/**
 	 * Gets the x of the element
