@@ -80,7 +80,8 @@ public class ButterflyPanel extends Screen {
 
 		b = new Butterfly(5, 100, 100, p1);
 		h = new HealthBar(b);
-		
+		b.setCollectiblesEaten(0);
+		b.setTotalCollisions(0);
 		
 	}
 	
@@ -163,6 +164,8 @@ public class ButterflyPanel extends Screen {
 	 * Draws the screen for the phase
 	 */
 	public void draw() {
+		
+	
 		
 		if(surface.getDesign().equals("img/Butterfly1.gif")) {
 			b.setDesign(p1);

@@ -125,7 +125,7 @@ public class DrawingSurface extends PApplet{
 		
 		
 		
-		currScreen = screens.get(7);
+		currScreen = screens.get(0);
 
 		
 	}
