@@ -24,7 +24,7 @@ public class HealthBar {
 		hungerRect = new ArrayList<Rectangle>();
 	
 		int startX = 30;
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < 7; i++) {
 			hungerRect.add(new Rectangle(startX, 30, 40, 20));
 			startX += 25;
 			
@@ -39,8 +39,8 @@ public class HealthBar {
 		int collisions = player.getTotalCollisions();
 		
 		//Hunger levels here (shown by rectangles filled in with green)
-		if(satisfiedHunger > 5) {
-			satisfiedHunger = 5;
+		if(satisfiedHunger > 7) {
+			satisfiedHunger = 7;
 		}
 		
 		for(int i = 0; i < satisfiedHunger; i++) {
@@ -51,7 +51,7 @@ public class HealthBar {
 		
 		surface.fill(0);
 		
-		if(satisfiedHunger < 5) {
+		if(satisfiedHunger < 7) {
 			for(int i = satisfiedHunger; i < 5; i++) {
 				Rectangle curr = hungerRect.get(i);
 				surface.rect(curr.x, curr.y, curr.width, curr.height);
@@ -59,7 +59,7 @@ public class HealthBar {
 		}
 		
 		//Player's hunger level
-		surface.text("Hunger Level: " + satisfiedHunger, 30, 20);
+		surface.text("Collectibles Recieved: " + satisfiedHunger, 30, 20);
 		
 		//The player's score for all the collectibles
 		surface.text("Score: " + score, 30, 65);

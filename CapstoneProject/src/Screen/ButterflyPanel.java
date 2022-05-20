@@ -279,6 +279,7 @@ public class ButterflyPanel extends Screen {
 			
 		}	else {
 			b.setTotalCollisions(0);
+			b.setCollectiblesEaten(0);
 			resetScreen();
 		}
 			
@@ -290,6 +291,7 @@ public class ButterflyPanel extends Screen {
 		
 		if(obs.size() == 0 && obs1.size() == 0) {
 			resetScreen();
+			b.setCollectiblesEaten(0);
 			b.setTotalCollisions(0);
 
 		}
@@ -300,6 +302,7 @@ public class ButterflyPanel extends Screen {
 	
 	public void resetScreen() {
 		surface.switchScreen(10);
+		
 	}
 	
 	public void nextScreen() {
