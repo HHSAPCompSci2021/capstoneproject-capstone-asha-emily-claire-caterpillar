@@ -76,12 +76,10 @@ public class Element {
 	
 	/**
 	 * Resizes the bounds of the game element
-	 * @param x - the x of the bounds
-	 * @param y - the y of the bounds
 	 * @param width - the new width of the bounds
 	 * @param height - the new height of the element
 	 */
-	public void resizeBounds(int x, int y, int width, int height)
+	public void resize(int width, int height)
 	{
 		this.width = width;
 		this.height = height;

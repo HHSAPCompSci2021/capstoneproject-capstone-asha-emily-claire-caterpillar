@@ -39,7 +39,9 @@ public class CaterpillarPanel extends Screen{
 
 		super(800,600);
 		this.surface = surface;
-	
+		obstacles = new ArrayList<Element>();
+		leaves = new ArrayList<Collectible>();
+		
 	}
 
 	/**
@@ -57,12 +59,10 @@ public class CaterpillarPanel extends Screen{
 		
 		caterpillar = new Caterpillar(7, 20, DRAWING_HEIGHT/2, p);
 		health = new HealthBar(caterpillar);
-		obstacles = new ArrayList<Element>();
-		leaves = new ArrayList<Collectible>();
 		leaf = surface.loadImage("img/Leaf.gif");
-		
 		addRandompredator();
 		addRandomCollectibles();
+		
 	}
 
 	/**
@@ -73,9 +73,7 @@ public class CaterpillarPanel extends Screen{
 		System.out.println(choice);
 
 		if(choice == 0) {	//mole
-			Element mole = new Predator(obs[0], DRAWING_WIDTH, DRAWING_HEIGHT/2-40, 10, 200, 200);
-			obstacles.add(mole);
-			mole.resizeBounds((int)mole.getX()+30, (int)mole.getY(), 140, 200); 
+			obstacles.add(new Predator(obs[0], DRAWING_WIDTH, DRAWING_HEIGHT/2-40, 10, 140, 200));
 		} else if(choice == 1) {	//centipede
 			obstacles.add(new Predator(obs[1], DRAWING_WIDTH, DRAWING_HEIGHT/2-10, 10, 80, 350));
 		} else if(choice == 2) { //kite
@@ -161,6 +159,10 @@ public class CaterpillarPanel extends Screen{
 			caterpillar.setTotalCollisions(0);
 			caterpillar.setCollectiblesEaten(0);
 			return;
+		}
+		if(obstacles.size() == 0)
+		{
+			addRandompredator();
 		}
 	}
 
