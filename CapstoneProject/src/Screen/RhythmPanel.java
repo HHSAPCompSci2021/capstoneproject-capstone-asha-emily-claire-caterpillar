@@ -56,7 +56,7 @@ public class RhythmPanel extends Screen{
 		e4.add(new Beat("img/Flower.gif", 500, 205, 10));
 
 		
-		for(int i = 0; i < 55         ; i++) {
+		for(int i = 0; i < 54; i++) {
 			e1.add(new Beat("img/Flower.gif", 300, -64, 10));
 			e2.add(new Beat("img/Flower.gif", 400, -64, 10));
 			e3.add(new Beat("img/Flower.gif", 200, -64, 10));
@@ -65,10 +65,15 @@ public class RhythmPanel extends Screen{
 			
 		}
 		
-		e1.add(new Beat("img/Flower.gif", 300, 0, 10, 64, 200));
-		e2.add(new Beat("img/Flower.gif", 400, 0, 10, 64, 200));
-		e3.add(new Beat("img/Flower.gif", 200, 0, 10, 64, 200));
-		e4.add(new Beat("img/Flower.gif", 500, 0, 10, 64, 200));
+		e1.add(new Beat("img/Flower.gif", 300, -64, 10));
+		e2.add(new Beat("img/Flower.gif", 400, -64, 10));
+		e3.add(new Beat("img/Flower.gif", 200, -64, 10));
+		e4.add(new Beat("img/Flower.gif", 500, -64, 10, true));
+		
+//		e1.add(new Beat("img/Flower.gif", 300, 0, 10, 64, 200));
+//		e2.add(new Beat("img/Flower.gif", 400, 0, 10, 64, 200));
+//		e3.add(new Beat("img/Flower.gif", 200, 0, 10, 64, 200));
+//		e4.add(new Beat("img/Flower.gif", 500, 0, 10, 64, 200));
 		
 		int[] j = {1,2,3, 4, 5, 7,8,9,10,11,13,14,15,16,17,19,20,21,24,25,26,28,29,31,32,33,34,35,36,37,38,40,41,42,43,44,45,49,50,51,52,53,54,55,56};
 		int[] j1 = {0,2,3,4,6,8,9,10,12,14,15,17,18,29,22,23,24,25,27,28,29,30,31,32,35,36,37,39,42,43,44,46,50,51,52,53,54,55,56};
@@ -154,7 +159,6 @@ public class RhythmPanel extends Screen{
 			
 		}	
 			
-		win = true;
 	}
 	
 	
@@ -187,7 +191,7 @@ public class RhythmPanel extends Screen{
 			}
 			
 			if(e.getY() > 664) {
-				e.setView(false);		
+				e.setView(false);	
 			}
 		}
 		
@@ -195,7 +199,6 @@ public class RhythmPanel extends Screen{
 			if (surface.isPressed(KeyEvent.VK_LEFT) && e.collide(left.getBounds())) {
 				e.setView(false);
 				totalCount++;
-
 			}
 			
 			if(e.getY() > 664) {
@@ -207,24 +210,31 @@ public class RhythmPanel extends Screen{
 			if (surface.isPressed(KeyEvent.VK_RIGHT) && e.collide(right.getBounds())) {
 				e.setView(false);
 				totalCount++;
+				if(e.getLast())
+				{
+					win = true;
+				}
 
 			}
 			
 			if(e.getY() > 664) {
 				e.setView(false);
+				if(e.getLast())
+				{
+					win = true;
+				}
 			}
 		}
 		
 		
 
 		
-		
 		move(e1);
 		move(e2);
 		move(e3);
 		move(e4);
 		
-		
+
 		if(totalCount > 49 && win) {
 			nextScreen();
 		} else if(totalCount <= 49 && win) {

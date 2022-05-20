@@ -91,7 +91,7 @@ public class CaterpillarPanel extends Screen{
 	private void addRandomCollectibles() {
 		for(int i = 0; i < 2; i++)
 		{
-			leaves.add(new Collectible("leaf", leaf, 5, DRAWING_WIDTH+(i*DRAWING_WIDTH-5), DRAWING_HEIGHT/2+(i*50)));
+			leaves.add(new Collectible("leaf", leaf, 10, DRAWING_WIDTH+(i*DRAWING_WIDTH-5), DRAWING_HEIGHT/2+(i*50)));
 		}
 	}
 
