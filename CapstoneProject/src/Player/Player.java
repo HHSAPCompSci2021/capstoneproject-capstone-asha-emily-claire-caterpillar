@@ -182,6 +182,10 @@ public abstract class Player {
 		return totalCollisions;
 	}
 	
+	public void setCollectiblesEaten(int num) {
+		collectiblesEaten = num;
+	}
+	
 	/**
 	 * Returns x
 	 * @return double - x 

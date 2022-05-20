@@ -40,10 +40,6 @@ public class CaterpillarPanel extends Screen{
 		super(800,600);
 		this.surface = surface;
 	
-		
-
-		//		SoundJLayer soundToPlay = new SoundJLayer("audio/Caterpillar Panel.mp3");
-		//		soundToPlay.play();
 	}
 
 	/**
@@ -160,6 +156,7 @@ public class CaterpillarPanel extends Screen{
 			System.out.println("here: " + caterpillar.getTotalCollisions());
 			resetScreen();
 			caterpillar.setTotalCollisions(0);
+			caterpillar.setCollectiblesEaten(0);
 			return;
 		}
 	}
