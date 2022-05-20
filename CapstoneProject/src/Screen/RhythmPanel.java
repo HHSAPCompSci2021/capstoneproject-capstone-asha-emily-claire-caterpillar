@@ -26,26 +26,16 @@ public class RhythmPanel extends Screen{
 	private boolean win;
 	private PImage p, l;
 	
-	/**
-	 * Constructs a the panel for the rhythm game
-	 * @param width - width of the panel
-	 * @param height - height of the panel
-	 */
 	public RhythmPanel(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}
-	/**
-	 * Constructs a the panel for the rhythm game
-	 * @param s - DrawingSurface to construct the panel on
-	 */
+	
 	public RhythmPanel(DrawingSurface s) {
 		super(800, 600);
 		surface = s;
 	}
-	/**
-	 * Setup for the panel
-	 */
+	
 	public void setup() {
 		p = surface.loadImage("img/Beat.png");
 		l = surface.loadImage("img/Leaf.gif");
@@ -61,9 +51,7 @@ public class RhythmPanel extends Screen{
 		win = false;
 		addBeats();
 	}
-	/**
-	 * Adds images to represent the beat of the musics
-	 */
+	
 	public void addBeats() {
 		
 		e1.add(new Beat(p, 300, 205, 10));
@@ -130,10 +118,7 @@ public class RhythmPanel extends Screen{
 		
 		
 	}
-	/**
-	 * Moves the beat objects
-	 * @param obs - List of beats to move
-	 */
+	
 	public void move(ArrayList<Beat> obs) {
 			double speed = 11;
 			int dist = 0;
@@ -161,7 +146,7 @@ public class RhythmPanel extends Screen{
 				}
 				
 				o = false;
-				if(obs.get(i).getView())
+				if(obs.get(i).getPImage().equals(p) && obs.get(i).getView())
 					obs.get(i).draw1(surface);
 				obs.get(i).moveByAmount(0, speed);
 				
@@ -175,9 +160,7 @@ public class RhythmPanel extends Screen{
 			
 	}
 	
-	/**
-	 * Draws the panel
-	 */
+	
 	public void draw() {
 		surface.background(255,255,255);
 		surface.fill(0);
@@ -264,18 +247,14 @@ public class RhythmPanel extends Screen{
 		}
 
 	}
-	/**
-	 * Resets the screen if the game is lost
-	 */
+	
 	public void resetScreen() {
 	
 		surface.reset("r");
 		surface.switchScreen(10);
 
 	}
-	/**
-	 * Moves to the next screen if the game is won
-	 */
+
 	public void nextScreen() {
 		surface.switchScreen(11);
 	}
