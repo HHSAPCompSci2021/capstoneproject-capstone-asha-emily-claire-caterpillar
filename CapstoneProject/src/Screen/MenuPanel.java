@@ -84,7 +84,7 @@ public class MenuPanel extends Screen {
 		
 		surface.background(255,255,255);
 		
-		if(phaseType.equals("caterpillarPhase") || phaseType.equals("butterflyPhase") ) {
+		if(phaseType.equals("caterpillarPhase") || phaseType.equals("butterflyPhase") || phaseType.equals("rhythmPhase")) {
 			surface.image(surface.loadImage("img/mBackground.gif"), 0, 0, 800, 600);
 
 		} else {
@@ -100,9 +100,12 @@ public class MenuPanel extends Screen {
 			nextScreen = 5;
 			instructionsScreen = 4;
 		} else if(phaseType.equals("butterflyPhase")){
+			nextScreen = 13;
+			instructionsScreen = 12;
+
+		} else if(phaseType.equals("rhythmPhase")) {
 			nextScreen = 9;
 			instructionsScreen = 8;
-
 		}
 
 	}

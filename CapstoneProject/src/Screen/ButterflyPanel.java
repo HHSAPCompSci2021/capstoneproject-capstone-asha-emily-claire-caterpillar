@@ -301,12 +301,12 @@ public class ButterflyPanel extends Screen {
 
 	
 	public void resetScreen() {
-		surface.switchScreen(10);
+		surface.switchScreen(14);
 		
 	}
 	
 	public void nextScreen() {
-		surface.switchScreen(11);
+		surface.switchScreen(15);
 	}
 	
 	/**

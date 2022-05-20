@@ -57,46 +57,73 @@ public class DrawingSurface extends PApplet{
 		songs.add(new SoundJLayer("audio/Rhythm.mp3"));
 	
 		//Screens
+		//0
 		MenuPanel menu = new MenuPanel(this, "eggPhase");
 		screens.add(menu);
 		
+		//1
 		InstructionsPanel insturctions1 = new InstructionsPanel(this, "eggPhase");
 		screens.add(insturctions1);
 		
+		//2
 		EggPanel egg = new EggPanel(this);
 		screens.add(egg);
 		
+		//3
 		MenuPanel menuE = new MenuPanel(this, "caterpillarPhase");
 		screens.add(menuE);
 		
+		//4
 		InstructionsPanel insturctions2 = new InstructionsPanel(this, "caterpillarPhase");
 		screens.add(insturctions2);
 		
+		//5
 		CaterpillarPanel cater = new CaterpillarPanel(this);
 		screens.add(cater);
 		
+		//6
 		ResetPanel resetPanel = new ResetPanel(this, 3);
 		screens.add(resetPanel);
 		
+		//7
+		MenuPanel menuC = new MenuPanel(this, "rhythmPhase");
+		screens.add(menuC);
+		
+		//8
+		InstructionsPanel insturctions4 = new InstructionsPanel(this, "rhythmPhase");
+		screens.add(insturctions4);
+		
+		//9
+		RhythmPanel r = new RhythmPanel(this);
+		screens.add(r);
+		
+		//10
+		ResetPanel resetPanel1 = new ResetPanel(this, 7);
+		screens.add(resetPanel1);
+		
+		
+		//11
 		MenuPanel menuB = new MenuPanel(this, "butterflyPhase");
 		screens.add(menuB);
 		
+		//12
 		InstructionsPanel insturctions3 = new InstructionsPanel(this, "butterflyPhase");
 		screens.add(insturctions3);
 		
+		//13
 		ButterflyPanel butter = new ButterflyPanel(this);
 		screens.add(butter);
 		
-		
-		ResetPanel reset = new ResetPanel(this, 9);
+		//14
+		ResetPanel reset = new ResetPanel(this, 11);
 		screens.add(reset);
 		
+		//15
 		EndPanel end = new EndPanel(this);
 		screens.add(end);
 		//Game won panel
 		
-		RhythmPanel r = new RhythmPanel(this);
-		screens.add(r);
+		
 		
 		currScreen = screens.get(0);
 

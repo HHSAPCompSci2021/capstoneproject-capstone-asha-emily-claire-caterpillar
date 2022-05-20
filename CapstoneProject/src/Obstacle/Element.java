@@ -160,6 +160,10 @@ public class Element {
 		return image;
 	}
 	
+	public void setImage(String i) {
+		image = i;
+	}
+	
 	/**
 	 * Draws the player on the screen
 	 * @param s - the DrawingSurface
