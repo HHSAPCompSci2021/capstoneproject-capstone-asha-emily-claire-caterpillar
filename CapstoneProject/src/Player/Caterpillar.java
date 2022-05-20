@@ -29,14 +29,20 @@ public class Caterpillar extends Player{
 		upDown = 0;
 		yVol = 0;
 	}
-
+	/**
+	 * Moves by the amount suggested
+	 */
 	@Override
 	public void moveByAmount(double x, double y) {
 		setX(getX()+x);
 		setY(getY()+x);
 
 	}
-
+	/**
+	 * Applies the window limits
+	 * @param windowWidth - width of the window
+	 * @param windowHeight - height of the window
+	 */
 	@Override
 	public void applyWindowLimits(int windowWidth, int windowHeight) {
 		// TODO Auto-generated method stub
@@ -44,7 +50,10 @@ public class Caterpillar extends Player{
 	}
 
 
-
+	/**
+	 * Draws the caterpillar
+	 * @param p - DrawingSurface
+	 */
 	public void draw(DrawingSurface p) {
 		// TODO Auto-generated method stub
 		p.image(getDesign(), (float)getX(), (float)getY(), 64, 64);
@@ -77,6 +86,7 @@ public class Caterpillar extends Player{
 
 	/**
 	 * Applies all additional forces to Caterpillar
+	 * @param ground - if the caterpillar reaches the ground
 	 */
 	public void act(double ground) {
 		// TODO Auto-generated method stub

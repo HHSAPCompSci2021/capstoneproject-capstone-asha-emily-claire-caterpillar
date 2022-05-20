@@ -22,7 +22,6 @@ import processing.core.PImage;
  * @author Emily
  * Creates a surface that holds all the panels (different phases).
  * These are represented by different screens
- *
  */
 public class DrawingSurface extends PApplet{
 	private ArrayList<Screen> screens;
@@ -35,14 +34,6 @@ public class DrawingSurface extends PApplet{
 
 	/**
 	 * Creates a DrawingSurface that displays all the screens
-	 */
-	/* 
-	 * 0 = menu
-	 * 1 = egg
-	 * 2 = menu before caterpillar 
-	 * 3 = caterpillar
-	 * 4 = menu before butterfly 
-	 * 5 = butterfly
 	 */
 	public DrawingSurface() {
 		screens = new ArrayList<Screen>();
@@ -275,6 +266,7 @@ public class DrawingSurface extends PApplet{
 
 	/**
 	 * Set a new screen for a panel 
+	 * @param panel - name of the panel type
 	 */
 	public void reset(String panel) {
 		if(panel.equals("c"))

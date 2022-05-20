@@ -56,10 +56,17 @@ public class Gif {
 		surface.image(image[surface.frameCount%frames], (float)x, (float)y);
 	}
 	
+	/**
+	 * Setter method for x
+	 * @param newX - new x-coordinate
+	 */
 	public void setX(double newX) {
 		x = newX;
 	}
-	
+	/**
+	 * Setter method for y
+	 * @param newY - new y-coordinate
+	 */
 	public void setY(double newY) {
 		y = newY;
 	}

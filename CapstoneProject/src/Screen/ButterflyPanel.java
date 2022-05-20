@@ -70,6 +70,9 @@ public class ButterflyPanel extends Screen {
 		
 	}
 	
+	/**
+	 * Sets up the panel
+	 */
 	public void setup() {
 		
 		obsImg = new ArrayList<PImage>();
@@ -116,6 +119,7 @@ public class ButterflyPanel extends Screen {
 	
 	/**
 	 * Adds a number of predators to random locations
+	 * @param a - list of elements to add
 	 */
 	public void addRandomElement(ArrayList<Element> a) {
 		
@@ -207,6 +211,7 @@ public class ButterflyPanel extends Screen {
 	
 	/**
 	 * Adds a number of collectables to random locations
+	 * @param a - list of collectibles to add
 	 */
 	public void addRandomCollectible(ArrayList<Collectible> a) {
 
@@ -394,6 +399,7 @@ public class ButterflyPanel extends Screen {
 	
 	/**
 	 * Adds features to the screen in a side scrolling effect
+	 * @param e - Element to move
 	 */
 	public void sideScrolling(Element e) {
 		
