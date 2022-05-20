@@ -4,7 +4,11 @@ import java.awt.Rectangle;
 
 import core.DrawingSurface;
 import processing.core.PImage;
-
+/**
+ * Creates a game element
+ * @author Claire
+ *
+ */
 public class Element {
 
 	/**
@@ -30,14 +34,14 @@ public class Element {
 	private PImage im;
 
 	/**
-	 * Contructs a game element
+	 * Constructs a game element
 	 */
 	public Element() {
 		
 	}
 	
 	/**
-	 * Contructs a game element
+	 * Constructs a game element
 	 */
 	public Element(String i, double s) {
 		image = i;
@@ -45,7 +49,7 @@ public class Element {
 	}
 	
 	/**
-	 * Contructs a game element
+	 * Constructs a game element
 	 */
 	public Element(String i, double x, double y, double s) {
 		this.x = x;
@@ -155,11 +159,18 @@ public class Element {
 		s.image(s.loadImage(image), (float)getX(), (float)getY(), width, height);
 
 	}
-	
+	/**
+	 * Getter method for image
+	 * @return image name of the element
+	 */
 	public String getImage() {
 		return image;
 	}
 	
+	/**
+	 * Sets the image name
+	 * @param i - new name of the image
+	 */
 	public void setImage(String i) {
 		image = i;
 	}
