@@ -47,13 +47,13 @@ public class RhythmPanel extends Screen{
 	
 	public void addBeats() {
 		
-		e1.add(new Beat("img/Leaf.gif", 300, 0, 10));
-		e2.add(new Beat("img/Leaf.gif", 400, 0, 10));
-		e3.add(new Beat("img/Leaf.gif", 200, 0, 10));
-		e4.add(new Beat("img/Leaf.gif", 500, 0, 10));
+		e1.add(new Beat("img/Leaf.gif", 300, 35, 10));
+		e2.add(new Beat("img/Leaf.gif", 400, 35, 10));
+		e3.add(new Beat("img/Leaf.gif", 200, 35, 10));
+		e4.add(new Beat("img/Leaf.gif", 500, 35, 10));
 
 		
-		for(int i = 0; i < 45; i++) {
+		for(int i = 0; i < 46         ; i++) {
 			e1.add(new Beat("img/Flower.gif", 300, -64, 10));
 			e2.add(new Beat("img/Flower.gif", 400, -64, 10));
 			e3.add(new Beat("img/Flower.gif", 200, -64, 10));
@@ -70,14 +70,19 @@ public class RhythmPanel extends Screen{
 	}
 	
 	public void move(ArrayList<Beat> obs) {
+			double speed = 10.5;
 		
 			int i = 0;
+			if(i < 14) {
+				speed = 10.5;
+			}
+	
 			boolean o = true;
 			while(o && i < obs.size()) {
 				o = false;
 				if(obs.get(i).getImage().equals("img/Flower.gif") && obs.get(i).getView())
 					obs.get(i).draw(surface);
-				obs.get(i).moveByAmount(0, 10.5);
+				obs.get(i).moveByAmount(0, speed);
 				
 				if(obs.get(i).getY() > 250 && obs.size() > 1) {
 					//obs.remove(0);
@@ -147,10 +152,18 @@ public class RhythmPanel extends Screen{
 		}
 		
 		
+
+		
+		
 		move(e1);
 		move(e2);
 		move(e3);
 		move(e4);
+		
+//		move(e1, 10.5, 12, 20);
+//		move(e2, 10.5, 12, 20);
+//		move(e3, 10.5, 12, 20);
+//		move(e4, 10.5, 12, 20);
 		
 		
 		
