@@ -212,6 +212,7 @@ public class RhythmPanel extends Screen{
 				totalCount++;
 				if(e.getLast())
 				{
+					System.out.println("here");
 					win = true;
 				}
 
@@ -221,6 +222,7 @@ public class RhythmPanel extends Screen{
 				e.setView(false);
 				if(e.getLast())
 				{
+					System.out.println("here");
 					win = true;
 				}
 			}
@@ -233,12 +235,13 @@ public class RhythmPanel extends Screen{
 		move(e2);
 		move(e3);
 		move(e4);
-		System.out.println(win);
-
-		System.out.println(totalCount);
+		
+		
 		if(totalCount > 330 && win) {
 			nextScreen();
 		} else if(totalCount <= 330 && win) {
+			System.out.println(win);
+			System.out.println(totalCount);
 			totalCount = 0;
 			win = false;
 			resetScreen();
@@ -247,8 +250,10 @@ public class RhythmPanel extends Screen{
 	}
 	
 	public void resetScreen() {
-		
+	
+//		surface.setRhythm();
 		surface.switchScreen(10);
+
 	}
 
 	public void nextScreen() {

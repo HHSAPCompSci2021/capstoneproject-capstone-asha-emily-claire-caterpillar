@@ -125,7 +125,7 @@ public class DrawingSurface extends PApplet{
 		
 		
 		
-		currScreen = screens.get(0);
+		currScreen = screens.get(7);
 
 		
 	}
@@ -274,6 +274,14 @@ public class DrawingSurface extends PApplet{
 		System.out.print(panel.selectDesign());
 		return panel.selectDesign();
 		//return p;
+	}
+	
+	/**
+	 * Set a new screen for rhythm 
+	 */
+	public void setRhythm() {
+		RhythmPanel r = new RhythmPanel(this);
+		screens.set(9, r);
 	}
 
 }
