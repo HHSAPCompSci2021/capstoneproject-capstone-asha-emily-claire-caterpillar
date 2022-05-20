@@ -12,12 +12,19 @@ import asha.shapes.Circle;
 import processing.*;
 import core.DrawingSurface;
 import processing.core.PApplet;
-
+/**
+ * Represents a Player's gameplay statistics
+ * @author Asha
+ *
+ */
 public class HealthBar {
 	private ArrayList<Rectangle> hungerRect;
 	private Player player;
 	
-	
+	/**
+	 * Creates a HealthBar
+	 * @param player - player (Butterfly or Caterpillar)
+	 */
 	public HealthBar(Player player) {
 		this.player = player;
 	
@@ -31,7 +38,10 @@ public class HealthBar {
 		}
 		
 	}
-	
+	/**
+	 * Draws the GUI
+	 * @param surface - DrawingSurface
+	 */
 	public void draw(DrawingSurface surface) {
 		
 		int satisfiedHunger = player.getNumCollectible();

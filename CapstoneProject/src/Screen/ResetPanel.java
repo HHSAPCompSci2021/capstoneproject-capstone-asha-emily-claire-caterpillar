@@ -57,8 +57,6 @@ public class ResetPanel extends Screen{
 		quitGameButton = new Rectangle(200, 300, 400, 100);
 		player = null;
 		
-//		SoundJLayer soundToPlay = new SoundJLayer("audio/Menu-Music.mp3");
-//		soundToPlay.play();
 	}
 	
 	public ResetPanel(DrawingSurface drawer, int nextScreen, Player player) {
@@ -69,8 +67,6 @@ public class ResetPanel extends Screen{
 		quitGameButton = new Rectangle(200, 300, 400, 100);
 		this.player = player;
 		
-//		SoundJLayer soundToPlay = new SoundJLayer("audio/Menu-Music.mp3");
-//		soundToPlay.play();
 	}
 	
 	/**
@@ -114,7 +110,6 @@ public class ResetPanel extends Screen{
 	 * Checks if the mouse presses a button. If so, the screen changes. 
 	 */
 	public void mousePressed() {
-		
 		
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX, surface.mouseY));
         if(retryButton.contains(p)) {

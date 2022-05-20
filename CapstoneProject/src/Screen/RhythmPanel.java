@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import Obstacle.Beat;
 import core.DrawingSurface;
 import processing.core.PImage;
-
+/**
+ * Represents a RhythmPanel to play the rhythm game
+ * @author Claire and Emily
+ *
+ */
 public class RhythmPanel extends Screen{
 
 	private ArrayList<Beat> e1;
