@@ -172,6 +172,14 @@ public class Element {
 		s.image(im, (float)getX(), (float)getY(), width, height);
 
 	}
+	
+	public PImage getPImage() {
+		return im;
+	}
+	
+	public void setPImage(PImage p) {
+		im = p;
+	}
 
 	
 }

@@ -34,7 +34,7 @@ public class Obstacle extends Element{
 		super(pImage, x, y, s, 64, 64);
 	}
 	
-	public Obstacle(PImage pImage, int x, int y, int s, int sizeX, int sizeY) {
+	public Obstacle(PImage pImage, int x, int y, double s, int sizeX, int sizeY) {
 		// TODO Auto-generated constructor stub
 		super(pImage, x, y, s, sizeX, sizeY);
 	}

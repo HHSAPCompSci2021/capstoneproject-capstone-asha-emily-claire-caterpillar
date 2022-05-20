@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import Obstacle.Beat;
 import core.DrawingSurface;
+import processing.core.PImage;
 
 public class RhythmPanel extends Screen{
 
@@ -23,6 +24,7 @@ public class RhythmPanel extends Screen{
 	private int totalCount;
 	
 	private boolean win;
+	private PImage p, l;
 	
 	public RhythmPanel(int width, int height) {
 		super(width, height);
@@ -35,6 +37,8 @@ public class RhythmPanel extends Screen{
 	}
 	
 	public void setup() {
+		p = surface.loadImage("img/Beat.png");
+		l = surface.loadImage("img/Leaf.gif");
 		e1 = new ArrayList<Beat>();
 		e2 = new ArrayList<Beat>();
 		e3 = new ArrayList<Beat>();
@@ -50,30 +54,30 @@ public class RhythmPanel extends Screen{
 	
 	public void addBeats() {
 		
-		e1.add(new Beat("img/Flower.gif", 300, 205, 10));
-		e2.add(new Beat("img/Flower.gif", 400, 205, 10));
-		e3.add(new Beat("img/Flower.gif", 200, 205, 10));
-		e4.add(new Beat("img/Flower.gif", 500, 205, 10));
+		e1.add(new Beat(p, 300, 205, 10));
+		e2.add(new Beat(p, 400, 205, 10));
+		e3.add(new Beat(p, 200, 205, 10));
+		e4.add(new Beat(p, 500, 205, 10));
 
 		
 		for(int i = 0; i < 54; i++) {
-			e1.add(new Beat("img/Flower.gif", 300, -64, 10));
-			e2.add(new Beat("img/Flower.gif", 400, -64, 10));
-			e3.add(new Beat("img/Flower.gif", 200, -64, 10));
-			e4.add(new Beat("img/Flower.gif", 500, -64, 10));
+			e1.add(new Beat(p, 300, -64, 10));
+			e2.add(new Beat(p, 400, -64, 10));
+			e3.add(new Beat(p, 200, -64, 10));
+			e4.add(new Beat(p, 500, -64, 10));
 
 			
 		}
 		
-		e1.add(new Beat("img/Flower.gif", 300, -64, 10));
-		e2.add(new Beat("img/Flower.gif", 400, -64, 10));
-		e3.add(new Beat("img/Flower.gif", 200, -64, 10));
-		e4.add(new Beat("img/Flower.gif", 500, -64, 10, true));
+		e1.add(new Beat(p, 300, -64, 10));
+		e2.add(new Beat(p, 400, -64, 10));
+		e3.add(new Beat(p, 200, -64, 10));
+		e4.add(new Beat(p, 500, -64, 10, true));
 		
-//		e1.add(new Beat("img/Flower.gif", 300, 0, 10, 64, 200));
-//		e2.add(new Beat("img/Flower.gif", 400, 0, 10, 64, 200));
-//		e3.add(new Beat("img/Flower.gif", 200, 0, 10, 64, 200));
-//		e4.add(new Beat("img/Flower.gif", 500, 0, 10, 64, 200));
+//		e1.add(new Beat("img/Beat.png", 300, 0, 10, 64, 200));
+//		e2.add(new Beat("img/Beat.png", 400, 0, 10, 64, 200));
+//		e3.add(new Beat("img/Beat.png", 200, 0, 10, 64, 200));
+//		e4.add(new Beat("img/Beat.png", 500, 0, 10, 64, 200));
 		
 		int[] j = {1,2,3, 4, 5, 7,8,9,10,11,13,14,15,16,17,19,20,21,24,25,26,28,29,31,32,33,34,35,36,37,38,40,41,42,43,44,45,49,50,51,52,53,54,55,56};
 		int[] j1 = {0,2,3,4,6,8,9,10,12,14,15,17,18,29,22,23,24,25,27,28,29,30,31,32,35,36,37,39,42,43,44,46,50,51,52,53,54,55,56};
@@ -83,7 +87,7 @@ public class RhythmPanel extends Screen{
 		for(int i = 0; i < e3.size(); i++) {
 			for(int m : j) {
 				if(i == m) {
-					e3.get(i).setImage("img/Leaf.gif");
+					e3.get(i).setPImage(l);
 				}
 			}
 		}
@@ -91,7 +95,7 @@ public class RhythmPanel extends Screen{
 		for(int i = 0; i < e1.size(); i++) {
 			for(int m : j1) {
 				if(i == m) {
-					e1.get(i).setImage("img/Leaf.gif");
+					e1.get(i).setPImage(l);
 				}
 			}
 		}
@@ -99,7 +103,7 @@ public class RhythmPanel extends Screen{
 		for(int i = 0; i < e2.size(); i++) {
 			for(int m : j2) {
 				if(i == m) {
-					e2.get(i).setImage("img/Leaf.gif");
+					e2.get(i).setPImage(l);
 				}
 			}
 		}
@@ -107,7 +111,7 @@ public class RhythmPanel extends Screen{
 		for(int i = 0; i < e4.size(); i++) {
 			for(int m : j3) {
 				if(i == m) {
-					e4.get(i).setImage("img/Leaf.gif");
+					e4.get(i).setPImage(l);
 				}
 			}
 		}
@@ -116,7 +120,7 @@ public class RhythmPanel extends Screen{
 	}
 	
 	public void move(ArrayList<Beat> obs) {
-			double speed = 10.5;
+			double speed = 11;
 			int dist = 0;
 			
 			
@@ -132,11 +136,6 @@ public class RhythmPanel extends Screen{
 					obs.get(i).setView(false);
 				}
 				
-				if(i < 16) {
-					speed = 10.5;
-				} else if(i > 16) {
-					speed = 10.5;
-				}
 		
 				if(i == 15 || i == 20 ||   i == 24 || i == 25 || i == 26 || i == 29 || i == 35 || i == 40 || i == 47 || i == 51){
 					dist = 100;
@@ -147,8 +146,8 @@ public class RhythmPanel extends Screen{
 				}
 				
 				o = false;
-				if(obs.get(i).getImage().equals("img/Flower.gif") && obs.get(i).getView())
-					obs.get(i).draw(surface);
+				if(obs.get(i).getView())
+					obs.get(i).draw1(surface);
 				obs.get(i).moveByAmount(0, speed);
 				
 				if(obs.get(i).getY() > dist && obs.size() > 1) {

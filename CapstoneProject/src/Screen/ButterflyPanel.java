@@ -45,6 +45,14 @@ public class ButterflyPanel extends Screen {
 	
 	private PImage p1, p2, p3;
 	
+	private ArrayList<PImage> obsImg;
+	
+	private ArrayList<PImage> preImg;
+	
+	private ArrayList<String> obsImg1;
+	
+	private ArrayList<String> preImg1;
+	
 
 	
 	/**
@@ -64,10 +72,31 @@ public class ButterflyPanel extends Screen {
 	
 	public void setup() {
 		
+		obsImg = new ArrayList<PImage>();
+		preImg = new ArrayList<PImage>();
+		obsImg1 = new ArrayList<String>();
+		preImg1 = new ArrayList<String>();
 
+		
 		p1 = surface.loadImage("img/Butterfly1.gif");
 		p2 = surface.loadImage("img/Butterfly2.gif");
 		p3 = surface.loadImage("img/Butterfly3.gif");
+		
+		
+		preImg.add(surface.loadImage("img/Bat.png"));
+		preImg.add(surface.loadImage("img/Crow.png"));
+		preImg.add(surface.loadImage("img/Robin.png"));
+		preImg.add(surface.loadImage("img/Toad.png"));
+		
+		obsImg.add(surface.loadImage("img/Airplane.png"));
+
+		preImg1.add("img/Bat.png");
+		preImg1.add("img/Crow.png");
+		preImg1.add("img/Robin.png");
+		preImg1.add("img/Toad.png");
+		
+		obsImg1.add("img/Airplane.png");
+
 		
 		
 		obs = new ArrayList<Element>();
@@ -89,11 +118,20 @@ public class ButterflyPanel extends Screen {
 	 * Adds a number of predators to random locations
 	 */
 	public void addRandomElement(ArrayList<Element> a) {
+		
+	
+		
 		for(int i = 0; i < 25; i++) {
+			
+			boolean bottom = false;
+			PImage e;
 			int y = 0;
-			//int y = (((int)(Math.random() * 301) + 100) / 10) * 10;
-			//System.out.println(y);
+
 			double choice = (Math.random());
+			double choice1 = (Math.random());
+			double choice2 = Math.random();
+			
+			
 			//System.out.println(choice);
 			int x = (((int)(Math.random() * 200) + 800) / 10) * 10;
 			double speed = 10 + (i * 0.5);
@@ -106,12 +144,37 @@ public class ButterflyPanel extends Screen {
 			} else if(choice >= 0.3) {
 				y = 384;
 			} else {
-				y = 512;
+				y = 480;
+				bottom = true;
 			} 
 		
 			
-			if(choice >= 0.5) {
-				a.add(new Predator("img/Predator.gif", 800, y, speed));
+			if(choice2 >= 0.5) {
+				
+				if(bottom) {
+					e = preImg.get(3);
+				} else if(choice1 >= 0.8) {
+					e = preImg.get(0);
+				} else if(choice1 >= 0.4) {
+					e = preImg.get(1);
+				}  else {
+					e = preImg.get(2);
+				} 
+				
+				if(bottom) {
+					if(a.equals(obs)) {
+						a.add(new Predator(e, 800, y, speed, 68,124));
+					} else  {
+						a.add(new Predator(e, 870, y, speed, 68,124));
+					}
+					
+				} else {
+					if(a.equals(obs)) {
+						a.add(new Predator(e, 800, y, speed, 64,64));
+					} else  {
+						a.add(new Predator(e, 870, y, speed, 64,64));
+					}
+				}	
 				//img.add(createImage());
 				//return new Predator("img/Predator.gif", 800, y, 10);
 				//System.out.println(false);
@@ -119,7 +182,21 @@ public class ButterflyPanel extends Screen {
 				
 	
 			} else {
-				a.add(new Obstacle("img/Kite.gif", 800, y, speed));
+				
+				if(bottom) {
+					e = obsImg.get(0);
+				} else if(choice1 >= 0.7) {
+					e = obsImg.get(0);
+				} else if(choice >= 0.4) {
+					e = obsImg.get(0);
+				}  else {
+					e = obsImg.get(0);
+				} 
+				if(a.equals(obs)) {
+					a.add(new Obstacle(e, 800, y, speed, 64, 64));
+				} else {
+					a.add(new Obstacle(e, 870, y, speed, 64, 64));
+				}
 				//return new Obstacle("img/Kite.gif", 800, y, 10);
 				//System.out.println(true);
 	
@@ -166,7 +243,9 @@ public class ButterflyPanel extends Screen {
 	public void draw() {
 		
 	
-		
+		//System.out.println(obs);
+		//System.out.println(obs1);
+
 		if(surface.getDesign().equals("img/Butterfly1.gif")) {
 			b.setDesign(p1);
 		} else if(surface.getDesign().equals("img/Butterfly2.gif")) {
@@ -198,7 +277,7 @@ public class ButterflyPanel extends Screen {
 			
 			while(obs.size() > 0 && next) {
 				next = false;
-				obs.get(0).draw(surface);
+				obs.get(0).draw1(surface);
 				sideScrolling(obs.get(0));
 				
 				if(obs.get(0).getX() < 0) {
@@ -210,7 +289,7 @@ public class ButterflyPanel extends Screen {
 			boolean next1 = true;
 			while(obs1.size() > 0 && next1) {
 				next1 = false;
-				obs1.get(0).draw(surface);
+				obs1.get(0).draw1(surface);
 				sideScrolling(obs1.get(0));
 				
 				if(obs1.get(0).getX() < 0) {
@@ -236,13 +315,13 @@ public class ButterflyPanel extends Screen {
 		
 			
 			
-			for(Element e : obs) {
-				e.draw(surface);
-			}
-			
-			for(Collectible c : col) {
-				c.draw(surface);
-			}
+//			for(Element e : obs) {
+//				e.draw1(surface);
+//			}
+//			
+//			for(Collectible c : col) {
+//				c.draw(surface);
+//			}
 				
 			//sideScrolling();
 			
@@ -259,7 +338,7 @@ public class ButterflyPanel extends Screen {
 						}
 						
 					} else {
-						e.draw(surface);	
+						e.draw1(surface);	
 					}						
 						
 			} 
