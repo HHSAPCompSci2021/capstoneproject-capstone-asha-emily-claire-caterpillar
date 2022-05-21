@@ -57,6 +57,7 @@ public class MenuPanel extends Screen {
 	 * Constructs a menu panel window with the purpose of showing instructions and starting the game
 	 * @precondition phaseType is either eggPhase, caterpillarPhase, or butterflyPhase
 	 * @param drawer - the drawing surface 
+	 * @param phaseType - the current phase which this menu is being used for
 	 */
 	public MenuPanel(DrawingSurface drawer, String phaseType) {
 		//Need to add width and height to super
@@ -76,7 +77,6 @@ public class MenuPanel extends Screen {
 	//edited by Emily 5/5
 	/**
 	 * Draws the surface
-	 * @param drawer 
 	 */
 	public void draw() {
 		

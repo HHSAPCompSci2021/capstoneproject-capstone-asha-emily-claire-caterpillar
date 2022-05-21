@@ -32,7 +32,7 @@ public class CaterpillarPanel extends Screen{
 
 	/**
 	 * Constructs a CaterpillarPanel
-	 * @param surface
+	 * @param surface - the Drawing Surface
 	 */
 	public CaterpillarPanel(DrawingSurface surface)
 	{

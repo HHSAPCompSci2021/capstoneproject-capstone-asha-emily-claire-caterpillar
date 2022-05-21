@@ -33,7 +33,6 @@ public class Collectible extends Element{
     }
 
     //Emily - edited to reflect the new heirarchy
-    
     /**
      * Constructs a collectible (either a leaf or flower)
      * @precondition collectableType is either a "leaf" or "flower"

@@ -9,7 +9,6 @@ import processing.core.PImage;
 /**
  * Represents a RhythmPanel to play the rhythm game
  * @author Claire and Emily
- *
  */
 public class RhythmPanel extends Screen{
 
@@ -30,16 +29,29 @@ public class RhythmPanel extends Screen{
 	private boolean win;
 	private PImage p, l;
 	
+	/**
+	 * Constructs the rhythm panel
+	 * @param width - the width of the screen
+	 * @param height - the height of the screen
+	 */
 	public RhythmPanel(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * Constructs the rhythm panel
+	 * @param width - the width of the screen
+	 * @param height - the height of the screen
+	 */
 	public RhythmPanel(DrawingSurface s) {
 		super(800, 600);
 		surface = s;
 	}
 	
+	/**
+	 * Set up the caterpillar panel
+	 */
 	public void setup() {
 		p = surface.loadImage("img/Beat.png");
 		l = surface.loadImage("img/Leaf.gif");
@@ -56,6 +68,9 @@ public class RhythmPanel extends Screen{
 		addBeats();
 	}
 	
+	/**
+	 * Add all the beat objects needed in the rhythm game
+	 */
 	public void addBeats() {
 		
 		e1.add(new Beat(p, 300, 205, 10));
@@ -123,6 +138,10 @@ public class RhythmPanel extends Screen{
 		
 	}
 	
+	/**
+	 * moves the beat objects of a column
+	 * @param obs - the array list of beats of a column 
+	 */
 	public void move(ArrayList<Beat> obs) {
 			double speed = 11;
 			int dist = 0;
@@ -164,7 +183,9 @@ public class RhythmPanel extends Screen{
 			
 	}
 	
-	
+	/**
+	 * Draws the screen
+	 */
 	public void draw() {
 		surface.background(255,255,255);
 		surface.fill(0);
@@ -252,6 +273,9 @@ public class RhythmPanel extends Screen{
 
 	}
 	
+	/**
+	 * Clears the screen and restarts the phase
+	 */
 	public void resetScreen() {
 	
 		surface.reset("r");
@@ -259,6 +283,9 @@ public class RhythmPanel extends Screen{
 
 	}
 
+	/**
+	 * Transitions to the next panel
+	 */
 	public void nextScreen() {
 		surface.switchScreen(11);
 	}

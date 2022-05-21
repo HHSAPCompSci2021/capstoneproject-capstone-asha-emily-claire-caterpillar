@@ -41,7 +41,9 @@ public class Element {
 	}
 	
 	/**
-	 * Constructs a game element
+	 * Contructs a game element
+	 * @param i - the name of the image file of the obstacle
+	 * @param s - the speed
 	 */
 	public Element(String i, double s) {
 		image = i;
@@ -49,7 +51,11 @@ public class Element {
 	}
 	
 	/**
-	 * Constructs a game element
+	 * Contructs a game element
+	 * @param i - the name of the image file of the obstacle
+	 * @param x - the x position
+	 * @param y - the y position
+	 * @param s - the speed
 	 */
 	public Element(String i, double x, double y, double s) {
 		this.x = x;
@@ -61,7 +67,13 @@ public class Element {
 	}
 	
 	/**
-	 * Constructs a game element
+	 * Contructs a game element
+	 * @param i - the name of the image file of the obstacle
+	 * @param x - the x position
+	 * @param y - the y position
+	 * @param s - the speed
+	 * @param xsize - the width of the element
+	 * @param ysize - the height of the element
 	 */
 	public Element(String i, double x, double y, double s, int xsize, int ysize) {
 		this.x = x;
@@ -71,8 +83,16 @@ public class Element {
 		width = xsize;
 		height = ysize;
 	}
+	
+	
 	/**
-	 * Constructs a game element
+	 * Contructs a game element
+	 * @param p - image file of the obstacle
+	 * @param x - the x position
+	 * @param y - the y position
+	 * @param s - the speed
+	 * @param xsize - the width of the element
+	 * @param ysize - the height of the element
 	 */
 	public Element(PImage p, double x, double y, double s, int xsize, int ysize) {
 		this.x = x;
@@ -164,6 +184,7 @@ public class Element {
 		s.image(s.loadImage(image), (float)getX(), (float)getY(), width, height);
 
 	}
+
 	/**
 	 * Getter method for image
 	 * @return image name of the element

@@ -1,5 +1,6 @@
 package Obstacle;
 
+
 import processing.core.PImage;
 
 /**
@@ -11,6 +12,7 @@ public class Beat extends Element{
 
 	private boolean view;
 	private boolean last; 
+	
 	/**
 	 * Constructs a Beat object
 	 * @param i - String of the image file name 
@@ -25,7 +27,7 @@ public class Beat extends Element{
 		
 	}
  
-	
+
 	public Beat(PImage p, double x, double y, double s) {
 		super(p,x,y,s,64,64);
 		view = true;
@@ -63,7 +65,6 @@ public class Beat extends Element{
 		
 	}
 	
-
 	public Beat(PImage p, double x, double y, double s, boolean t) {
 		super(p,x,y,s,64,64);
 		view = true;
