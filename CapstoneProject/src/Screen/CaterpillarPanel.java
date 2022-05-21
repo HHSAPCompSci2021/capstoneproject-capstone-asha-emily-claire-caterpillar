@@ -97,7 +97,8 @@ public class CaterpillarPanel extends Screen{
 	private void addRandomCollectibles() {
 		for(int i = 0; i < 2; i++)
 		{
-			leaves.add(new Collectible("leaf", leaf, 10, DRAWING_WIDTH+(i*DRAWING_WIDTH-5), DRAWING_HEIGHT/2+(i*50)));
+			int rnd = (int) (Math.random()*300)+200;
+			leaves.add(new Collectible("leaf", leaf, 10, DRAWING_WIDTH+(i*DRAWING_WIDTH-5),rnd));
 		}
 	}
 
@@ -190,7 +191,8 @@ public class CaterpillarPanel extends Screen{
 		{
 			if(c.getX() < -64)
 			{
-				c.moveByAmount(c.getX()+DRAWING_WIDTH, 0);
+				int rnd = (int) (Math.random()*300)+200;
+				c.moveByAmount(c.getX()+DRAWING_WIDTH, rnd-c.getY());
 			}
 		}
 	}
