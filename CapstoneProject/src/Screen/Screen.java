@@ -32,10 +32,18 @@ public abstract class Screen {
 		
 	}
 	
+	/**
+	 * Sets the current screen
+	 * @param change - if the screen should change or not
+	 */
 	public void setCurrScreen(boolean change) {
 		currScreen = change;
 	}
 	
+	/**
+	 * Getter method for currScreen
+	 * @return currScreen - if this is the current screen
+	 */
 	public boolean getCurrScreen() {
 		return currScreen;
 	}

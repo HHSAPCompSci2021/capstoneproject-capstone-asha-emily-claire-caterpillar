@@ -209,11 +209,17 @@ public class Element {
 		s.image(im, (float)getX(), (float)getY(), width, height);
 
 	}
-	
+	/**
+	 * Getter method for image
+	 * @return im - getPImage
+	 */
 	public PImage getPImage() {
 		return im;
 	}
-	
+	/**
+	 * Setter method for image
+	 * @param p - PImage
+	 */
 	public void setPImage(PImage p) {
 		im = p;
 	}

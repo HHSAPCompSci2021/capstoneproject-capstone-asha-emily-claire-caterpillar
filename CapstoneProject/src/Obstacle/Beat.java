@@ -27,7 +27,13 @@ public class Beat extends Element{
 		
 	}
  
-
+	/**
+	 * Constructs a Beat object
+	 * @param p - PImage
+	 * @param x - x-coordinate
+	 * @param y - y-coordinate
+	 * @param s - speed 
+	 */
 	public Beat(PImage p, double x, double y, double s) {
 		super(p,x,y,s,64,64);
 		view = true;
@@ -65,6 +71,14 @@ public class Beat extends Element{
 		
 	}
 	
+	/**
+	 * Constructs a Beat object
+	 * @param p - PImage 
+	 * @param x - x-coordinate
+	 * @param y - y-coordinate
+	 * @param s - speed 
+	 * @param t - if it is the last image
+	 */
 	public Beat(PImage p, double x, double y, double s, boolean t) {
 		super(p,x,y,s,64,64);
 		view = true;

@@ -378,13 +378,17 @@ public class ButterflyPanel extends Screen {
 		
 	}
 
-	
+	/**
+	 * Resets the screen
+	 */
 	public void resetScreen() {
 		surface.reset("b");
 		surface.switchScreen(14);
 		
 	}
-	
+	/**
+	 * Moves to the next screen
+	 */
 	public void nextScreen() {
 		surface.switchScreen(15);
 	}
