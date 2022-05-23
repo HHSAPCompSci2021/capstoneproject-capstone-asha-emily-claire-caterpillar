@@ -149,7 +149,8 @@ public class CaterpillarPanel extends Screen{
 		for(Collectible c : leaves) {
 			c.move();
 			if(c.collide(caterpillar.playerDesignRect())) {
-				c.moveByAmount(c.getX()+DRAWING_WIDTH, 10);
+				int rnd = (int) (Math.random()*300)+200;
+				c.moveByAmount(c.getX()+DRAWING_WIDTH, rnd-c.getY());
 				c.eat(caterpillar);
 			}
 
