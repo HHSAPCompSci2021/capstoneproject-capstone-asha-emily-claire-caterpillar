@@ -43,7 +43,7 @@ public class ButterflyPanel extends Screen {
 	
 	private HealthBar h;
 	
-	private PImage p1, p2, p3;
+	private PImage p1, p2, p3, bg, c;
 	
 	private ArrayList<PImage> obsImg;
 	
@@ -53,7 +53,6 @@ public class ButterflyPanel extends Screen {
 	
 	private ArrayList<String> preImg1;
 	
-
 	
 	/**
 	 * Constructs a ButterflyPanel 
@@ -74,11 +73,12 @@ public class ButterflyPanel extends Screen {
 		obsImg1 = new ArrayList<String>();
 		preImg1 = new ArrayList<String>();
 
+		c = surface.loadImage("img/Flower1.png");
 		
 		p1 = surface.loadImage("img/Butterfly1.gif");
 		p2 = surface.loadImage("img/Butterfly2.gif");
 		p3 = surface.loadImage("img/Butterfly3.gif");
-		
+		bg = surface.loadImage("img/bBackground.jpeg");
 		
 		preImg.add(surface.loadImage("img/Bat.png"));
 		preImg.add(surface.loadImage("img/Crow.png"));
@@ -93,6 +93,7 @@ public class ButterflyPanel extends Screen {
 		preImg1.add("img/Toad.png");
 		
 		obsImg1.add("img/Airplane.png");
+		obsImg1.add("img/Kite.png");
 
 		
 		
@@ -181,11 +182,7 @@ public class ButterflyPanel extends Screen {
 	
 			} else {
 				
-				if(bottom) {
-					e = obsImg.get(0);
-				} else if(choice1 >= 0.7) {
-					e = obsImg.get(0);
-				} else if(choice >= 0.4) {
+				if(choice1 >= 0.5) {
 					e = obsImg.get(0);
 				}  else {
 					e = obsImg.get(0);
@@ -229,7 +226,7 @@ public class ButterflyPanel extends Screen {
 			int x = (((int)(Math.random() * 200) + 400) / 10) * 10;
 			
 			//Was this supposed to be added to the collectible array instead of obs
-			col.add(new Collectible("flower", "img/Flower.gif", speed, 800 + (i * x), y));
+			col.add(new Collectible("flower", c, speed, 800 + (i * x), y));
 			//System.out.println(false);
 			
 		}	
@@ -241,7 +238,8 @@ public class ButterflyPanel extends Screen {
 	 */
 	public void draw() {
 		
-	
+		surface.image(bg, 0, 0, 800, 600);
+
 		//System.out.println(obs);
 		//System.out.println(obs1);
 
@@ -254,8 +252,8 @@ public class ButterflyPanel extends Screen {
 		}
 		
 		//System.out.println(true);
-		surface.background(255,255,255);
-		surface.fill(0);
+		//surface.background(255,255,255);
+		//surface.fill(0);
 		
 		h.draw(surface);
 		if(b.getIsAlive()) {
@@ -303,7 +301,7 @@ public class ButterflyPanel extends Screen {
 			
 			while(col.size() > 0 && wow) {
 				wow = false;
-				col.get(0).draw(surface);
+				col.get(0).draw1(surface);
 				sideScrolling(col.get(0));
 				
 				if(col.get(0).getX() < 0) {
@@ -351,7 +349,7 @@ public class ButterflyPanel extends Screen {
 						c.moveByAmount(c.getX() - DRAWING_WIDTH, 0);
 						((Collectible) c).eat(b);
 					} else {
-						c.draw(surface);
+						c.draw1(surface);
 					}
 				}
 			}

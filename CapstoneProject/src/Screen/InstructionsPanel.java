@@ -43,33 +43,42 @@ public class InstructionsPanel extends Screen{
 		surface.background(255,255,255);
 		surface.image(surface.loadImage("img/iBackground.gif"), 0, 0, 800, 600);
 		surface.fill(255);
-		
+		surface.textSize(17);
 		if(phaseType.equals("eggPhase")) {
 			nextScreen = 0;
-			surface.text("You're a butterfly ready to embark on a new adventure to discover yourself and the world around you. "
+			surface.text("You're a butterfly ready to embark on a new adventure to discover yourself and the world \naround you. "
 					+ "\nYou want nothing more than to spread your wings and soar along the clouds. "
-					+ "\nAs a butterfly, the world is a dangerous place for you, but you have a dream to explore as much of it as possible. "
-					+ "\nIn this side-scrolling runner game, you will be dropped into this deadly, but exciting world as an egg, but will slowly grow "
+					+ "\nAs a butterfly, the world is a dangerous place for you, but you have a dream to explore \nas much of it as possible. "
+					+ "\nIn this side-scrolling runner game, you will be dropped into this deadly, but exciting \nworld as an egg, but will slowly grow "
 					+ "\novertime into a caterpillar, a pupa, and eventually a butterfly. Before you start, "
 					+ "\nyou’ll get the opportunity to choose what kind of butterfly you’ll end up being. "
 					+ "\n\n"
 					+ "\nClick anywhere on the screen to cycle through designs."
 					+ "\nPress the spacebar when you are ready to start."
-					+ "\nClick on the start button when you are ready to start the next phase.",30, 150);
+					+ "\nClick on the start button when you are ready to start the next phase.",40, 150);
 		} else if(phaseType.equals("caterpillarPhase")) {
 			nextScreen = 3;
 			surface.text("Congrats! You are now a caterpillar! "
-					+ "\nUse the up and down arrows keys to toggle between movements. "
-					+ "\nMake sure to collect leaves to progress through the game. They provide energy that will keep you alive."
-					+ "\nIf you crash into an obstacle 3 times, you will unfortunaly have to start your journey over again."
-					+ "\nThe same occurs when you run into a predator."
-					+ "\nGood luck!", 30, 150);
+					+ "\nUse the up and down arrows keys to jump and dive. "
+					+ "\nMake sure to collect leaves to progress through the game. They provide energy that will \nkeep you alive."
+					+ "\nIf you crash into an obstacle 3 times, you will unfortunaly have to start your journey over \nagain."
+					+ "\nThe same occurs when you run into just one predator."
+					+ "\nGood luck!", 40, 130);
 		} else if(phaseType.equals("butterflyPhase")){
-			nextScreen = 7;
+			nextScreen = 11;
 			surface.text("Yay! You are now a butterfly!"
-					+ "\nUse the space bar to avoid obstacles/predators and to collect flowers."
-					+ "\nEventually, the game will end and you will have reached your destination."
-					+ "\nPress esc to exit out of the screen", 30, 150);
+					+ "\nUse the space bar to avoid obstacles/predators."
+					+ "\nIf you crash into an obstacle 3 times, you will unfortunaly have to start your journey over \nagain."
+					+ "\nThe same occurs when you run into just one predator."
+					+ "\nTo win the game, collect pink flowers."
+					+ "\nGood luck!", 40, 130);
+		} else if(phaseType.equals("rhythmPhase")){
+			nextScreen = 7;
+			surface.text("Now you are transforming into a butterfly!"
+					+ "\nYour stuck inside a chrysalis."
+					+ "\nPass the time by pressing the corresponding arrow keys when a bubble aligns \nwith the arrows."
+					+ "\nGet enough right and you can become a butterfly!"
+					+ "\nGood luck!", 40, 130);
 		}
 		
 		surface.fill(255);

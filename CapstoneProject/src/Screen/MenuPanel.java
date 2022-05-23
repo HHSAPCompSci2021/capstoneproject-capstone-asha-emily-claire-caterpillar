@@ -84,9 +84,12 @@ public class MenuPanel extends Screen {
 		
 		surface.background(255,255,255);
 		
-		if(phaseType.equals("caterpillarPhase") || phaseType.equals("butterflyPhase") || phaseType.equals("rhythmPhase")) {
-			surface.image(surface.loadImage("img/mBackground.gif"), 0, 0, 800, 600);
-
+		if(phaseType.equals("caterpillarPhase")) {
+			surface.image(surface.loadImage("img/cMenu.jpg"), 0, 0, 800, 600);
+		} else if (phaseType.equals("butterflyPhase")) {
+			surface.image(surface.loadImage("img/bMenu.jpg"), 0, 0, 800, 600);
+		} else if (phaseType.equals("rhythmPhase")) {
+			surface.image(surface.loadImage("img/rMenu.jpg"), 0, 0, 800, 600);
 		} else {
 			surface.image(surface.loadImage("img/fMenuPanel.gif"), 0, 0, 800, 600);
 		}

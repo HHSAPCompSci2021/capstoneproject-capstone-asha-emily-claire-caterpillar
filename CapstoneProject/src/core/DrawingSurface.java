@@ -73,7 +73,7 @@ public class DrawingSurface extends PApplet{
 		screens.add(cater);
 
 		//6
-		ResetPanel resetPanel = new ResetPanel(this, 3);
+		ResetPanel resetPanel = new ResetPanel(this, 5);
 		screens.add(resetPanel);
 
 		//7
@@ -89,7 +89,7 @@ public class DrawingSurface extends PApplet{
 		screens.add(r);
 
 		//10
-		ResetPanel resetPanel1 = new ResetPanel(this, 7);
+		ResetPanel resetPanel1 = new ResetPanel(this, 9);
 		screens.add(resetPanel1);
 
 
@@ -106,7 +106,7 @@ public class DrawingSurface extends PApplet{
 		screens.add(butter);
 
 		//14
-		ResetPanel reset = new ResetPanel(this, 11);
+		ResetPanel reset = new ResetPanel(this, 13);
 		screens.add(reset);
 
 		//15
@@ -115,7 +115,7 @@ public class DrawingSurface extends PApplet{
 
 
 
-		currScreen = screens.get(0);
+		currScreen = screens.get(12);
 
 
 	}

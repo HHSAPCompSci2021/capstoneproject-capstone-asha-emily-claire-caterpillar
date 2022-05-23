@@ -27,7 +27,7 @@ public class RhythmPanel extends Screen{
 	private int totalCount;
 	
 	private boolean win;
-	private PImage p, l;
+	private PImage p, l, b;
 	
 	/**
 	 * Constructs the rhythm panel
@@ -55,17 +55,20 @@ public class RhythmPanel extends Screen{
 	public void setup() {
 		p = surface.loadImage("img/Beat.png");
 		l = surface.loadImage("img/Leaf.gif");
+		b = surface.loadImage("img/rhythmBackground.jpg");
 		e1 = new ArrayList<Beat>();
 		e2 = new ArrayList<Beat>();
 		e3 = new ArrayList<Beat>();
 		e4 = new ArrayList<Beat>();
-		up = new Beat("img/down.png", 300, 450, 0);
-		down = new Beat("img/up.png", 400, 450, 0);
-		left = new Beat("img/left.png", 200, 450, 0);
-		right = new Beat("img/right.png", 500, 450, 0);
+		up = new Beat("img/down.png", 318, 450, 0);
+		down = new Beat("img/up.png", 426, 450, 0);
+		left = new Beat("img/left.png", 216, 450, 0);
+		right = new Beat("img/right.png", 528, 450, 0);
 		totalCount = 0;
 		win = false;
 		addBeats();
+		
+		
 	}
 	
 	/**
@@ -73,25 +76,25 @@ public class RhythmPanel extends Screen{
 	 */
 	public void addBeats() {
 		
-		e1.add(new Beat(p, 300, 205, 10));
-		e2.add(new Beat(p, 400, 205, 10));
-		e3.add(new Beat(p, 200, 205, 10));
-		e4.add(new Beat(p, 500, 205, 10));
+		e1.add(new Beat(p, 318, 205, 10));
+		e2.add(new Beat(p, 426, 205, 10));
+		e3.add(new Beat(p, 216, 205, 10));
+		e4.add(new Beat(p, 528, 205, 10));
 
 		
 		for(int i = 0; i < 54; i++) {
-			e1.add(new Beat(p, 300, -64, 10));
-			e2.add(new Beat(p, 400, -64, 10));
-			e3.add(new Beat(p, 200, -64, 10));
-			e4.add(new Beat(p, 500, -64, 10));
+			e1.add(new Beat(p, 318, -64, 10));
+			e2.add(new Beat(p, 426, -64, 10));
+			e3.add(new Beat(p, 216, -64, 10));
+			e4.add(new Beat(p, 528, -64, 10));
 
 			
 		}
 		
-		e1.add(new Beat(p, 300, -64, 10));
-		e2.add(new Beat(p, 400, -64, 10));
-		e3.add(new Beat(p, 200, -64, 10));
-		e4.add(new Beat(p, 500, -64, 10, true));
+		e1.add(new Beat(p, 318, -64, 10));
+		e2.add(new Beat(p, 426, -64, 10));
+		e3.add(new Beat(p, 216, -64, 10));
+		e4.add(new Beat(p, 528, -64, 10, true));
 		
 //		e1.add(new Beat("img/Beat.png", 300, 0, 10, 64, 200));
 //		e2.add(new Beat("img/Beat.png", 400, 0, 10, 64, 200));
@@ -143,7 +146,7 @@ public class RhythmPanel extends Screen{
 	 * @param obs - the array list of beats of a column 
 	 */
 	public void move(ArrayList<Beat> obs) {
-			double speed = 11;
+			double speed = 15;
 			int dist = 0;
 			
 			
@@ -187,14 +190,16 @@ public class RhythmPanel extends Screen{
 	 * Draws the screen
 	 */
 	public void draw() {
-		surface.background(255,255,255);
-		surface.fill(0);
- 
 		
-		up.draw(surface);
-		down.draw(surface);
-		right.draw(surface);
-		left.draw(surface);
+		
+		//surface.background(255,255,255);
+		//surface.fill(0);
+		surface.image(b, 0, 0, 800, 600);
+		
+//		up.draw(surface);
+//		down.draw(surface);
+//		right.draw(surface);
+//		left.draw(surface);
 		
 		for(Beat e: e1) {
 			if (surface.isPressed(KeyEvent.VK_DOWN) && e.collide(up.getBounds())) {
@@ -261,9 +266,9 @@ public class RhythmPanel extends Screen{
 		move(e4);
 		
 		
-		if(totalCount > 330 && win) {
+		if(totalCount > 200 && win) {
 			nextScreen();
-		} else if(totalCount <= 330 && win) {
+		} else if(totalCount <= 200 && win) {
 			System.out.println(win);
 			System.out.println(totalCount);
 			totalCount = 0;

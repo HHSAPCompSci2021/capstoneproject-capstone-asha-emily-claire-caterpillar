@@ -59,7 +59,7 @@ public class HealthBar {
 			surface.rect(curr.x, curr.y, curr.width, curr.height);
 		}
 		
-		surface.fill(0);
+		surface.fill(255);
 		
 		if(satisfiedHunger < 7) {
 			for(int i = satisfiedHunger; i < 5; i++) {

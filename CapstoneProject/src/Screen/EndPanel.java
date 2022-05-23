@@ -20,7 +20,7 @@ public class EndPanel extends Screen{
 	public EndPanel(DrawingSurface surface) {
 		super(800, 600);
 		this.surface = surface;
-		button = new Rectangle(800/2-100,600/2,210,40);
+		button = new Rectangle(326, 317, 150, 44);
 	}
 	/**
 	 * Draws the panel
@@ -29,12 +29,12 @@ public class EndPanel extends Screen{
 		setCurrScreen(true);
 		surface.background(255, 255, 255);
 		surface.fill(255);
-		surface.image(surface.loadImage("img/background2.gif"), 0, 0, 800, 600);
-		surface.text("Congrats! You have completed your journey!", 40, 200);
-		surface.rect(button.x, button.y, button.width, button.height);
-		float w = surface.textWidth("Exit");
+		surface.image(surface.loadImage("img/winScreen.jpeg"), 0, 0, 800, 600);
+		//surface.text("Congrats! You have completed your journey!", 40, 200);
+		//surface.rect(button.x, button.y, button.width, button.height);
+		//float w = surface.textWidth("Exit");
 		surface.fill(0);
-		surface.text("Exit", button.x+button.width/2-w/2, button.y+button.height/2);
+	//	surface.text("Exit", button.x+button.width/2-w/2, button.y+button.height/2);
 	}
 	
 	/**

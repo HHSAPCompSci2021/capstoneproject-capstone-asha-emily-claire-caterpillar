@@ -53,8 +53,8 @@ public class ResetPanel extends Screen{
 		super(800, 600);
 		this.surface = drawer;
 		this.nextScreen = nextScreen;
-		retryButton = new Rectangle(200, 100, 400, 100);
-		quitGameButton = new Rectangle(200, 300, 400, 100);
+		retryButton = new Rectangle(300, 250, 195, 50);
+		quitGameButton = new Rectangle(320, 314, 160, 50);
 		player = null;
 		
 	}
@@ -63,8 +63,8 @@ public class ResetPanel extends Screen{
 		super(800, 600);
 		this.surface = drawer;
 		this.nextScreen = nextScreen;
-		retryButton = new Rectangle(200, 100, 400, 100);
-		quitGameButton = new Rectangle(200, 300, 400, 100);
+		retryButton = new Rectangle(300, 250, 195, 50);
+		quitGameButton = new Rectangle(320, 314, 160, 50);
 		this.player = player;
 		
 	}
@@ -79,15 +79,15 @@ public class ResetPanel extends Screen{
 //		
 //		backgroundImg.draw();
 		
-		surface.image(surface.loadImage("img/background2.gif"), 0, 0, 800, 600);
+		surface.image(surface.loadImage("img/restart.jpg"), 0, 0, 800, 600);
 		
 		surface.fill(255);
 		//Retry Button
-		surface.rect(retryButton.x, retryButton.y, retryButton.width, retryButton.height);
+		//surface.rect(300, 250, 195, 50);
 		surface.fill(0);
 		String str = "Retry";
 		float w = surface.textWidth(str);
-		surface.text(str, retryButton.x+retryButton.width/2-w/2, retryButton.y+retryButton.height/2);
+		//surface.text(str, retryButton.x+retryButton.width/2-w/2, retryButton.y+retryButton.height/2);
 	
 		//Stats (only if there's a recent player)
 		if(player != null) {
@@ -98,11 +98,11 @@ public class ResetPanel extends Screen{
 		
 		//Quit Button
 		surface.fill(255);
-		surface.rect(quitGameButton.x, quitGameButton.y, quitGameButton.width, quitGameButton.height);
+	//	surface.rect(320, 314, 160, 50);
 		surface.fill(0);
 		String str2 = "Quit";
 		float w2 = surface.textWidth(str2);
-		surface.text(str2, quitGameButton.x+quitGameButton.width/2-w2/2, quitGameButton.y+quitGameButton.height/2);
+		//surface.text(str2, quitGameButton.x+quitGameButton.width/2-w2/2, quitGameButton.y+quitGameButton.height/2);
 		
 	}
 	
