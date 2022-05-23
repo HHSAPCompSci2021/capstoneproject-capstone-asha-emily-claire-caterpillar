@@ -146,7 +146,7 @@ public class RhythmPanel extends Screen{
 	 * @param obs - the array list of beats of a column 
 	 */
 	public void move(ArrayList<Beat> obs) {
-			double speed = 15;
+			double speed = 11;
 			int dist = 0;
 			
 			
