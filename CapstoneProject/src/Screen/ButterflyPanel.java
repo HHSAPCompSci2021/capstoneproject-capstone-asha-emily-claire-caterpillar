@@ -206,7 +206,7 @@ public class ButterflyPanel extends Screen {
 	 */
 	public void addRandomCollectible(ArrayList<Collectible> a) {
 
-		for(int i = 0; i < 15; i++) {
+		for(int i = 0; i < 25; i++) {
 			
 			double speed = 10 + (i * 0.5);
 			
@@ -223,7 +223,7 @@ public class ButterflyPanel extends Screen {
 				y = 448;
 			} 
 			
-			int x = (((int)(Math.random() * 200) + 400) / 10) * 10;
+			int x = (((int)(Math.random() * 150) + 200) / 10) * 10;
 			
 			//Was this supposed to be added to the collectible array instead of obs
 			col.add(new Collectible("flower", c, speed, 800 + (i * x), y));
